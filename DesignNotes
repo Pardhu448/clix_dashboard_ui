@@ -1,0 +1,29 @@
+User Story For a Typical User ::
+
+- Land on HomePage of CLIx Dashboard
+- These are the possibilities:
+   - Home
+   - All states level visuals
+   - State level visuals
+   - School level visuals
+   - Documentation
+   - About
+   - FAQ
+   - Contact
+- All states level:
+   - Objective: To give an overview of implementation at Pan India level.
+   - mainpage: A geo map with visual representation of CLIx implementation with relevant metrics (say, number of schools, number of students, number of modules) superimposed on
+  India map.
+   - additional: clickable satelevel implementation visuals, filtering based on different metrics, cards with key takeway metrics at India
+   level, cards to highlight top states in terms of different metrics
+- State level visuals:
+   - Objective: To give overview of implementation at each State level.
+   - mainpage: A dropdown bar to choose from the states. Once state is choosen, a geo map with visuals representation of CLIx implementation with
+   relevent metrics (say, number of schools, number of students, number of modules) superimposed on state map.
+   - additional: clickable district level implementation visuals, filtering based on different metrics, cards with key takeway metrics at particular
+   state level, cards to highlight top districts in terms of different metrics.
+- School level visuals:
+   - Objective: to give overview of implementation at a particular school Level.
+   - mainpage: A search box to search for schools by name or id. Once a school is selected, a dashboard at school level with live data from syncthing.
+   - additional: cards highlighting top schools on different metrics with names and details of teachers and principals.
+    

@@ -3,7 +3,10 @@ import { dataConstants } from './ActionTypes';
 
 const initialState = {
     isPending: true,
-    data: [],
+    data_attendance: [],
+    data_serverup: [],
+    data_tools: [],
+    data_modules: [],
     error: null
 };
 
@@ -19,7 +22,10 @@ export function fetchdata(state = initialState, action) {
       return {
         ...state,
         isPending: false,
-        data: action.data.data,
+        data_attendance: action.data.data_attendance,
+        data_serverup: action.data.data_serverup,
+        data_tools: action.data.data_tools,
+        data_modules: action.data.data_modules,
         username: action.data.username
       };
     case dataConstants.FETCH_FAILURE:

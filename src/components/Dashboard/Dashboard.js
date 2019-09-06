@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-
 import { withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,18 +23,32 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
+import PieChart from './PieChartIdleDays';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import ToolsChart from './ToolsChart';
+import ModulesChart from './ModulesChart';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import CardMedia from '@material-ui/core/CardMedia';
+
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
+
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Button
+} from '@material-ui/core';
 
 import { dataActions } from '../../redux/dataactions';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+const school_image = require('../../shared/school_image.jpg');
 const drawerWidth = 0;
 
 const theme = createMuiTheme({
@@ -51,6 +64,7 @@ const theme = createMuiTheme({
 const useStyles = theme => ({
   root: {
     display: 'flex',
+    flexWrap: 'wrap',
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -115,6 +129,7 @@ const useStyles = theme => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
+
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -127,7 +142,21 @@ const useStyles = theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 360,
+  },
+  card: {
+    display: 'flex',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: 300,
+    height: 220
   },
 });
 
@@ -138,11 +167,20 @@ class Dashboard extends Component {
 
          this.state = {
              isPending: false,
-             data: []
+             data_attendance: [],
+             data_serverup: [],
+             data_tools: [],
+             data_modules: []
          };
+         this.handleChange = this.handleChange.bind(this);
        }
 
-  componentDidMount(){
+   handleChange(e) {
+                 const { name, value } = e.target;
+                 this.setState({ [name]: value });
+             }
+
+   componentDidMount(){
      const { dispatch } = this.props;
      const { auth_token }  = JSON.parse(localStorage.getItem('user'));
      dispatch(dataActions.getdata(auth_token));
@@ -151,51 +189,82 @@ class Dashboard extends Component {
   render(){
     const { classes } = this.props;
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
     return(
     <MuiThemeProvider theme = {theme}>
-    <div className={classes.root}>
+     <div className={classes.root}>
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
-        <Typography component="h3" variant="h4" align="left" color="textPrimary" gutterBottom>
-                {this.props.username}
-        </Typography>
-        <Typography variant="h5" align="left" color="textSecondary" paragraph>
-              Short introduction about the school and unique features. May be summary of key parameters.Including some documentation.
-          </Typography>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart data={this.props.data} isFetching={this.props.isPending}/>
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-          </Grid>
-        </Container>
+            <Grid item xs={12} md={8} lg={12}>
+             <Card  className={classes.card} >
+              <div className={classes.details}>
+              <CardContent className={classes.content}>
+
+               <Typography component="h4" variant="h5">
+                 {this.props.username}
+               </Typography>
+
+               <Typography variant="subtitle1" color="textSecondary">
+                 Mizorm
+               </Typography>
+
+               <Typography variant="h5" align="left" color="textSecondary" paragraph>
+                  Short introduction about the school and unique features. May be summary of key parameters.Including some documentation.
+               </Typography>
+
+              </CardContent>
+             </div>
+            <CardMedia
+              className={classes.cover}
+              image= {school_image}
+              title={this.props.username}
+            />
+            </Card>
+           </Grid>
+
+      {/* Chart */}
+      <Grid item xs={12} md={8} lg={9}>
+        <Paper className={fixedHeightPaper}>
+        {/*Bar chart to display school attendance */}
+        <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
+        </Paper>
+      </Grid>
+      {/* Server Up days  */}
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper className={fixedHeightPaper}>
+          <PieChart data={this.props.data_serverup} isPending={this.props.isPending}/>
+        </Paper>
+      </Grid>
+
+      {/* Recent Orders */}
+      <Grid item xs={12}>
+        <Paper className={fixedHeightPaper}>
+           <ModulesChart data={this.props.data_modules} isPending={this.props.isPending}/>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Paper className={fixedHeightPaper}>
+           <ToolsChart data={this.props.data_tools} isPending={this.props.isPending}/>
+        </Paper>
+      </Grid>
+      </Grid>
+      </Container>
       </main>
-    </div>
+      </div>
     </MuiThemeProvider>
  );
 }
 }
 
 function mapStateToProps (state) {
-  const {error, data, isPending, username} = state.fetchdata;
+  const {error, data_attendance, data_serverup, data_tools, data_modules, isPending, username} = state.fetchdata;
   return {
     error,
-    data,
+    data_attendance,
+    data_serverup,
+    data_tools,
+    data_modules,
     isPending,
     username
   }

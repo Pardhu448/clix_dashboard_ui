@@ -62,13 +62,15 @@ render(){
        <Route path='/login' component={LoginPage}/>
        <PrivateRoute path= '/about' component={About}/>
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>
-       <Route path='/schoolsearch' component={StateDashboard}/>
-       <Route path='/stateviz' component={() => {
+       {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
+
+       {/* <Route path='/stateviz' component={() => {
      window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html';
-     return null; }}/>
-       <Route path='/documentation' component={() => {
+     return null; }}/> */}
+
+      {/* <Route path='/documentation' component={() => {
      window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/documentation.html';
-     return null; }}/>
+     return null; }}/>*/}
        <Redirect to="/home" />
       </Switch>
 

@@ -96,7 +96,7 @@ function get_monthly_data(elem){
              </Select>
             </FormControl>
       <Typography variant="h5" color="textSecondary">
-        School Attendance
+        Attendance for Modules and Tools
       </Typography>
       </div>
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>

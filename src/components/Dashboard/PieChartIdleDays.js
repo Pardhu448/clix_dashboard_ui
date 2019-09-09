@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import {
-  PieChart, Pie, Sector, Legend, Cell,ResponsiveContainer,
+  PieChart, Pie, Sector, Legend, Tooltip, Cell, ResponsiveContainer,
 } from 'recharts';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -54,7 +54,7 @@ export default function PieChartServer(data1, isPending) {
     <React.Fragment>
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>
       <Typography variant="h5" color="textSecondary">
-        Server Up Days overall
+        Server Up Days Overall
       </Typography>
         <PieChart width={260} height={260}>
         <Pie
@@ -73,6 +73,7 @@ export default function PieChartServer(data1, isPending) {
           }
         </Pie>
         <Legend verticalAlign='top'/>
+        <Tooltip />
       </PieChart>
     </React.Fragment>
   );

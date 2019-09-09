@@ -3,14 +3,14 @@ export const SLIDER_ITEMS = [
   {
     src: '/assets/images/home_sliders/data_image.png',
     altText: 'Across all States',
-    caption: 'Across all States',
+    caption: 'Data',
     viewpage: 'allstates'
 
   },
   {
     src: '/assets/images/home_sliders/forest_bridge.png',
     altText: 'StateWise',
-    caption: 'School Level',
+    caption: 'Documentation',
     viewpage: 'schools'
   },
   {

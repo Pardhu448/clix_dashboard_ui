@@ -14,6 +14,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 //import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import blue from '@material-ui/core/colors/blue';
@@ -25,7 +26,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { Route, Redirect } from 'react-router-dom';
-
+const school_image = require('../shared/school_image.jpg');
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -41,7 +42,7 @@ const useStyles = theme => ({
     height: '80vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: `url(${school_image})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -103,7 +104,7 @@ class LoginPage extends Component {
  render(){
 
    const { classes } = this.props;
-   const { loggingIn, loggedIn } = this.props;
+   const { loggingIn, loggedIn, loginFailed } = this.props;
    const { username, password, submitted } = this.state;
    const { from } = this.props.location.state || { from: { pathname: '/' } };
 
@@ -112,6 +113,7 @@ class LoginPage extends Component {
    return (
      <MuiThemeProvider theme = {theme}>
      <Grid container component="main" className={classes.root}>
+     <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -147,6 +149,7 @@ class LoginPage extends Component {
               autoComplete="current-password"
               onChange={this.handleChange}
             />
+            {loginFailed ? <div> Username or Password is Incorrect!</div> : null}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -171,10 +174,11 @@ class LoginPage extends Component {
 }
 
 function mapStateToProps(state) {
-    const { loggingIn, loggedIn } = state.authenticate;
+    const { loggingIn, loggedIn, loginFailed } = state.authenticate;
     return {
         loggingIn,
-        loggedIn
+        loggedIn,
+        loginFailed
     };
 }
 

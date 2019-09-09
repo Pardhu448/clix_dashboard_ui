@@ -32,7 +32,7 @@ const HomeCards = (props) => {
          </Link>
          </CardTitle>
           <CardText>
-           Search and explore implementation at individual school level
+           Login to explore live school visuals.
           </CardText>
         </CardBody>
       </Card>
@@ -48,7 +48,7 @@ const HomeCards = (props) => {
          </Link>
          </CardTitle>
          <CardText>
-          State level data visualisations to get a sense of implementation at state level
+          State level data visualisations and school level visuals through search.
          </CardText>
        </CardBody>
      </Card>

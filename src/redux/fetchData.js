@@ -24,8 +24,8 @@ export function fetchdata(state = initialState, action) {
         isPending: false,
         data_attendance: action.data.data_attendance,
         data_serverup: action.data.data_serverup,
-        data_tools: action.data.data_tools,
-        data_modules: action.data.data_modules,
+        data_tools: action.data.data_tools_attendance,
+        data_modules: action.data.data_modules_attendance,
         username: action.data.username
       };
     case dataConstants.FETCH_FAILURE:

@@ -18,7 +18,8 @@ export function authenticate(state = initialState, action) {
       };
     case userConstants.LOGIN_FAILURE:
       return {
-        loggedIn: false
+        loggedIn: false,
+        loginFailed: true
       };
     case userConstants.LOGOUT:
       return {

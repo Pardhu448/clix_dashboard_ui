@@ -48,7 +48,7 @@ import { dataActions } from '../../redux/dataactions';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-const school_image = require('../../shared/school_image.jpg');
+const school_image = require('../../shared/student_logs_group.jpeg');
 const drawerWidth = 0;
 
 const theme = createMuiTheme({
@@ -142,7 +142,7 @@ const useStyles = theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 360,
+    height: 380,
   },
   card: {
     display: 'flex',
@@ -155,10 +155,15 @@ const useStyles = theme => ({
     flex: '1 0 auto',
   },
   cover: {
-    width: 300,
-    height: 220
+    width: 350,
+    height: 250
   },
 });
+
+function get_school_name(elem){
+  const school_name = elem.school_name;
+  return school_name;
+}
 
 class Dashboard extends Component {
 
@@ -186,9 +191,13 @@ class Dashboard extends Component {
      dispatch(dataActions.getdata(auth_token));
     }
 
+
+
   render(){
     const { classes } = this.props;
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
+    const school_name = [...new Set(school_names)].filter(elem => {return elem !== null})
     return(
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root}>
@@ -201,7 +210,7 @@ class Dashboard extends Component {
               <CardContent className={classes.content}>
 
                <Typography component="h4" variant="h5">
-                 {this.props.username}
+                 {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
 
                <Typography variant="subtitle1" color="textSecondary">
@@ -209,8 +218,13 @@ class Dashboard extends Component {
                </Typography>
 
                <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                  Short introduction about the school and unique features. May be summary of key parameters.Including some documentation.
+                  Short introduction about the school and its unique features. May be summary of key parameters. Also photo specific to school.
+                  May be some names of the teachers and headmasters involved.
                </Typography>
+              <Typography variant="h8" align="left" color="textSecondary" paragraph>
+                *Same student might have visited more than one module or tool on any day.  
+               </Typography>
+
 
               </CardContent>
              </div>

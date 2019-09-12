@@ -51,11 +51,11 @@ class Header extends Component{
             </NavLink>
            </NavItem>
 
-           <NavItem>
+	     {/*<NavItem>
             <NavLink style={NavLinkStyle} className='nav-link' to='/documentation'>
               <span className=''></span> Documentation
             </NavLink>
-          </NavItem>
+          </NavItem>*/}
 
           <NavItem>
             <NavLink style={NavLinkStyle} className='nav-link' to='/login'>

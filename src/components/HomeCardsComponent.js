@@ -11,9 +11,12 @@ const HomeCards = (props) => {
         <CardHeader>For Detailed Understanding</CardHeader>
         <CardBody>
          <CardTitle>
-         <Link to={`/${'documentation'}`}>
+	  <Link to={`/${'documentation'}`}>
          Documentation
          </Link>
+	  {/*<a href="https://pardhu448.github.io/clix_vis_demo/pages/documentation.html" target="_blank">
+	  Documentation
+	  </a>*/}
          </CardTitle>
           <CardText>
            Comprehensive documentation of methodology and sources to arrive at these visuals
@@ -43,9 +46,12 @@ const HomeCards = (props) => {
        <CardHeader>Explore Sate Level Data</CardHeader>
        <CardBody>
         <CardTitle>
-         <Link to='/schoolsearch'>
+	 <Link to='/schoolsearch'>
          State Level Visuals
          </Link>
+	  {/*<a href="https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html" target="_blank">
+	  State Level Visuals
+	  </a>*/}
          </CardTitle>
          <CardText>
           State level data visualisations and school level visuals through search.

@@ -68,9 +68,14 @@ render(){
      window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html';
      return null; }}/> */}
 
-      {/* <Route path='/documentation' component={() => {
-     window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/documentation.html';
-     return null; }}/>*/}
+	  {/*<Route path='/documentation' component={() => {
+	 window.open("https://pardhu448.github.io/clix_vis_demo/pages/documentation.html", "_blank");
+         <>
+         <HomeSlider items={this.props.items}/>
+         <span className="block-example border-top border-light"></span>
+         <HomeCards />
+         </>
+      }}/>*/}
        <Redirect to="/home" />
       </Switch>
 

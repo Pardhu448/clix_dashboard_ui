@@ -142,7 +142,7 @@ const useStyles = theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 380,
+    height: 420,
   },
   card: {
     display: 'flex',

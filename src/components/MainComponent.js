@@ -64,9 +64,9 @@ render(){
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>
        {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
 
-       {/* <Route path='/stateviz' component={() => {
+       <Route path='/stateviz' component={() => {
      window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html';
-     return null; }}/> */}
+     return null; }}/>
 
 	  {/*<Route path='/documentation' component={() => {
 	 window.open("https://pardhu448.github.io/clix_vis_demo/pages/documentation.html", "_blank");

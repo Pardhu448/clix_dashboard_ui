@@ -29,6 +29,7 @@ import Orders from './Orders';
 import ToolsChart from './ToolsChart';
 import ModulesChart from './ModulesChart';
 
+import SaveButton from '../PrintButton1';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 
@@ -142,7 +143,7 @@ const useStyles = theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 420,
+    height: 430,
   },
   card: {
     display: 'flex',
@@ -155,7 +156,7 @@ const useStyles = theme => ({
     flex: '1 0 auto',
   },
   cover: {
-    width: 350,
+    width: 390,
     height: 250
   },
 });
@@ -198,9 +199,11 @@ class Dashboard extends Component {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
     const school_name = [...new Set(school_names)].filter(elem => {return elem !== null})
+    const dashboard_id = 'school_board'
+
     return(
     <MuiThemeProvider theme = {theme}>
-     <div className={classes.root}>
+     <div className={classes.root} id={dashboard_id}>
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
@@ -208,11 +211,9 @@ class Dashboard extends Component {
              <Card  className={classes.card} >
               <div className={classes.details}>
               <CardContent className={classes.content}>
-
                <Typography component="h4" variant="h5">
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
-
                <Typography variant="subtitle1" color="textSecondary">
                  Mizorm
                </Typography>
@@ -221,11 +222,10 @@ class Dashboard extends Component {
                   Short introduction about the school and its unique features. May be summary of key parameters. Also photo specific to school.
                   May be some names of the teachers and headmasters involved.
                </Typography>
-              <Typography variant="h8" align="left" color="textSecondary" paragraph>
-                *Same student might have visited more than one module or tool on any day.  
+              <Typography  variant="h8" align="left" color="textSecondary" paragraph>
+                *Same student might have visited more than one module or tool on any day.
+               <SaveButton id={dashboard_id}/>
                </Typography>
-
-
               </CardContent>
              </div>
             <CardMedia

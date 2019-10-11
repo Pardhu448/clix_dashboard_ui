@@ -173,7 +173,7 @@ const handleChange = name => event => {
              </Select>
             </FormControl>
       <Typography variant="h5" color="textSecondary">
-        Students Engagement with Modules*
+        Students Engagement with Modules**
         </Typography>
       </div>
       <p>{!isPending ? 'Fetching School Data...' : ''}</p>

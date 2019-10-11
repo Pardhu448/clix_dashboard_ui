@@ -104,7 +104,7 @@ function get_monthly_data(elem){
              </Select>
             </FormControl>
       <Typography style={{ marginRight: 270 }} variant="h5" color="textSecondary">
-        Attendance for Modules and Tools
+        Attendance for Modules and Tools*
       </Typography>
      </div>
 

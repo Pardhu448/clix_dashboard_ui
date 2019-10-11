@@ -227,7 +227,9 @@ class Dashboard extends Component {
                   May be some names of the teachers and headmasters involved.
                </Typography>
               <Typography  variant="h8" align="left" color="textSecondary" paragraph>
-                *Same student might have visited more than one module or tool on any day.
+                *Same student might have visited both modules or tools on any clix lab day |
+                **Buddy users are also considered |
+                **Buddy users and Anonymous users are also considered
                <SaveButton id={dashboard_id}/>
                </Typography>
               </CardContent>

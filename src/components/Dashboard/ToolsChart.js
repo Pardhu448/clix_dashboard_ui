@@ -169,7 +169,7 @@ const CustomTooltipContent = function(props){
              </Select>
             </FormControl>
             <Typography variant="h5" color="textSecondary">
-              Students Engagement with Tools**
+              Students Engagement with Tools***
             </Typography>
             </div>
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>

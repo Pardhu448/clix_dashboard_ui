@@ -149,7 +149,7 @@ class LoginPage extends Component {
               autoComplete="current-password"
               onChange={this.handleChange}
             />
-            {loginFailed ? <div> Username or Password is Incorrect!</div> : null}
+            {loginFailed ? <div style= {{color: 'red'}}> Username or Password is Incorrect!</div> : null}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

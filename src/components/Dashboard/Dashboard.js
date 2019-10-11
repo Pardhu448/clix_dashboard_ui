@@ -29,12 +29,14 @@ import Orders from './Orders';
 import ToolsChart from './ToolsChart';
 import ModulesChart from './ModulesChart';
 
-import SaveButton from '../PrintButton1';
+import SaveButton from '../SaveDashboard';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
+import domtoimage from 'dom-to-image';
+import fileDownload from "js-file-download";
 
 import {
   Card,
@@ -166,6 +168,8 @@ function get_school_name(elem){
   return school_name;
 }
 
+
+
 class Dashboard extends Component {
 
    constructor(props) {
@@ -207,7 +211,7 @@ class Dashboard extends Component {
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={8} lg={12}>
+            <Grid item xs={12} sm={12} lg={12}>
              <Card  className={classes.card} >
               <div className={classes.details}>
               <CardContent className={classes.content}>
@@ -237,27 +241,27 @@ class Dashboard extends Component {
            </Grid>
 
       {/* Chart */}
-      <Grid item xs={12} md={8} lg={9}>
+      <Grid item xs={12} sm={12} lg={9}>
         <Paper className={fixedHeightPaper}>
         {/*Bar chart to display school attendance */}
         <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
       {/* Server Up days  */}
-      <Grid item xs={12} md={4} lg={3}>
+      <Grid item xs={12} sm={12} lg={3}>
         <Paper className={fixedHeightPaper}>
           <PieChart data={this.props.data_serverup} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
 
       {/* Recent Orders */}
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ModulesChart data={this.props.data_modules} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ToolsChart data={this.props.data_tools} isPending={this.props.isPending}/>
         </Paper>

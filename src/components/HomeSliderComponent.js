@@ -55,12 +55,12 @@ class HomeSlider extends Component {
           key={item.src}
         >
           <img className="rounded mb-0" src={item.src} alt={item.altText} />
-          <Link to={`/${item.viewpage}`}>
+          <Link to={`/${item.viewpage}`} target='_blank'>
           <CarouselCaption
           captionText={item.caption}
           />
           </Link>
-          
+
         </CarouselItem>
       );
     });

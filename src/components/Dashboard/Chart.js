@@ -84,11 +84,10 @@ function get_monthly_data(elem){
  }
   const data_new = data.data.map((elem) => convert_null(elem));
   const data_new_monthly = data.data.filter((elem) => get_monthly_data(elem));
-  const chart_id = 'myMm';
 
   return (
     <React.Fragment>
-    <div className={classes.root} id='myMm'>
+    <div className={classes.root}>
            <FormControl className={classes.formControl}>
              <InputLabel htmlFor="month2-simple">Month</InputLabel>
              <Select
@@ -109,7 +108,6 @@ function get_monthly_data(elem){
       </Typography>
      </div>
 
-     {/*<div style={{height: 430}} id={chart_id}>*/}
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>
       <ResponsiveContainer >
         <BarChart

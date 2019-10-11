@@ -11,6 +11,9 @@ import About from './AboutComponent';
 import SchoolSearch from './SchoolSearchComponent';
 import PrivateRoute from './PrivateRoute';
 //import SignIn from './SignIn';
+import FaqPage from './FaqPage';
+import ContactPage from './ContactPage';
+import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import Dashboard from './Dashboard/Dashboard';
 import StateDashboard from './StateDashboard/StateDashboard'
@@ -60,13 +63,21 @@ render(){
         }/>
 
        <Route path='/login' component={LoginPage}/>
-       <PrivateRoute path= '/about' component={About}/>
+
+       <Route path='/faq' component={FaqPage}/>
+       <Route path='/contact' component={ContactPage}/>
+
+       <Route path= '/about' component={AboutPage}/>
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>
        {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
 
        <Route path='/stateviz' component={() => {
-     window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html';
-     return null; }}/>
+        window.location.href = 'http://localhost:4000/pages/visualisations.html';
+        return null; }}/>
+
+      <Route path='/documentation' component={() => {
+        window.location.href = 'http://localhost:4000/pages/documentation.html';
+        return null; }}/>
 
 	  {/*<Route path='/documentation' component={() => {
 	 window.open("https://pardhu448.github.io/clix_vis_demo/pages/documentation.html", "_blank");

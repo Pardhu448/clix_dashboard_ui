@@ -1,12 +1,15 @@
 import React from 'react';
 import Title from './Title';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import SaveButton from '../PrintButton1';
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -18,6 +21,10 @@ const useStyles = makeStyles(theme => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  button: {
+    margin: theme.spacing(2),
+    float: 'right',
   },
 }));
 
@@ -55,6 +62,7 @@ if (data.data === undefined || data.data.length == 0){
 
 var moment = require('moment');
 const months_available = [...new Set(data.data.map(item => moment(item.date, 'YYYYMMDD').format('MMM YYYY')))];
+let closeImg = {cursor:'pointer', float:'right', marginTop: '5px', width: '20px'};
 
 function createOption(month) {
      const month_integer = moment(month, 'MMM YYYY').format('YYYYMM');
@@ -95,25 +103,28 @@ function get_monthly_data(elem){
                {createOptions(months_available)}
              </Select>
             </FormControl>
-      <Typography variant="h5" color="textSecondary">
-        Attendance for Modules and Tools
+      <Typography style={{ marginRight: 270 }} variant="h5" color="textSecondary">
+        Attendance for Modules and Tools*
       </Typography>
-      </div>
+     </div>
+
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>
-      <ResponsiveContainer>
+      <ResponsiveContainer >
         <BarChart
         data={data_new_monthly}
         margin={{
-          top: 5, right: 10, left: 14, bottom: 0,
+          top: 5, right: 10, left: 14, bottom: 5,
         }}
         >
         <CartesianGrid strokeDasharray="3 3" />
         <Legend verticalAlign="bottom" height={16}/>
-        <XAxis dataKey="date" />
-        <YAxis />
+        <XAxis dataKey="date">
+          <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />
+         </XAxis>
+        <YAxis label={{ value: 'Number of Students', angle: -90, position: 'insideLeft'}}/>
         <Tooltip />
-        <Bar dataKey="attendance_tools" stackId="a" fill="#ECB22E" />
-        <Bar dataKey="attendance_modules" stackId="a" fill="#36C5F0" />
+        <Bar dataKey="attendance_tools" stackId="a" fill="#F4B400" />
+        <Bar dataKey="attendance_modules" stackId="a" fill="#4285F4" />
       </BarChart>
       </ResponsiveContainer>
     </React.Fragment>

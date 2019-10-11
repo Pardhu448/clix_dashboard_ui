@@ -40,16 +40,16 @@ const useStyles = makeStyles({
 const getIntroOfPage = (label) => {
 	  if (label === 'Idle') {
 		      return "clix-server up but no activity";
-		    } 
+		    }
 	  if (label === 'Tools') {
 		      return "only tools used days";
-	            } 
+	            }
 	  if (label === 'Modules') {
 		      return "only modules used days";
-		   } 
+		   }
 	 if (label === 'Tools and Modules') {
 		      return 'days both modules and tools are used';
-		  } 
+		  }
 };
 
 
@@ -70,7 +70,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function PieChartServer(data1, isPending) {
   const classes = useStyles();
-
+  console.log(data1);
   if (data1.data === undefined || data1.data.length == 0){
     return (
       <React.Fragment>
@@ -84,7 +84,7 @@ export default function PieChartServer(data1, isPending) {
     <React.Fragment>
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>
       <Typography variant="h5" color="textSecondary">
-        Server Up Days Overall
+        CLIx Server Usage
       </Typography>
         <PieChart width={260} height={260}>
         <Pie
@@ -106,8 +106,11 @@ export default function PieChartServer(data1, isPending) {
         <Tooltip content={<CustomTooltip />}/>
       </PieChart>
 	<Typography variant="subtitle2" color="textSecondary">
-	  **Only days when clix-server was on are considered, not all calendar days
-      </Typography>  
+	  - Only days when clix-server was on are considered, not all calendar days
+      </Typography>
+  <Typography variant="subtitle2" color="textSecondary">
+	  - Period considered is from 1st July, 2018 to current date
+      </Typography>
     </React.Fragment>
   );
 }

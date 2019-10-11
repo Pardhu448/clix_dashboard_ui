@@ -1,22 +1,22 @@
 
 export const SLIDER_ITEMS = [
   {
-    src: '/assets/images/home_sliders/data_image.png',
-    altText: 'Across all States',
-    caption: 'Data',
-    viewpage: 'allstates'
+    src: '/assets/images/home_sliders/school_live_db.png',
+    altText: 'School Data',
+    caption: 'School Live Dashboard',
+    viewpage: 'schoolviz'
 
   },
   {
-    src: '/assets/images/home_sliders/forest_bridge.png',
-    altText: 'StateWise',
+    src: '/assets/images/home_sliders/documentation_page.png',
+    altText: 'Methodology',
     caption: 'Documentation',
-    viewpage: 'schools'
+    viewpage: 'documentation'
   },
   {
-    src: '/assets/images/home_sliders/visualisation_image.png',
-    altText: 'School Level',
-    caption: 'State Level',
-    viewpage: 'states'
+    src: '/assets/images/home_sliders/state_visuals.png',
+    altText: 'State Level',
+    caption: 'State Level Visuals',
+    viewpage: 'stateviz'
   }
 ];

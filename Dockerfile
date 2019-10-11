@@ -6,6 +6,7 @@ FROM node:9-alpine AS builder
 # Define working directory and copy source
 WORKDIR /home/node/app
 COPY --chown=node:node . .
+RUN apk add --update git 
 # Install dependencies and build whatever you have to build 
 # (babel, grunt, webpack, etc.)
 RUN npm install && npm run build

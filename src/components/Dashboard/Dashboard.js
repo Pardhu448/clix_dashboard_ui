@@ -29,11 +29,14 @@ import Orders from './Orders';
 import ToolsChart from './ToolsChart';
 import ModulesChart from './ModulesChart';
 
+import SaveButton from '../SaveDashboard';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
+import domtoimage from 'dom-to-image';
+import fileDownload from "js-file-download";
 
 import {
   Card,
@@ -142,7 +145,7 @@ const useStyles = theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 420,
+    height: 430,
   },
   card: {
     display: 'flex',
@@ -155,7 +158,7 @@ const useStyles = theme => ({
     flex: '1 0 auto',
   },
   cover: {
-    width: 350,
+    width: 390,
     height: 250
   },
 });
@@ -164,6 +167,8 @@ function get_school_name(elem){
   const school_name = elem.school_name;
   return school_name;
 }
+
+
 
 class Dashboard extends Component {
 
@@ -198,21 +203,21 @@ class Dashboard extends Component {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
     const school_name = [...new Set(school_names)].filter(elem => {return elem !== null})
+    const dashboard_id = 'school_board'
+
     return(
     <MuiThemeProvider theme = {theme}>
-     <div className={classes.root}>
+     <div className={classes.root} id={dashboard_id}>
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={8} lg={12}>
+            <Grid item xs={12} sm={12} lg={12}>
              <Card  className={classes.card} >
               <div className={classes.details}>
               <CardContent className={classes.content}>
-
                <Typography component="h4" variant="h5">
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
-
                <Typography variant="subtitle1" color="textSecondary">
                  Mizorm
                </Typography>
@@ -221,11 +226,12 @@ class Dashboard extends Component {
                   Short introduction about the school and its unique features. May be summary of key parameters. Also photo specific to school.
                   May be some names of the teachers and headmasters involved.
                </Typography>
-              <Typography variant="h8" align="left" color="textSecondary" paragraph>
-                *Same student might have visited more than one module or tool on any day.  
+              <Typography  variant="h8" align="left" color="textSecondary" paragraph>
+                *Same student might have visited both modules or tools on any clix lab day |
+                **Buddy users are also considered |
+                **Buddy users and Anonymous users are also considered
+               <SaveButton id={dashboard_id}/>
                </Typography>
-
-
               </CardContent>
              </div>
             <CardMedia
@@ -237,27 +243,27 @@ class Dashboard extends Component {
            </Grid>
 
       {/* Chart */}
-      <Grid item xs={12} md={8} lg={9}>
+      <Grid item xs={12} sm={12} lg={9}>
         <Paper className={fixedHeightPaper}>
         {/*Bar chart to display school attendance */}
         <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
       {/* Server Up days  */}
-      <Grid item xs={12} md={4} lg={3}>
+      <Grid item xs={12} sm={12} lg={3}>
         <Paper className={fixedHeightPaper}>
           <PieChart data={this.props.data_serverup} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
 
       {/* Recent Orders */}
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ModulesChart data={this.props.data_modules} isPending={this.props.isPending}/>
         </Paper>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ToolsChart data={this.props.data_tools} isPending={this.props.isPending}/>
         </Paper>

@@ -7,6 +7,23 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
+function addUp_property(data_array, prop){
+  var total = data_array.reduce(function(prev, cur) {
+    return prev + cur[prop];
+  }, 0);
+  return total;
+}
+
+function get_agg_data(lab_usage_data){
+  const agg_lab_usage = [
+    {name: 'Idle', value: addUp_property(lab_usage_data, 'days_server_idle')},
+    {name: 'Tools', value: addUp_property(lab_usage_data, 'days_server_tools')},
+    {name: 'Modules', value: addUp_property(lab_usage_data, 'days_server_modules')},
+    {name: 'Tools and Modules', value: addUp_property(lab_usage_data, 'days_server_tools_modules')},
+  ];
+  return agg_lab_usage;
+}
+
 function convert_piechart_data (elem) {
   const elem_new = [
     {name: 'Idle', value: elem.days_server_idle},
@@ -78,8 +95,11 @@ export default function PieChartServer(data1, isPending) {
       </React.Fragment>
     );
   }
-  const data_new = data1.data.map((elem) => convert_piechart_data(elem))
 
+  const data_aggr = get_agg_data(data1.data)
+  //const data_new = data1.data.map((elem) => convert_piechart_data(elem))
+  //console.log(data1)
+  //console.log(data_aggr)
   return (
     <React.Fragment>
      <p>{!isPending ? 'Fetching School Data...' : ''}</p>
@@ -88,7 +108,7 @@ export default function PieChartServer(data1, isPending) {
       </Typography>
         <PieChart width={260} height={260}>
         <Pie
-          data={data_new[0]}
+          data={data_aggr}
           cx={100}
           cy={100}
           labelLine={false}
@@ -99,7 +119,7 @@ export default function PieChartServer(data1, isPending) {
           legendType='rect'
         >
           {
-            data_new[0].map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            data_aggr.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
         <Legend verticalAlign='top'/>

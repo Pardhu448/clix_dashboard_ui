@@ -30,7 +30,7 @@ return (
     });
   }}
   >
-  Dowload
+  Download
   </Button>
 );
 };

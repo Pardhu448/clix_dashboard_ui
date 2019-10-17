@@ -131,7 +131,7 @@ class LoginPage extends Component {
               required
               fullWidth
               id="username"
-              label="Username"
+              label="CLIx School Id"
               name="username"
               autoComplete="username"
               autoFocus

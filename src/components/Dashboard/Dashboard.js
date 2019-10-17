@@ -168,7 +168,10 @@ function get_school_name(elem){
   return school_name;
 }
 
-
+function get_state_name(elem){
+  const state_name = elem.state;
+  return state_name;
+}
 
 class Dashboard extends Component {
 
@@ -202,8 +205,24 @@ class Dashboard extends Component {
     const { classes } = this.props;
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
+    const state_names = this.props.data_attendance.map(elem => get_state_name(elem))
+    const state_name = [...new Set(state_names)].filter(elem => {return elem !== null})
     const school_name = [...new Set(school_names)].filter(elem => {return elem !== null})
     const dashboard_id = 'school_board'
+
+    var state = state_name[0]
+
+    if (state_name[0] == 'mz'){
+      state = 'Mizoram'
+    }else if (state_name[0] == 'tg') {
+      state = 'Telangana'
+    }else if (state_name[0] == 'rj') {
+      state = 'Rajasthan'
+    }else if(state_name[0] == 'ct') {
+      state = 'Chattisgarh'
+    }else{
+      state = state_name[0]
+    }
 
     return(
     <MuiThemeProvider theme = {theme}>
@@ -219,7 +238,7 @@ class Dashboard extends Component {
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
                <Typography variant="subtitle1" color="textSecondary">
-                 Mizorm
+                 {state}
                </Typography>
 
                <Typography variant="h5" align="left" color="textSecondary" paragraph>

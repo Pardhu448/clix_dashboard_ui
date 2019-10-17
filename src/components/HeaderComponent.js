@@ -57,11 +57,7 @@ class Header extends Component{
             </NavLink>
           </NavItem>*/}
 
-          <NavItem>
-            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> Logout
-            </NavLink>
-          </NavItem>
+
          <NavItem>
             <NavLink style={NavLinkStyle} className='nav-link' to='/faq'>
               <span className=''></span> FAQ
@@ -72,7 +68,11 @@ class Header extends Component{
               <span className=''></span> Contact
             </NavLink>
           </NavItem>
-
+          <NavItem>
+            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+              <span className=''></span> Logout
+            </NavLink>
+          </NavItem>
         </Nav>
         </Collapse>
         </div>

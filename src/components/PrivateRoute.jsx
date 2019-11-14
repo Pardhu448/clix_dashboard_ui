@@ -3,7 +3,8 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
-        localStorage.getItem('user')
+        //checking if a user is already stored in local web browser and also loast login in less than 3 hours
+        localStorage.getItem('user') && (moment(localStorage.getItem('lastlogin')).add(3, 'hours') >= moment())
             ? <Component {...props} />
             : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     )} />

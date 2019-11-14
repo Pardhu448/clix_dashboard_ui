@@ -173,6 +173,11 @@ function get_state_name(elem){
   return state_name;
 }
 
+function get_state(uname){
+  return uname.split('-')[1]
+
+ }
+
 class Dashboard extends Component {
 
    constructor(props) {
@@ -183,7 +188,9 @@ class Dashboard extends Component {
              data_attendance: [],
              data_serverup: [],
              data_tools: [],
-             data_modules: []
+             data_modules: [],
+             username: null,
+ 
          };
          this.handleChange = this.handleChange.bind(this);
        }
@@ -205,23 +212,25 @@ class Dashboard extends Component {
     const { classes } = this.props;
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
-    const state_names = this.props.data_attendance.map(elem => get_state_name(elem))
-    const state_name = [...new Set(state_names)].filter(elem => {return elem !== null})
+    //const state_names = this.props.data_attendance.map(elem => get_state_name(elem))
+    //const state_name = [...new Set(state_names)].filter(elem => {return elem !== null})
     const school_name = [...new Set(school_names)].filter(elem => {return elem !== null})
     const dashboard_id = 'school_board'
 
-    var state = state_name[0]
-
-    if (state_name[0] == 'mz'){
+    const { username } = this.props;
+    var state_name = new String(username)
+    var state = new String(state_name.split('-')[1]);
+    console.log(state.slice(0, 2))   
+    if (state.slice(0, 2) == 'mz'){
       state = 'Mizoram'
-    }else if (state_name[0] == 'tg') {
+    }else if (state.slice(0, 2) == 'tg') {
       state = 'Telangana'
-    }else if (state_name[0] == 'rj') {
+    }else if (state.slice(0, 2) == 'rj') {
       state = 'Rajasthan'
-    }else if(state_name[0] == 'ct') {
+    }else if(state.slice(0, 2) == 'ct') {
       state = 'Chattisgarh'
     }else{
-      state = state_name[0]
+      state = state_name
     }
 
     return(
@@ -238,7 +247,7 @@ class Dashboard extends Component {
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
                <Typography variant="subtitle1" color="textSecondary">
-                 {state}
+                {state}
                </Typography>
 
                <Typography variant="h5" align="left" color="textSecondary" paragraph>

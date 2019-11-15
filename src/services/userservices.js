@@ -19,7 +19,9 @@ function login(username, password) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
             // To get login time
-            localStorage.setItem('lastlogin', JSON.stringify(moment()));
+            var moment = require('moment');
+            const logintime = moment();
+            localStorage.setItem('lastlogin', logintime.toJSON());
             return user;
         });
 }

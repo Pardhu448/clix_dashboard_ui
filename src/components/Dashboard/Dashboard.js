@@ -247,7 +247,7 @@ class Dashboard extends Component {
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
                <Typography variant="subtitle1" color="textSecondary">
-                {state}
+                {state}, {this.props.username}
                </Typography>
 
                <Typography variant="h5" align="left" color="textSecondary" paragraph>

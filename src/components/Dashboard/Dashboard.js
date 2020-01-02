@@ -28,7 +28,6 @@ import Deposits from './Deposits';
 import Orders from './Orders';
 import ToolsChart from './ToolsChart';
 import ModulesChart from './ModulesChart';
-
 import SaveButton from '../SaveDashboard';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -38,6 +37,12 @@ import green from '@material-ui/core/colors/green';
 import domtoimage from 'dom-to-image';
 import fileDownload from "js-file-download";
 
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
+
+import SchoolImageUpload from './ImageUpload';
+
+import ImageUploader from 'react-images-upload';
 import {
   Card,
   CardHeader,
@@ -47,9 +52,12 @@ import {
 } from '@material-ui/core';
 
 import { dataActions } from '../../redux/dataactions';
+import { schoolInfoActions } from '../../redux/schoolinfoactions'
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+
+import EdiText from 'react-editext';
 
 const school_image = require('../../shared/student_logs_group.jpeg');
 const drawerWidth = 0;
@@ -149,18 +157,30 @@ const useStyles = theme => ({
   },
   card: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
+    width: '150vh',
   },
   content: {
     flex: '1 0 auto',
   },
   cover: {
-    width: 390,
-    height: 250
+    width: 400,
+    height: 250,
   },
+  expand: {
+  transform: 'rotate(0deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+},
+expandOpen: {
+  transform: 'rotate(180deg)',
+},
 });
 
 function get_school_name(elem){
@@ -175,8 +195,20 @@ function get_state_name(elem){
 
 function get_state(uname){
   return uname.split('-')[1]
-
  }
+
+function get_first_few_words(schoolIntroText){
+  var str = schoolIntroText;
+  var words = str.split(" ");
+  var lengthofsentence = words.length;
+  var firstFewWords = words.slice(0, 50).join(" ");
+  var lastFewWords = words.slice(50, -1).join(" ");
+  return [firstFewWords, lastFewWords];
+}
+
+const moreTextIndicator = {"showmore":'see more', "showless": 'see less'}
+Object.freeze(moreTextIndicator)
+
 
 class Dashboard extends Component {
 
@@ -190,10 +222,58 @@ class Dashboard extends Component {
              data_tools: [],
              data_modules: [],
              username: null,
- 
+             expanded:false,
+             moreTextIndicator: moreTextIndicator.showmore,
+             schoolDescription: null,
+             schoolImage: school_image,
+             isUploading: false,
+             isInfoUpdating: false,
+             isImageUpdating: false,
+             isImageUploading: false,
+             isImageHoverIn: false,
+             isImageHoverOut: false,
+             lastUploadTime: null
          };
+         this.handleMouseIn = this.handleMouseIn.bind(this);
+         this.handleMouseOut = this.handleMouseOut.bind(this);
+         this.onImageUpload = this.onImageUpload.bind(this);
          this.handleChange = this.handleChange.bind(this);
+         this.onDescriptionUpdate = this.onDescriptionUpdate.bind(this);
+         this.handleExpandClick = this.handleExpandClick.bind(this);
        }
+
+  handleMouseIn(event) {
+         const { dispatch } = this.props;
+         //this.setState({isImageHovering: !this.props.isImageHovering});
+         dispatch(schoolInfoActions.updateimagehoverin());
+       }
+  handleMouseOut(event) {
+         const { dispatch } = this.props;
+         dispatch(schoolInfoActions.updateimagehoverout())
+
+  }
+
+  onImageUpload(schoolImageFiles, schoolImageDataURLs){
+     //this.setState({isImageUploading: true});
+     const { dispatch } = this.props;
+     const { auth_token }  = JSON.parse(localStorage.getItem('user'));
+     dispatch(schoolInfoActions.uploadimage(schoolImageFiles));
+
+     //this.forceUpdate();
+     //dispatch(schoolInfoActions.getimage(auth_token));
+  }
+
+  handleExpandClick () {
+        this.setState({expanded: !this.state.expanded});
+        this.setState({moreTextIndicator: this.state.moreTextIndicator == 'see more' ? 'see less' : 'see more'})
+      };
+
+   onDescriptionUpdate(schoolDescription) {
+        const { dispatch } = this.props;
+        this.setState({isInfoUpdating: true})
+        dispatch(schoolInfoActions.updatedescription(schoolDescription));
+        //this.setState({schoolDescription: val});
+      }
 
    handleChange(e) {
                  const { name, value } = e.target;
@@ -204,13 +284,36 @@ class Dashboard extends Component {
      const { dispatch } = this.props;
      const { auth_token }  = JSON.parse(localStorage.getItem('user'));
      dispatch(dataActions.getdata(auth_token));
+     dispatch(schoolInfoActions.getdescription(auth_token));
+     dispatch(schoolInfoActions.getimage(auth_token));
     }
 
-
-
+    componentDidUpdate(prevProps, prevState){
+      const { dispatch } = this.props;
+      const { auth_token }  = JSON.parse(localStorage.getItem('user'));
+      if (prevProps.lastUploadTime !== this.props.lastUploadTime){
+         dispatch(schoolInfoActions.getimage(auth_token));
+         window.location.reload();
+      }
+    }
+    /*componentWillReceiveProps(nextProps) {
+      if (this.props.schooImage !== nextProps.schoolImage) {
+          console.log(this.props)
+          console.log(nextProps)
+          console.log('image date has changed');
+          this.forceUpdate();
+      }
+    }*/
   render(){
     const { classes } = this.props;
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const expandButton = clsx(classes.expand, {
+            [classes.expandOpen]: this.state.expanded,
+          });
+
+    const schoolIntro = 'Short introduction about your school and its unique features. May be summary of interesting facts about your school in the local area. Also photo specific to school above. May be some names of the teachers and headmasters involved.';
+    var schoolIntroText = this.props.schoolDescription != null ? this.props.schoolDescription : schoolIntro;
+
     const school_names = this.props.data_attendance.map(elem => get_school_name(elem))
     //const state_names = this.props.data_attendance.map(elem => get_state_name(elem))
     //const state_name = [...new Set(state_names)].filter(elem => {return elem !== null})
@@ -218,9 +321,10 @@ class Dashboard extends Component {
     const dashboard_id = 'school_board'
 
     const { username } = this.props;
+
     var state_name = new String(username)
     var state = new String(state_name.split('-')[1]);
-    console.log(state.slice(0, 2))   
+    //console.log(state.slice(0, 2))
     if (state.slice(0, 2) == 'mz'){
       state = 'Mizoram'
     }else if (state.slice(0, 2) == 'tg') {
@@ -233,44 +337,84 @@ class Dashboard extends Component {
       state = state_name
     }
 
-    return(
+  return(
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root} id={dashboard_id}>
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} lg={12}>
-             <Card  className={classes.card} >
+          <Grid container spacing={2}>
+           <Grid item xs={12} sm={12} lg={12}>
+            <Card className={classes.card} >
+             {/*<div className={classes.details}>*/}
+              {/*<Grid container spacing = {5}>*/}
+              {/* <Grid item >*/}
               <div className={classes.details}>
-              <CardContent className={classes.content}>
+               <CardContent className={classes.content}>
                <Typography component="h4" variant="h5">
                  {school_name[0] ? school_name[0] : this.props.username}
                </Typography>
                <Typography variant="subtitle1" color="textSecondary">
                 {state}, {this.props.username}
                </Typography>
+               <Typography variant="subtitle2" align="left" color="textSecondary" paragraph>
+                School dashboards below are generated to enable teachers access data, corresponding to their student's interactiont with CLIx platform. Live data synced from schools is processed at centralized servers to generate these dashboards. Please upload your school image and a short paragraph of anything you want to share about your school below.
+               </Typography>
+               <Typography  variant="subtitle2" align="left" color="textSecondary" paragraph>
+                 *Same student might have visited both modules or tools on any clix lab day |
+                 **Buddy users are also considered |
+                 **Buddy users and Anonymous users are also considered
+                <SaveButton id={dashboard_id}/>
+                </Typography>
 
-               <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                  Short introduction about the school and its unique features. May be summary of key parameters. Also photo specific to school.
-                  May be some names of the teachers and headmasters involved.
-               </Typography>
-              <Typography  variant="h8" align="left" color="textSecondary" paragraph>
-                *Same student might have visited both modules or tools on any clix lab day |
-                **Buddy users are also considered |
-                **Buddy users and Anonymous users are also considered
-               <SaveButton id={dashboard_id}/>
-               </Typography>
-              </CardContent>
-             </div>
-            <CardMedia
-              className={classes.cover}
-              image= {school_image}
-              title={this.props.username}
-            />
+               </CardContent>
+               </div>
+
+               <SchoolImageUpload schoolImage={this.props.schoolImage}
+                                  isImageUploading={this.props.isImageUploading}
+                                  onImageUpload={this.onImageUpload}
+                                  handleMouseIn={this.handleMouseIn}
+                                  handleMouseOut={this.handleMouseOut}
+                                  />
             </Card>
+            </Grid>
+
+           <Grid item xs={12} sm={12} lg={12}>
+
+           <Card >
+           <CardContent className={classes.content}>
+              <Typography paragraph>
+              <EdiText
+                showButtonsOnHover
+                value={get_first_few_words(schoolIntroText)[0]}
+                onSave={this.onDescriptionUpdate}
+               />
+
+               {/*<IconButton
+                 className={expandButton}
+                 onClick={this.handleExpandClick}
+                 aria-expanded={this.state.expanded}
+                 aria-label="show more"
+                 >
+                 <ExpandMoreIcon />
+               </IconButton>
+              */}
+              <Link component="button"
+                     variant='body2'
+                     onClick={this.handleExpandClick}>
+                     {this.state.moreTextIndicator}
+              </Link>
+               </Typography>
+            </CardContent>
+           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+           <CardContent>
+           <Typography paragraph>
+            {get_first_few_words(schoolIntroText)[1]}
+           </Typography>
+           </CardContent>
+           </Collapse>
+          </Card>
            </Grid>
 
-      {/* Chart */}
       <Grid item xs={12} sm={12} lg={9}>
         <Paper className={fixedHeightPaper}>
         {/*Bar chart to display school attendance */}
@@ -306,7 +450,9 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps (state) {
-  const {error, data_attendance, data_serverup, data_tools, data_modules, isPending, username} = state.fetchdata;
+  const { error, data_attendance, data_serverup, data_tools, data_modules, isPending, username } = state.fetchdata;
+  const { schoolDescription, schoolImage, isInfoUpdating, isImageUpdating, isImageUploading,
+    isImageHoverIn, isImageHoverOut, lastUploadTime } = state.fetchschoolinfo;
   return {
     error,
     data_attendance,
@@ -314,7 +460,15 @@ function mapStateToProps (state) {
     data_tools,
     data_modules,
     isPending,
-    username
+    username,
+    schoolDescription,
+    schoolImage,
+    isInfoUpdating,
+    isImageUpdating,
+    isImageUploading,
+    isImageHoverIn,
+    isImageHoverOut,
+    lastUploadTime
   }
 }
 

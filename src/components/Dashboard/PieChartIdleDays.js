@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from './Title';
+//import Title from './Title';
 import {
   PieChart, Pie, Sector, Legend, Tooltip, Cell, ResponsiveContainer,
 } from 'recharts';
@@ -44,7 +44,7 @@ cx, cy, midAngle, innerRadius, outerRadius, percent, index, value
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {value != 0 ? `${value}(${(percent * 100).toFixed(0)}%)` : ''}
+      {value !== 0 ? `${value}(${(percent * 100).toFixed(0)}%)` : ''}
     </text>
   );
 };
@@ -72,7 +72,6 @@ const getIntroOfPage = (label) => {
 
 const CustomTooltip = ({ active, payload, label }) => {
 	  if (active) {
-		      console.log(payload)
 		      return (
 			            <div className="custom-tooltip">
 			              <p className="label">{`${payload[0].name}:${payload[0].value}`}</p>
@@ -87,8 +86,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function PieChartServer(data1, isPending) {
   const classes = useStyles();
-  console.log(data1);
-  if (data1.data === undefined || data1.data.length == 0){
+  if (data1.data === undefined || data1.data.length === 0){
     return (
       <React.Fragment>
       <p>{'No Server log data available for this school.'}</p>

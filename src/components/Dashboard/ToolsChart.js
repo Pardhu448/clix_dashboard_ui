@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from './Title';
+//import Title from './Title';
 import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -36,8 +36,7 @@ export default function ToolsChart(data, isPending) {
       [name]: event.target.value,
     });
   };
-  console.log(data)
-  if (data.data === undefined || data.data.length == 0){
+  if (data.data === undefined || data.data.length === 0){
     return (
       <React.Fragment>
       <p>{'No Tools log data available for this school.'}</p>

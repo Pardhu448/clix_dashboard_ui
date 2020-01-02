@@ -1,14 +1,14 @@
 import React from 'react';
-import Title from './Title';
+//import Title from './Title';
 import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+//import Button from '@material-ui/core/Button';
+//import SaveIcon from '@material-ui/icons/Save';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import SaveButton from '../PrintButton1';
+//import SaveButton from '../PrintButton1';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,7 +52,7 @@ export default function Chart(data, isPending) {
       [name]: event.target.value,
     });
   };
-if (data.data === undefined || data.data.length == 0){
+if (data.data === undefined || data.data.length === 0){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>

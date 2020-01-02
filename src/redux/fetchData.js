@@ -1,4 +1,3 @@
-
 import { dataConstants } from './ActionTypes';
 
 const initialState = {

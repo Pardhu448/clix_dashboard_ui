@@ -7,8 +7,8 @@ import HomeSlider from './HomeSliderComponent';
 import HomeCards from './HomeCardsComponent';
 import Header from './HeaderComponent';
 import Footer from './Footer';
-import About from './AboutComponent';
-import SchoolSearch from './SchoolSearchComponent';
+//import About from './AboutComponent';
+//import SchoolSearch from './SchoolSearchComponent';
 import PrivateRoute from './PrivateRoute';
 //import SignIn from './SignIn';
 import FaqPage from './FaqPage';
@@ -16,7 +16,7 @@ import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import Dashboard from './Dashboard/Dashboard';
-import StateDashboard from './StateDashboard/StateDashboard'
+//import StateDashboard from './StateDashboard/StateDashboard'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -28,9 +28,6 @@ const mapStateToProps = state => {
 
 class Main extends Component {
 
-constructor(props){
-  super(props);
-}
 /*
   this.state = {
     school_id: 'dungri',

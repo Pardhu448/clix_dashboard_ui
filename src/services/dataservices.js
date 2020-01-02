@@ -12,7 +12,7 @@ function getdata(user_token) {
         headers: authHeader()
     };
 
-    return fetch(`${baseUrl}/school`, requestOptions)
+    return fetch(`${baseUrl}/getschooldata`, requestOptions)
         .then(handleResponse);
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from './Title';
+//import Title from './Title';
 import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -31,7 +31,7 @@ export default function ModulesChart(data, isPending) {
     name: 'hai',
   });
 
-if (data.data === undefined || data.data.length == 0){
+if (data.data === undefined || data.data.length === 0){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>
@@ -153,7 +153,7 @@ const handleChange = name => event => {
  }
 
 
-  {/*const data_new = data.data.map((elem) => convert_null(elem));*/}
+  //{/*const data_new = data.data.map((elem) => convert_null(elem));*/}
   return (
     <React.Fragment>
            <div className={classes.root}>

@@ -94,8 +94,8 @@ export default function PieChartServer(data1, isPending) {
     );
   }
 
-  const data_aggr = get_agg_data(data1.data)
-  //const data_new = data1.data.map((elem) => convert_piechart_data(elem))
+  //const data_aggr = get_agg_data(data1.data)
+  const data_new = data1.data.map((elem) => convert_piechart_data(elem))
   //console.log(data1)
   //console.log(data_aggr)
   return (
@@ -106,7 +106,7 @@ export default function PieChartServer(data1, isPending) {
       </Typography>
         <PieChart width={260} height={260}>
         <Pie
-          data={data_aggr}
+          data={data_new}
           cx={100}
           cy={100}
           labelLine={false}
@@ -117,7 +117,7 @@ export default function PieChartServer(data1, isPending) {
           legendType='rect'
         >
           {
-            data_aggr.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            data_new.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
         <Legend verticalAlign='top'/>

@@ -48,7 +48,7 @@ const HomeCards = (props) => {
 	  </a>
          </CardTitle>
          <CardText>
-          State level data visualisations and school level visuals through search.
+          State level data visualisations and school level visuals through search. Updated every month.
          </CardText>
        </CardBody>
      </Card>

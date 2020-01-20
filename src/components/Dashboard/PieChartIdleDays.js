@@ -97,6 +97,7 @@ export default function PieChartServer(data1, isPending) {
   const data_aggr = get_agg_data(data1.data)
   //const data_new = data1.data.map((elem) => convert_piechart_data(elem))
   //console.log(data1)
+  //const data_aggr = get_agg_data(data1.data)
   //console.log(data_aggr)
   return (
     <React.Fragment>

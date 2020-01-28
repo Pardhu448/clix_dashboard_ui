@@ -265,7 +265,7 @@ class Dashboard extends Component {
 
   handleExpandClick () {
         this.setState({expanded: !this.state.expanded});
-        this.setState({moreTextIndicator: this.state.moreTextIndicator == 'see more' ? 'see less' : 'see more'})
+        this.setState({moreTextIndicator: this.state.moreTextIndicator === 'see more' ? 'see less' : 'see more'})
       };
 
    onDescriptionUpdate(schoolDescription) {
@@ -325,13 +325,13 @@ class Dashboard extends Component {
     var state_name = new String(username)
     var state = new String(state_name.split('-')[1]);
     //console.log(state.slice(0, 2))
-    if (state.slice(0, 2) == 'mz'){
+    if (state.slice(0, 2) === 'mz'){
       state = 'Mizoram'
-    }else if (state.slice(0, 2) == 'tg') {
+    }else if (state.slice(0, 2) === 'tg') {
       state = 'Telangana'
-    }else if (state.slice(0, 2) == 'rj') {
+    }else if (state.slice(0, 2) === 'rj') {
       state = 'Rajasthan'
-    }else if(state.slice(0, 2) == 'ct') {
+    }else if(state.slice(0, 2) === 'ct') {
       state = 'Chattisgarh'
     }else{
       state = state_name

@@ -1,6 +1,6 @@
 import React from 'react';
 //import Title from './Title';
-import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -31,7 +31,7 @@ export default function ModulesChart(data, isPending) {
     name: 'hai',
   });
 
-if (data.data === undefined || data.data.length === 0){
+if (data.data === undefined || data.data.length === 0 || data.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>
@@ -116,7 +116,7 @@ const handleChange = name => event => {
   const data_final = data_new.map((elem) => get_final_data(elem));
   const data_final1 = data_final.map((elem) => get_ridof_module_tag(elem));
 
-  const modules = [...new Set(data_final.map(item => get_module_names(item))[0])];
+  //const modules = [...new Set(data_final.map(item => get_module_names(item))[0])];
   const modules1 = [...new Set(data_final1.map(item => get_module_names1(item))[0])];
 
   const colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e",

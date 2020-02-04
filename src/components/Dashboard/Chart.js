@@ -1,6 +1,6 @@
 import React from 'react';
 //import Title from './Title';
-import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 //import Button from '@material-ui/core/Button';
 //import SaveIcon from '@material-ui/icons/Save';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -52,7 +52,7 @@ export default function Chart(data, isPending) {
       [name]: event.target.value,
     });
   };
-if (data.data === undefined || data.data.length === 0){
+if (data.data === undefined || data.data.length === 0 || data.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>
@@ -62,7 +62,7 @@ if (data.data === undefined || data.data.length === 0){
 
 var moment = require('moment');
 const months_available = [...new Set(data.data.map(item => moment(item.date, 'YYYYMMDD').format('MMM YYYY')))];
-let closeImg = {cursor:'pointer', float:'right', marginTop: '5px', width: '20px'};
+//let closeImg = {cursor:'pointer', float:'right', marginTop: '5px', width: '20px'};
 
 function createOption(month) {
      const month_integer = moment(month, 'MMM YYYY').format('YYYYMM');
@@ -82,7 +82,7 @@ function get_monthly_data(elem){
      return moment(elem.date, 'YYYYMMDD').format('YYYYMM') === month_selected;
    }
  }
-  const data_new = data.data.map((elem) => convert_null(elem));
+  //const data_new = data.data.map((elem) => convert_null(elem));
   const data_new_monthly = data.data.filter((elem) => get_monthly_data(elem));
 
   return (

@@ -69,11 +69,11 @@ render(){
        {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
 
        <Route path='/stateviz' component={() => {
-        window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html';
+        window.location.href = 'https://clixindia-dev.github.io/clix_vis_demo/pages/visualisations.html';
         return null; }}/>
 
       <Route path='/documentation' component={() => {
-        window.location.href = 'https://pardhu448.github.io/clix_vis_demo/pages/documentation.html';
+        window.location.href = 'https://clixindia-dev.github.io/clix_vis_demo/pages/documentation.html';
         return null; }}/>
 
 	  {/*<Route path='/documentation' component={() => {

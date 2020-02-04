@@ -25,7 +25,7 @@ import { userActions } from '../redux/useractions';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 const school_image = require('../shared/school_image.jpg');
 const theme = createMuiTheme({
   palette: {
@@ -93,8 +93,8 @@ class LoginPage extends Component {
             this.setState({ submitted: true });
             const { username, password } = this.state;
             const { dispatch } = this.props;
-            const { from } = this.props.location.state || { from: { pathname: '/' } };
-            const { loggedIn } = this.props;
+            //const { from } = this.props.location.state || { from: { pathname: '/' } };
+            //const { loggedIn } = this.props;
 
             if (username && password) {
                 dispatch(userActions.login(username, password));

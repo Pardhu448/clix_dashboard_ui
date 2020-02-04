@@ -26,7 +26,7 @@ const HomeCards = (props) => {
        <CardHeader>Explore Sate Level Data</CardHeader>
        <CardBody>
         <CardTitle>
-	  <a href="https://pardhu448.github.io/clix_vis_demo/pages/visualisations.html" target="_blank">
+	  <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/visualisations.html" target="_blank">
 	  State Level Visuals
 	  </a>
          </CardTitle>
@@ -42,7 +42,7 @@ const HomeCards = (props) => {
         <CardHeader>For Detailed Understanding</CardHeader>
         <CardBody>
          <CardTitle>
-	  <a href="https://pardhu448.github.io/clix_vis_demo/pages/documentation.html" target="_blank">
+	  <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/documentation.html" target="_blank">
 	  Documentation
 	  </a>
       </CardTitle>

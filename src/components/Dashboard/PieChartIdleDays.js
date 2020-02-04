@@ -1,7 +1,7 @@
 import React from 'react';
 //import Title from './Title';
 import {
-  PieChart, Pie, Sector, Legend, Tooltip, Cell, ResponsiveContainer,
+  PieChart, Pie, Legend, Tooltip, Cell,
 } from 'recharts';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,10 +26,10 @@ function get_agg_data(lab_usage_data){
 
 function convert_piechart_data (elem) {
   const elem_new = [
-    {name: 'Idle', value: elem.days_server_idle},
-    {name: 'Tools', value: elem.days_server_tools},
-    {name: 'Modules', value: elem.days_server_modules},
-    {name: 'Tools and Modules', value: elem.days_server_tools_modules},
+    {name: 'Idle', value: Math.floor(elem.days_server_idle)},
+    {name: 'Tools', value: Math.floor(elem.days_server_tools)},
+    {name: 'Modules', value: Math.floor(elem.days_server_modules)},
+    {name: 'Tools and Modules', value: Math.floor(elem.days_server_tools_modules)},
   ];
   return elem_new;
 };
@@ -44,7 +44,7 @@ cx, cy, midAngle, innerRadius, outerRadius, percent, index, value
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {value !== 0 ? `${value}(${(percent * 100).toFixed(0)}%)` : ''}
+	  {value !== 0 ? `${value}(${(percent * 100).toFixed(0)}%)` : ''}
     </text>
   );
 };
@@ -86,7 +86,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function PieChartServer(data1, isPending) {
   const classes = useStyles();
-  if (data1.data === undefined || data1.data.length === 0){
+  if (data1.data === undefined || data1.data.length === 0 || data1.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Server log data available for this school.'}</p>
@@ -95,8 +95,10 @@ export default function PieChartServer(data1, isPending) {
   }
 
   //const data_aggr = get_agg_data(data1.data)
+  console.log(data1.data)
   const data_new = data1.data.map((elem) => convert_piechart_data(elem))
   //console.log(data1)
+  //console.log(data_new[0])	
   //const data_aggr = get_agg_data(data1.data)
   //console.log(data_aggr)
   return (
@@ -107,18 +109,19 @@ export default function PieChartServer(data1, isPending) {
       </Typography>
         <PieChart width={260} height={260}>
         <Pie
-          data={data_new}
+          data={data_new[0]}
           cx={100}
           cy={100}
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={100}
+	  isAnimationActive={false}
           fill="#8884d8"
           dataKey="value"
           legendType='rect'
         >
           {
-            data_new.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            data_new[0].map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
         <Legend verticalAlign='top'/>
@@ -128,7 +131,7 @@ export default function PieChartServer(data1, isPending) {
 	  - Only days when clix-server was on are considered, not all calendar days
       </Typography>
   <Typography variant="subtitle2" color="textSecondary">
-	  - Period considered is from 1st July, 2018 to current date
+	  - Period considered is from 1st June, 2018 to current date
       </Typography>
     </React.Fragment>
   );

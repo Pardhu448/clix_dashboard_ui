@@ -1,6 +1,6 @@
 import React from 'react';
 //import Title from './Title';
-import { BarChart, Bar, Cell, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -36,7 +36,7 @@ export default function ToolsChart(data, isPending) {
       [name]: event.target.value,
     });
   };
-  if (data.data === undefined || data.data.length === 0){
+  if (data.data === undefined || data.data.length === 0 || data.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Tools log data available for this school.'}</p>
@@ -112,7 +112,7 @@ function get_final_data(elem){
   const data_final = data_new.map((elem) => get_final_data(elem));
   const data_final1 = data_final.map((elem) => get_ridof_tool_tag(elem));
 
-  const tools = [...new Set(data_final.map(item => get_tool_names(item))[0])];
+  //const tools = [...new Set(data_final.map(item => get_tool_names(item))[0])];
   const tools1 = [...new Set(data_final1.map(item => get_tool_names1(item))[0])];
 
   const colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e",
@@ -147,7 +147,7 @@ const CustomTooltipContent = function(props){
   return <DefaultTooltipContent {...props}/>;
  }
 
-  {/*const data_new = data.data.map((elem) => convert_null(elem));*/}
+  //{/*const data_new = data.data.map((elem) => convert_null(elem));*/}
   return (
     <React.Fragment>
     <div className={classes.root}>

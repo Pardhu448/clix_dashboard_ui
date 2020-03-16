@@ -23,7 +23,7 @@ const HomeCards = (props) => {
 
      <Col sm="4">
      <Card bg="light" border="light" style={{ width: '23rem', height: '90%'}}>
-       <CardHeader>Explore Sate Level Data</CardHeader>
+       <CardHeader>Explore State Level Data</CardHeader>
        <CardBody>
         <CardTitle>
 	  <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/visualisations.html" target="_blank">

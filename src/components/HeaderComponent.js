@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import { userActions } from '../redux/useractions';
 
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 const NavLinkStyle = {
   color: 'black',
 };
@@ -10,6 +13,9 @@ class Header extends Component{
   constructor(props){
     super(props);
     this.state = {isNavOpen: false};
+    this.props.dispatch(userActions.logout());
+    this.props.dispatch(userActions.login());
+
     this.toggleNav = this.toggleNav.bind(this);
   }
 
@@ -18,6 +24,8 @@ class Header extends Component{
   }
 
   render(){
+    const { loggingIn, loggedIn, loginFailed } = this.props;
+    
      return(
        <>
        <Navbar bg="light" variant="light" expand='md'>
@@ -69,9 +77,16 @@ class Header extends Component{
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> Logout
+            
+          {loggedIn ? 
+          <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+              <span className=''></span> LogOut
             </NavLink>
+            :
+            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+              <span className=''></span> LogIn
+            </NavLink>  }
+                     
           </NavItem>
         </Nav>
         </Collapse>
@@ -82,4 +97,12 @@ class Header extends Component{
   }
 }
 
-export default Header;
+function mapStateToProps(state){
+  const { loggingIn, loggedIn, loginFailed } = state.authenticate;
+  return {
+      loggingIn,
+      loggedIn,
+      loginFailed
+  };
+}
+export default connect(mapStateToProps)(Header);

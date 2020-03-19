@@ -80,11 +80,11 @@ class Header extends Component{
             
           {loggedIn ? 
           <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> LogOut
+              <span className=''></span> Logout
             </NavLink>
             :
             <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> LogIn
+              <span className=''></span> Login
             </NavLink>  }
                      
           </NavItem>

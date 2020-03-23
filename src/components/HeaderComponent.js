@@ -28,12 +28,9 @@ class Header extends Component{
     
      return(
        <>
-       <Navbar bg="light" variant="light" expand='md'>
-        <div className='container'>
-
-        <NavbarToggler onClick={this.toggleNav}/>
-
-        <NavbarBrand className="mr-auto" href="/">
+       <Navbar  color="light" light expand='md'>
+       
+       <NavbarBrand className="mr-auto" href="/">
         <img
           alt="CLIx Logo"
           src="/assets/images/clix_logo.png"
@@ -43,6 +40,8 @@ class Header extends Component{
         />
         {''}
         </NavbarBrand>
+        <NavbarToggler onClick={this.toggleNav}/>
+
 
         <Collapse isOpen={this.state.isNavOpen} navbar>
         <Nav className="ml-auto" navbar>
@@ -90,7 +89,7 @@ class Header extends Component{
           </NavItem>
         </Nav>
         </Collapse>
-        </div>
+      
        </Navbar>
        </>
      );

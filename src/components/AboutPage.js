@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 500 ,
   },
 });
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
         About
       </Typography>
 
-      <Typography variant="body2" align='justify' gutterBottom>
+   {/* <Typography variant="body2" align='justify' gutterBottom> 
       This demo website provides access to visualisations of various datasets being generated from
       CLIxPlatform - a student learning platform - as part of Connected Learning Initiative (CLIx).
       The objective is that different teams across CLIx project can explore these datasets through
@@ -30,7 +30,18 @@ export default function AboutPage() {
       research and various other teams. This is just an alpha site (very initial glimpses) towards an
       aspirational meta-visualization dashboard.
       </Typography>
-
+  */}
+    
+      <Typography variant="body2" align="justify" gutterBottom>
+      
+      
+      The Connected Learning Initiative (CLIx) is a technology-enabled initiative at scale for high school students. The initiative was seeded by Tata Trusts, Mumbai and is led by Tata Institute of Social Sciences, Mumbai and Massachusetts Institute of Technology, Cambridge, MA USA. CLIx offers a scalable and sustainable model of open education, to meet the educational needs of students and teachers. 
+Students use CLIx platform regularly generating a lot of datasets which are being processed and analyzed to have insights about the implementation. This dashboard provides access to the visualizations at various levels viz. State, District and School Levels.  
+      
+      </Typography>
+          <img src=""/> 
+          
+         
     </div>
   );
 }

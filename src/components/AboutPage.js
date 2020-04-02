@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import  { Helmet } from 'react-helmet';
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -14,7 +15,11 @@ export default function AboutPage() {
 
   return (
     <div className={classes.root}>
+<Helmet>
+<meta charSet="utf-8" />
+                <title> CLIx Dashboard About</title>
 
+</Helmet>
       <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography>

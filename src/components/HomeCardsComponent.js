@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const HomeCards = (props) => {
   return (
     <Row>
-      <Col sm="4">
+  
+  <Col sm="4">
       <Card bg="light" border="light" style={{ width: '23rem', height: '90%'}}>
         <CardHeader>Live School Implementation</CardHeader>
         <CardBody>
@@ -20,7 +21,6 @@ const HomeCards = (props) => {
         </CardBody>
       </Card>
       </Col>
-
      <Col sm="4">
      <Card bg="light" border="light" style={{ width: '23rem', height: '90%'}}>
        <CardHeader>Explore State Level Data</CardHeader>
@@ -47,7 +47,7 @@ const HomeCards = (props) => {
 	  </a>
       </CardTitle>
           <CardText>
-           Comprehensive documentation of methodology and sources to arrive at different visualsations.
+           Comprehensive documentation of methodology and sources to arrive at different visualisations.
           </CardText>
         </CardBody>
       </Card>

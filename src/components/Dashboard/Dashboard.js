@@ -340,6 +340,7 @@ class Dashboard extends Component {
   return(
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root} id={dashboard_id}>
+     
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={2}>
@@ -359,12 +360,13 @@ class Dashboard extends Component {
                <Typography variant="subtitle2" align="left" color="textSecondary" paragraph>
                 School dashboards below are generated to enable teachers access data, corresponding to their student's interactiont with CLIx platform. Live data synced from schools is processed at centralized servers to generate these dashboards. Please upload your school image and a short paragraph of anything you want to share about your school below.
                </Typography>
-               <Typography  variant="subtitle2" align="left" color="textSecondary" paragraph>
+               {/* <Typography  variant="subtitle2" align="left" color="textSecondary" paragraph>
                  *Same student might have visited both modules or tools on any clix lab day |
-                 **Buddy users are also considered |
-                 **Buddy users and Anonymous users are also considered
-                <SaveButton id={dashboard_id}/>
-                </Typography>
+               
+               <br/>  **Buddy users are also not considered |
+                <br/> ***Buddy users and Anonymous users are also considered
+                <SaveButton id={dashboard_id}/> 
+                </Typography> */}
 
                </CardContent>
                </div>
@@ -420,12 +422,16 @@ class Dashboard extends Component {
         {/*Bar chart to display school attendance */}
         <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
         </Paper>
+        <p>                 *Same student might have visited both modules or tools on any clix lab day |
+ </p>
       </Grid>
       {/* Server Up days  */}
       <Grid item xs={12} sm={12} lg={3}>
         <Paper className={fixedHeightPaper}>
           <PieChart data={this.props.data_serverup} isPending={this.props.isPending}/>
         </Paper>
+        
+
       </Grid>
 
       {/* Recent Orders */}
@@ -433,12 +439,14 @@ class Dashboard extends Component {
         <Paper className={fixedHeightPaper}>
            <ModulesChart data={this.props.data_modules} isPending={this.props.isPending}/>
         </Paper>
+        <p>**Buddy users are also not considered |</p>
       </Grid>
 
       <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ToolsChart data={this.props.data_tools} isPending={this.props.isPending}/>
         </Paper>
+        <p> ***Buddy users and Anonymous users are also considered </p>
       </Grid>
       </Grid>
       </Container>

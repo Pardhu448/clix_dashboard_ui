@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 //import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import '../shared/FAQ.css';
+import Link from "@material-ui/core/Link";
+import "../shared/FAQ.css";
 
+import {Helmet } from 'react-helmet';
 export default function FAQ({
   children,
   defaultOpen = [0, 1],
@@ -31,6 +32,11 @@ export default function FAQ({
   };
   return (
     <dl>
+      <Helmet>
+        
+        <title>             CLIx Dashboard FAQ   </title>
+        {" "}
+      </Helmet>
       {React.Children.map(children, (child, index) => {
         return React.cloneElement(child, {
           isOpen: isOpen(index),
@@ -45,8 +51,8 @@ function Question({ children, isOpen, answerId, onToggle }) {
   return (
     <dt>
       <Link
-        component='button'
-        className = "FAQ__question"
+        component="button"
+        className="FAQ__question"
         aria-expanded={isOpen}
         aria-controls={answerId}
         onClick={onToggle}

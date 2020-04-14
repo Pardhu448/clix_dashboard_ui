@@ -18,6 +18,7 @@ import LoginPage from './LoginPage';
 import Dashboard from './Dashboard/Dashboard';
 //import StateDashboard from './StateDashboard/StateDashboard'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { Helmet } from "react-helmet"
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -47,6 +48,11 @@ render(){
   return (
       <div>
       <CssBaseline />
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>CLIx Dashboard</title>
+                <link rel="canonical" href="http://clixdashboard.tiss.edu" />
+            </Helmet>
       <Header />
       <span className="block-example border-top border-light"></span>
       <Switch>

@@ -76,6 +76,11 @@ class Header extends Component{
             </NavLink>
           </NavItem>
           <NavItem>
+            <NavLink style={NavLinkStyle} className='nav-link' to='/access'>
+              <span className=''></span> DropDownMenuAuth
+            </NavLink>
+          </NavItem>
+          <NavItem>
             
           {loggedIn ? 
           <NavLink style={NavLinkStyle} className='nav-link' to='/login'>

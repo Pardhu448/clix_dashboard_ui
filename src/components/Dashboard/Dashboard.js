@@ -54,6 +54,8 @@ import {
 import { dataActions } from '../../redux/dataactions';
 import { schoolInfoActions } from '../../redux/schoolinfoactions'
 
+import { userActionsLogin } from "../../redux/fetchmodeactions"
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -306,10 +308,15 @@ class Dashboard extends Component {
     }*/
   render(){
     const { classes } = this.props;
+    
+    // const { view_mode } = this.props;
+    const { loggedIn } = this.props;
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const expandButton = clsx(classes.expand, {
             [classes.expandOpen]: this.state.expanded,
           });
+    console.log(this.props)
 
     const schoolIntro = 'Short introduction about your school and its unique features. May be summary of interesting facts about your school in the local area. Also photo specific to school above. May be some names of the teachers and headmasters involved.';
     var schoolIntroText = this.props.schoolDescription != null ? this.props.schoolDescription : schoolIntro;
@@ -370,13 +377,21 @@ class Dashboard extends Component {
 
                </CardContent>
                </div>
-
+               {/* {view_mode ? <SchoolImageUpload schoolImage={this.props.schoolImage}
+  /> :
                <SchoolImageUpload schoolImage={this.props.schoolImage}
                                   isImageUploading={this.props.isImageUploading}
                                   onImageUpload={this.onImageUpload}
                                   handleMouseIn={this.handleMouseIn}
                                   handleMouseOut={this.handleMouseOut}
-                                  />
+                                  />} */}
+
+                                  { loggedIn ?   <SchoolImageUpload schoolImage={this.props.schoolImage}
+                                  isImageUploading={this.props.isImageUploading}
+                                  onImageUpload={this.onImageUpload}
+                                  handleMouseIn={this.handleMouseIn}
+                                  handleMouseOut={this.handleMouseOut}
+                                  />:<SchoolImageUpload schoolImage={this.props.schoolImage}/> }
             </Card>
             </Grid>
 
@@ -384,12 +399,15 @@ class Dashboard extends Component {
 
            <Card >
            <CardContent className={classes.content}>
-              <Typography paragraph>
+           { loggedIn ?      <Typography paragraph>
+            {/* { loggedIn ?  */}
               <EdiText
                 showButtonsOnHover
                 value={get_first_few_words(schoolIntroText)[0]}
                 onSave={this.onDescriptionUpdate}
-               />
+               /> 
+               {/* : <EdiText      />
+              } */}
 
                {/*<IconButton
                  className={expandButton}
@@ -405,7 +423,15 @@ class Dashboard extends Component {
                      onClick={this.handleExpandClick}>
                      {this.state.moreTextIndicator}
               </Link>
-               </Typography>
+               </Typography> 
+               :   <Typography paragraph>
+             
+                 <Link component="button"
+                        variant='body2'
+                        onClick={this.handleExpandClick}>
+                        {this.state.moreTextIndicator}
+                 </Link>
+                  </Typography> }
             </CardContent>
            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
            <CardContent>
@@ -459,6 +485,8 @@ class Dashboard extends Component {
 
 function mapStateToProps (state) {
   const { error, data_attendance, data_serverup, data_tools, data_modules, isPending, username } = state.fetchdata;
+  const { view_mode } = state.authmode;
+  const { loggedIn } = state.authenticate;
   const { schoolDescription, schoolImage, isInfoUpdating, isImageUpdating, isImageUploading,
     isImageHoverIn, isImageHoverOut, lastUploadTime } = state.fetchschoolinfo;
   return {
@@ -468,6 +496,8 @@ function mapStateToProps (state) {
     data_tools,
     data_modules,
     isPending,
+    loggedIn,
+    view_mode,
     username,
     schoolDescription,
     schoolImage,

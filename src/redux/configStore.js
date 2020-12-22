@@ -17,8 +17,11 @@ export const ConfigStore = () => {
 import { combineReducers } from 'redux';
 
 import { authenticate } from './authenticateUser';
+import { authmode } from './authMode';
 import { fetchdata } from './fetchData';
+import { fetchschoolnamefetch } from './fetchSchoolNameFetch'
 import { fetchschoolinfo } from './fetchSchoolInfo';
+
 //import { users } from './users.reducer';
 //import { alert } from './alert.reducer';
 
@@ -30,8 +33,10 @@ import { createLogger } from 'redux-logger';
 
 const rootReducer = combineReducers({
   authenticate,
+  authmode,
   fetchdata,
   fetchschoolinfo,
+  fetchschoolnamefetch,
   slider_items: Slider_items,
   schools: Schools
 });

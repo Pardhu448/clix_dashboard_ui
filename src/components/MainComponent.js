@@ -5,11 +5,19 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import HomeSlider from './HomeSliderComponent';
 import HomeCards from './HomeCardsComponent';
+import DynamicSelect from './DynamicSelect';
+import DropDownMenuAuth from './DropDownMenuAuth';
+import The from './TheSchoolAuthe'
+import DropDownMenu from './DropDownMenu';
+
+import RouteDropDown from './RouteDropDown';
 import Header from './HeaderComponent';
 import Footer from './Footer';
 //import About from './AboutComponent';
 //import SchoolSearch from './SchoolSearchComponent';
 import PrivateRoute from './PrivateRoute';
+import PrivateRouteAccess from './PRoute';
+
 //import SignIn from './SignIn';
 import FaqPage from './FaqPage';
 import ContactPage from './ContactPage';
@@ -62,16 +70,23 @@ render(){
          <HomeSlider items={this.props.items}/>
          <span className="block-example border-top border-light"></span>
          <HomeCards />
+         {/* <DynamicSelect/> */}
+         {/* <DropDownMenu/> */}
+         {/* <RouteDropDown/> */}
+
          </>
         }/>
+       <Route path='/access' component={The}/>
 
        <Route path='/login' component={LoginPage}/>
 
        <Route path='/faq' component={FaqPage}/>
        <Route path='/contact' component={ContactPage}/>
-
+      
        <Route path= '/about' component={AboutPage}/>
+
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>
+
        {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
 
        <Route path='/stateviz' component={() => {

@@ -54,6 +54,8 @@ import {
 import { dataActions } from '../../redux/dataactions';
 import { schoolInfoActions } from '../../redux/schoolinfoactions'
 
+import { userActionsLogin } from "../../redux/fetchmodeactions"
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -306,10 +308,15 @@ class Dashboard extends Component {
     }*/
   render(){
     const { classes } = this.props;
+    
+    // const { view_mode } = this.props;
+    const { loggedIn } = this.props;
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const expandButton = clsx(classes.expand, {
             [classes.expandOpen]: this.state.expanded,
           });
+    console.log(this.props)
 
     const schoolIntro = 'Short introduction about your school and its unique features. May be summary of interesting facts about your school in the local area. Also photo specific to school above. May be some names of the teachers and headmasters involved.';
     var schoolIntroText = this.props.schoolDescription != null ? this.props.schoolDescription : schoolIntro;
@@ -340,6 +347,7 @@ class Dashboard extends Component {
   return(
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root} id={dashboard_id}>
+     
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={2}>
@@ -359,22 +367,31 @@ class Dashboard extends Component {
                <Typography variant="subtitle2" align="left" color="textSecondary" paragraph>
                 School dashboards below are generated to enable teachers access data, corresponding to their student's interactiont with CLIx platform. Live data synced from schools is processed at centralized servers to generate these dashboards. Please upload your school image and a short paragraph of anything you want to share about your school below.
                </Typography>
-               <Typography  variant="subtitle2" align="left" color="textSecondary" paragraph>
+               {/* <Typography  variant="subtitle2" align="left" color="textSecondary" paragraph>
                  *Same student might have visited both modules or tools on any clix lab day |
-                 **Buddy users are also considered |
-                 **Buddy users and Anonymous users are also considered
-                <SaveButton id={dashboard_id}/>
-                </Typography>
+               
+               <br/>  **Buddy users are also not considered |
+                <br/> ***Buddy users and Anonymous users are also considered
+                <SaveButton id={dashboard_id}/> 
+                </Typography> */}
 
                </CardContent>
                </div>
-
+               {/* {view_mode ? <SchoolImageUpload schoolImage={this.props.schoolImage}
+  /> :
                <SchoolImageUpload schoolImage={this.props.schoolImage}
                                   isImageUploading={this.props.isImageUploading}
                                   onImageUpload={this.onImageUpload}
                                   handleMouseIn={this.handleMouseIn}
                                   handleMouseOut={this.handleMouseOut}
-                                  />
+                                  />} */}
+
+                                  { loggedIn ?   <SchoolImageUpload schoolImage={this.props.schoolImage}
+                                  isImageUploading={this.props.isImageUploading}
+                                  onImageUpload={this.onImageUpload}
+                                  handleMouseIn={this.handleMouseIn}
+                                  handleMouseOut={this.handleMouseOut}
+                                  />:<SchoolImageUpload schoolImage={this.props.schoolImage}/> }
             </Card>
             </Grid>
 
@@ -382,12 +399,15 @@ class Dashboard extends Component {
 
            <Card >
            <CardContent className={classes.content}>
-              <Typography paragraph>
+           { loggedIn ?      <Typography paragraph>
+            {/* { loggedIn ?  */}
               <EdiText
                 showButtonsOnHover
                 value={get_first_few_words(schoolIntroText)[0]}
                 onSave={this.onDescriptionUpdate}
-               />
+               /> 
+               {/* : <EdiText      />
+              } */}
 
                {/*<IconButton
                  className={expandButton}
@@ -403,7 +423,15 @@ class Dashboard extends Component {
                      onClick={this.handleExpandClick}>
                      {this.state.moreTextIndicator}
               </Link>
-               </Typography>
+               </Typography> 
+               :   <Typography paragraph>
+             
+                 <Link component="button"
+                        variant='body2'
+                        onClick={this.handleExpandClick}>
+                        {this.state.moreTextIndicator}
+                 </Link>
+                  </Typography> }
             </CardContent>
            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
            <CardContent>
@@ -420,12 +448,16 @@ class Dashboard extends Component {
         {/*Bar chart to display school attendance */}
         <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
         </Paper>
+        <p>                 *Same student might have visited both modules or tools on any clix lab day |
+ </p>
       </Grid>
       {/* Server Up days  */}
       <Grid item xs={12} sm={12} lg={3}>
         <Paper className={fixedHeightPaper}>
           <PieChart data={this.props.data_serverup} isPending={this.props.isPending}/>
         </Paper>
+        
+
       </Grid>
 
       {/* Recent Orders */}
@@ -433,12 +465,14 @@ class Dashboard extends Component {
         <Paper className={fixedHeightPaper}>
            <ModulesChart data={this.props.data_modules} isPending={this.props.isPending}/>
         </Paper>
+        <p>**Buddy users are also not considered |</p>
       </Grid>
 
       <Grid item xs={12} sm={12} lg={12}>
         <Paper className={fixedHeightPaper}>
            <ToolsChart data={this.props.data_tools} isPending={this.props.isPending}/>
         </Paper>
+        <p> ***Buddy users and Anonymous users are also considered </p>
       </Grid>
       </Grid>
       </Container>
@@ -451,6 +485,8 @@ class Dashboard extends Component {
 
 function mapStateToProps (state) {
   const { error, data_attendance, data_serverup, data_tools, data_modules, isPending, username } = state.fetchdata;
+  const { view_mode } = state.authmode;
+  const { loggedIn } = state.authenticate;
   const { schoolDescription, schoolImage, isInfoUpdating, isImageUpdating, isImageUploading,
     isImageHoverIn, isImageHoverOut, lastUploadTime } = state.fetchschoolinfo;
   return {
@@ -460,6 +496,8 @@ function mapStateToProps (state) {
     data_tools,
     data_modules,
     isPending,
+    loggedIn,
+    view_mode,
     username,
     schoolDescription,
     schoolImage,

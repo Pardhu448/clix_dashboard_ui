@@ -5,18 +5,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import HomeSlider from './HomeSliderComponent';
 import HomeCards from './HomeCardsComponent';
-import DynamicSelect from './DynamicSelect';
-import DropDownMenuAuth from './DropDownMenuAuth';
+// import DynamicSelect from './DynamicSelect';
+// import DropDownMenuAuth from './DropDownMenuAuth';
 import The from './TheSchoolAuthe'
 import DropDownMenu from './DropDownMenu';
 
-import RouteDropDown from './RouteDropDown';
+// import RouteDropDown from './RouteDropDown';
 import Header from './HeaderComponent';
 import Footer from './Footer';
 //import About from './AboutComponent';
 //import SchoolSearch from './SchoolSearchComponent';
 import PrivateRoute from './PrivateRoute';
-import PrivateRouteAccess from './PRoute';
+// import PrivateRouteAccess from './PRoute';
 
 //import SignIn from './SignIn';
 import FaqPage from './FaqPage';

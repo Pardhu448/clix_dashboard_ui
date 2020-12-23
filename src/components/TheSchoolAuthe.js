@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 // let Data = data.dist_data;
 // console.log(Data);
 class The extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +40,10 @@ class The extends Component {
       planet: [],
       data: [],
     };
+    this.props.dispatch(userActionsLogin.removeUser());
+
   }
+
 
   // componentDidMount() {
   //   const { dispatch } = this.props;
@@ -209,14 +213,14 @@ class The extends Component {
           <option value="4"> Telengana </option>
         </select>
         {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-        <select    className="select" onChange={this.handleExpandClick} required>
+        <select  disabled={!this.state.state_code}  className="select" onChange={this.handleExpandClick} required>
           {" "}
           <option selected disabled> Please select </option>
           {DistName}{" "}
         </select>
-        <select    className="select" onChange={this.handleSchool} required>
+        <select  disabled={!this.state.state_code}  className="select" onChange={this.handleSchool} required>
           {" "}
-          <option selected disabled> Please select school </option>
+          <option selected disabled={!this.state.state_code}> Please select school </option>
           {SchName}
         </select> 
         <button className="selectMenuSubmit" disabled={!this.state.districts && !this.state.school_data}> submit</button>

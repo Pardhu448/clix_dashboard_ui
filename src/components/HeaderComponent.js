@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 import { userActions } from '../redux/useractions';
 
 import { connect } from 'react-redux';
@@ -33,7 +34,7 @@ class Header extends Component{
        <NavbarBrand className="mr-auto" href="/">
         <img
           alt="CLIx Logo"
-          src="/assets/images/clix_logo.png"
+          src="https://clixoer.tiss.edu/static/ndf/images/Clix_logo.png"
           width="150"
           height="40"
           className="d-inline-block align-bottom"
@@ -78,7 +79,10 @@ class Header extends Component{
           <NavItem>
             <NavLink style={NavLinkStyle} className='nav-link' to='/access'>
               <span className=''></span> DropDownMenuAuth
-            </NavLink>
+            </NavLink> 
+                   
+     
+
           </NavItem>
           <NavItem>
             
@@ -103,10 +107,12 @@ class Header extends Component{
 
 function mapStateToProps(state){
   const { loggingIn, loggedIn, loginFailed } = state.authenticate;
+  const { view_mode , user  } = state.authmode;
   return {
       loggingIn,
       loggedIn,
-      loginFailed
+      loginFailed,
+      view_mode,user
   };
 }
-export default connect(mapStateToProps)(Header);
+export default compose(connect(mapStateToProps))(Header);

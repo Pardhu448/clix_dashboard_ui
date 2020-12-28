@@ -7,7 +7,7 @@ import "../shared/FAQ.css";
 import {Helmet } from 'react-helmet';
 export default function FAQ({
   children,
-  defaultOpen = [0, 1],
+  defaultOpen = [0],
   open: openFromProps,
   onToggle: onToggleFromProps = () => {}
 }) {

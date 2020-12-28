@@ -16,7 +16,8 @@ const HomeCards = (props) => {
          </Link>
          </CardTitle>
           <CardText>
-           Login to explore live school visuals. Updated every day.
+           {/* Login to explore live school visuals. Updated every day. */}
+           Login to explore live school level visuals of each state to understand the implementation of modules and tools.
           </CardText>
         </CardBody>
       </Card>

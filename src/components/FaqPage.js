@@ -57,7 +57,7 @@ export default function FaqPage() {
            Datasets are granular enough to arrive at numbers on visualisations, can easily check for some cases manually in csv files.</FAQ.Answer>
         </FAQ.QAItem>
 
-        <FAQ.QAItem>
+        {/* <FAQ.QAItem>
           <FAQ.Question answerId="q3">
             {(isOpen, onToggle) => {
               return (
@@ -69,7 +69,7 @@ export default function FaqPage() {
           </FAQ.Question>
           <FAQ.Answer id="q3"> There is data source section in the website, where you can download underlying data for these visualisations.
            Datasets are granular enough to arrive at numbers on visualisations, can easily check for some cases manually in csv files.</FAQ.Answer>
-        </FAQ.QAItem>
+        </FAQ.QAItem> */}
 
         <FAQ.QAItem>
           <FAQ.Question answerId="q3">

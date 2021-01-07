@@ -3,6 +3,7 @@ import "./DropAuth.css";
 // import { schoolInfoFetch } from "../redux/schoolfetch";
 import { userActions } from "../redux/useractions"
 import { userActionsLogin } from "../redux/fetchmodeactions"
+import { ButtonToggle } from "reactstrap";
 
 import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -34,14 +35,22 @@ class The extends Component {
       school_data: [],
       state_code: "",
       districts_code: "",
-      school_name: '',
+      school_name: null,
       view_mode: true,
       submitted: false,
       selectId: "",
-      errorCallUser: "",
+      error: "No school in Daatabase",
+      errorCallSchool: "",
+      errorCallDistrict: "",
+      id: null,
       planet: [],
       data: [],
     };
+    this.handleExpandClick = this.handleExpandClick.bind(this);
+this.handleSchool = this.handleSchool.bind(this);
+this.handleChange = this.hanldeChange.bind(this);
+this.hanldeSubmit = this.handleSubmit.bind(this);
+
     this.props.dispatch(userActionsLogin.removeUser());
 
   }
@@ -55,7 +64,7 @@ class The extends Component {
   // }
   handleSchool = (e) => {
     console.log(e.target.value);
-    this.setState({ school_name : e.target.value})
+    this.setState({ school_name : e.target.value, errorCallSchool: "", errorCallDistrict: ''})
     
   }
 
@@ -75,13 +84,20 @@ class The extends Component {
         let state_code = data.dist_data.map((item, index) => item.state_code);
         console.log(state_code);
         this.setState({
+          school_data:  [],
+          error: '',
+          errorCallSchool: '',
+          errorCallDistrict: '',
           districts: data.dist_data,
+          districts_code: data.dist_data.distirct_code,
           state_code: state_code[0][0],
           loading: false,
           //   planet: data.planets
         });
         console.log(this.state);
       });
+   
+      
   };
   handleSubmit = (e) => {
     // console.log(e.target.value);
@@ -108,12 +124,21 @@ class The extends Component {
 
     }
 
-    if(school_name == !school_name || school_name === ''){
+    if(this.state.school_data == !this.state.school_data || this.state.school_data === ''){
       this.setState({
-        errorCallUser: "Please choose valid username "
+        errorCallSchool: " Please choose valid schoolname ",
       })
     }
-   
+    if(this.state.districts_code == !this.state.districts_code || this.state.districts_code === ''){
+      this.setState({
+        errorCallDistrict: "Please choose valid district ",
+      })
+    }
+   if(this.props.loginFailed){
+     this.setState({
+       error: "No data in database"
+     })
+   }
   //   const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
   // setTimeout(() => { 
   //   if (view_mode && localStorage.getItem('user')) return <Redirect to={from.pathname} />
@@ -135,13 +160,15 @@ class The extends Component {
     //  .catch((error) => {
     //    console.error(error);
     //  });
+    this.setState({submitted:true , loading: false});
+
    }
 
    
   handleExpandClick = (e) => {
     console.log(e.target.value);
-
-    let id = e.target.value;
+    
+    let id = e.target.value || 0;
     let _id = this.state.state_code;
 
     this.setState({ loading: true });
@@ -152,13 +179,17 @@ class The extends Component {
       })
       .then((data) => {
         console.log(data.sch_data);
-
+        console.log(data.sch_data.distirct_code)
         this.setState({
           school_data: data.sch_data,
+          error: "",
+          errorCallDistrict: '',
+          districts_code: data.sch_data[0].distirct_code,
           //   planet: data.planets
           loading: false,
         });
       });
+      
   };
 
 
@@ -173,11 +204,9 @@ class The extends Component {
 
   render() {
   const { classes } = this.props;
-    // let planets = this.state.;
-    // let planetsArray = planets.planets;
-    // console.log(planetsArray);
+  
     const { view_mode, loggedIn, loginFailed ,user } = this.props;
-    const { school_name, submitted, errorCall, loadding } = this.state;
+    // const { school_name, submitted, errorCall, loadding } = this.state;
     const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
     
     if ( localStorage.getItem('user') && view_mode ) return <Redirect to={from.pathname} />
@@ -194,8 +223,9 @@ class The extends Component {
         {item.school_name}
       </option>
     ));
-    let planet = this.state.planet;
-    let Planet = planet.map((c) => <option value={c}>{c} </option>);
+    // let planet = this.state.planet;
+    // let Planet = planet.map((c) => <option value={c}>{c} </option>);
+
     // console.log(planet);
     return (
       <div className="selectMenu">
@@ -215,20 +245,26 @@ class The extends Component {
           <option value="4"> Telengana </option>
         </select>
         {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-        <select  disabled={!this.state.state_code}  className="select" onChange={this.handleExpandClick} required>
+        <div style= {{color: 'red'}} e> {this.state.errorCallDistrict} </div>
+        <select defaultValue={"District"}  disabled={!this.state.state_code}  className="select" onChange={this.handleExpandClick} required="requried">
           {" "}
-          <option selected disabled> Please select </option>
+          <option value="District" disabled> Please select district </option>
           {DistName}{" "}
         </select>
-        <select  disabled={!this.state.state_code}  className="select" onChange={this.handleSchool} required>
+        {loginFailed ? <div style= {{color: 'red'}} e>{this.state.error} </div> : ""}
+        <div style= {{color: 'red'}} e>  {this.state.errorCallSchool} </div>
+        <select  defaultValue={'schoolname'} disabled={!this.state.districts_code }  className="select" onChange={this.handleSchool} required>
           {" "}
-          <option selected disabled={!this.state.state_code}> Please select school </option>
+             
+          <option value="schoolname" disabled={!this.state.state_code}> Please select school </option>
           {SchName}
         </select>  
          {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
           Submit
+          
         </Button> */}
-        <button className="selectMenuSubmit" disabled={!this.state.state_code}> submit</button>
+
+        <button type="submit" className="selectMenuSubmit" disabled={!this.state.state_code}> Submit</button>
         </form>
         {/* <select className="select" onChange={this.handleExpandClick}>             <option > Please select  </option>
    {DistName} </select>  */}

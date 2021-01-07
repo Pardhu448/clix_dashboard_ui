@@ -61,4 +61,18 @@
   .select:hover::after {
     color: #f39c12;
   }
-  
+ form button {
+   text-align: center;
+ }
+  .selectMenuSubmit{
+    text-align: center;
+    display: block;
+    background:    #34495e;
+  margin: 0 auto;
+
+    padding:10px 20px;
+    color: #ffffff;
+    /* margin:  15px; */
+    border-radius: 5px;
+    
+  }

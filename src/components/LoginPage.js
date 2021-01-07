@@ -47,7 +47,7 @@ const useStyles = theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
-  paper: {
+  paper: { 
     margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
@@ -78,16 +78,16 @@ class LoginPage extends Component {
              password: '',
              errorCall:'',
              errorCallUser:'',
+             errorMessage: ' Username or Password is Incorrect!',
              submitted: false
          };
 
          this.handleChange = this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
      }
-
     handleChange(e) {
             const { name, value } = e.target;
-            this.setState({ [name]: value });
+            this.setState({ [name]: value , errorMessage:""});
         }
 
     handleSubmit(e) {
@@ -117,13 +117,15 @@ class LoginPage extends Component {
 
  render(){
 
+  
    const { classes } = this.props;
+   
    const { loggingIn, loggedIn, loginFailed } = this.props;
    const { username, password, submitted, errorCall } = this.state;
    const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
 
    if (loggedIn) return <Redirect to={from.pathname} />
-
+  
    return (
      <MuiThemeProvider theme = {theme}>
      <Grid container component="main" className={classes.root}>
@@ -171,7 +173,7 @@ class LoginPage extends Component {
               error={this.state.error}
             />
         
-            {loginFailed ? <div style= {{color: 'red'}} e> Username or Password is Incorrect!</div> : null}
+            {loginFailed ? <div style= {{color: 'red'}} e> {this.state.errorMessage}</div> : null}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

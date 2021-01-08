@@ -13,17 +13,22 @@ const NavLinkStyle = {
 class Header extends Component{
   constructor(props){
     super(props);
-    this.state = {isNavOpen: false};
-    this.props.dispatch(userActions.logout());
-    this.props.dispatch(userActions.login());
+    this.state = {isNavOpen: false, Login: 'Login',Logout: "Logout"};
+    // this.props.dispatch(userActions.login());
+    // this.props.dispatch(userActions.logout());
+
 
     this.toggleNav = this.toggleNav.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   toggleNav(){
    this.setState({isNavOpen: !this.state.isNavOpen});
   }
+  handleLogout = ()=> {
+    this.props.dispatch(userActions.logout());
 
+  }
   render(){
     const { loggingIn, loggedIn, loginFailed } = this.props;
     
@@ -88,11 +93,11 @@ class Header extends Component{
             
           {loggedIn ? 
           <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> Logout
+              <span className='' onClick={this.handleLogout}></span> Logout
             </NavLink>
             :
             <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className=''></span> Login
+              <span className=''></span> {this.state.Login}
             </NavLink>  }
                      
           </NavItem>

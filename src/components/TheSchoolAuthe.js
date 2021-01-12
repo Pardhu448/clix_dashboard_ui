@@ -46,11 +46,6 @@ class The extends Component {
       planet: [],
       data: [],
     };
-    this.handleExpandClick = this.handleExpandClick.bind(this);
-this.handleSchool = this.handleSchool.bind(this);
-this.handleChange = this.hanldeChange.bind(this);
-this.hanldeSubmit = this.handleSubmit.bind(this);
-
     this.props.dispatch(userActionsLogin.removeUser());
 
   }
@@ -129,7 +124,7 @@ this.hanldeSubmit = this.handleSubmit.bind(this);
         errorCallSchool: " Please choose valid schoolname ",
       })
     }
-    if(this.state.districts_code == !this.state.districts_code || this.state.districts_code === ''){
+    if(this.state.districts == !this.state.districts || this.state.districts_code === ''){
       this.setState({
         errorCallDistrict: "Please choose valid district ",
       })
@@ -206,7 +201,7 @@ this.hanldeSubmit = this.handleSubmit.bind(this);
   const { classes } = this.props;
   
     const { view_mode, loggedIn, loginFailed ,user } = this.props;
-    // const { school_name, submitted, errorCall, loadding } = this.state;
+    const { school_name, submitted, errorCall, loadding } = this.state;
     const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
     
     if ( localStorage.getItem('user') && view_mode ) return <Redirect to={from.pathname} />
@@ -223,8 +218,8 @@ this.hanldeSubmit = this.handleSubmit.bind(this);
         {item.school_name}
       </option>
     ));
-    // let planet = this.state.planet;
-    // let Planet = planet.map((c) => <option value={c}>{c} </option>);
+    let planet = this.state.planet;
+    let Planet = planet.map((c) => <option value={c}>{c} </option>);
 
     // console.log(planet);
     return (
@@ -248,7 +243,7 @@ this.hanldeSubmit = this.handleSubmit.bind(this);
         <div style= {{color: 'red'}} e> {this.state.errorCallDistrict} </div>
         <select defaultValue={"District"}  disabled={!this.state.state_code}  className="select" onChange={this.handleExpandClick} required="requried">
           {" "}
-          <option value="District" disabled> Please select district </option>
+          <option value="District" disabled> Please select District </option>
           {DistName}{" "}
         </select>
         {loginFailed ? <div style= {{color: 'red'}} e>{this.state.error} </div> : ""}
@@ -256,7 +251,7 @@ this.hanldeSubmit = this.handleSubmit.bind(this);
         <select  defaultValue={'schoolname'} disabled={!this.state.districts_code }  className="select" onChange={this.handleSchool} required>
           {" "}
              
-          <option value="schoolname" disabled={!this.state.state_code}> Please select school </option>
+          <option value="schoolname" disabled={!this.state.state_code}> Please select School </option>
           {SchName}
         </select>  
          {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>

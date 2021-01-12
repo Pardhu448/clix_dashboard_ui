@@ -87,13 +87,13 @@ class LoginPage extends Component {
      }
     handleChange(e) {
             const { name, value } = e.target;
-            this.setState({ [name]: value , errorMessage:""});
+            this.setState({ [name]: value , errorMessage: ""});
         }
 
     handleSubmit(e) {
             e.preventDefault();
             this.setState({ submitted: true });
-            const { username, password , errorCall,errorCallUser } = this.state;
+            const { username, password , errorCall,errorCallUser,errorMessage } = this.state;
             const { dispatch } = this.props;
             //const { from } = this.props.location.state || { from: { pathname: '/' } };
             //const { loggedIn } = this.props;
@@ -110,6 +110,11 @@ class LoginPage extends Component {
             if( username == !username || username === ''){
               this.setState({
                 errorCallUser: "Please choose valid username "
+              })
+            }
+            if(this.props.loginFailed){
+              this.setState({
+                errorMessage: "Username or Password is incorrect"
               })
             }
            
@@ -173,7 +178,7 @@ class LoginPage extends Component {
               error={this.state.error}
             />
         
-            {loginFailed ? <div style= {{color: 'red'}} e> {this.state.errorMessage}</div> : null}
+            {loginFailed ? <div style= {{color: 'red'}} e> {this.state.errorMessage}</div> : ""}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

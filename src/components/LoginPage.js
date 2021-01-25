@@ -87,7 +87,7 @@ class LoginPage extends Component {
      }
     handleChange(e) {
             const { name, value } = e.target;
-            this.setState({ [name]: value , errorMessage: ""});
+            this.setState({ [name]: value , errorMessage: "",errorCall: "", errorCallUser: null});
         }
 
     handleSubmit(e) {
@@ -150,7 +150,7 @@ class LoginPage extends Component {
             <TextField
               variant="outlined"
               margin="normal"
-              errorCall = {this.state.errorCallUser.length === 0 ? false : true}
+              // errorCall = {this.state.errorCallUser.length === 0 ? false : true}
               helperText = { this.state.errorCallUser }
               required
               fullWidth
@@ -164,8 +164,8 @@ class LoginPage extends Component {
             <TextField
               variant="outlined"
               margin="normal"
-              errorCall ={this.state.errorCall.length === 0 ? false : true }
-              helperText={this.state.errorCall } 
+              // errorCall ={this.state.errorCall.length === 0 ? false : true }
+              helperText={this.state.errorCall} 
               required
               fullWidth
               name="password"

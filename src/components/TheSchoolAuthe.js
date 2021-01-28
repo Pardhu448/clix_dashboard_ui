@@ -214,7 +214,7 @@ class The extends Component {
       </option>
     ));
     let SchName = school_data.map((item, index) => (
-      <option key={index} value={item.school_name} >
+      <option key={index} value={item.school_name} disabled={item.school_name.includes('Not synced')}>
         {item.school_name}
       </option>
     ));

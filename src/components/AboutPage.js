@@ -9,6 +9,9 @@ import  clixdemopicurc from '../shared/clix_dashboard_login_image.png'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    margin: 40,
   },
 
 });
@@ -17,7 +20,7 @@ export default function AboutPage() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} align="center">
 
 
 <Grid container spacing={3}>

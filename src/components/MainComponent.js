@@ -19,11 +19,17 @@ import PrivateRoute from './PrivateRoute';
 // import PrivateRouteAccess from './PRoute';
 
 //import SignIn from './SignIn';
+import TheSocialButton from './thesocialbutton';
 import FaqPage from './FaqPage';
+import StateChart from './StateHome'
+
+import TermsofServices from './TermsofServices';
+import Privacy from './Privacy'
 import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import Dashboard from './Dashboard/Dashboard';
+
 //import StateDashboard from './StateDashboard/StateDashboard'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { Helmet } from "react-helmet"
@@ -63,30 +69,23 @@ render(){
             </Helmet>
       <Header />
       <span className="block-example border-top border-light"></span>
+      <TheSocialButton/>
       <Switch>
 
-       <Route exact path = '/home' component={() =>
-         <>
-         <HomeSlider items={this.props.items}/>
-         <span className="block-example border-top border-light"></span>
-         <HomeCards />
-         {/* <DynamicSelect/> */}
-         {/* <DropDownMenu/> */}
-         {/* <RouteDropDown/> */}
-
-         </>
-        }/>
-       <Route path='/access' component={The}/>
+      
+       <Route path='/home' component={The}/>
 
        <Route path='/login' component={LoginPage}/>
 
        <Route path='/faq' component={FaqPage}/>
+       <Route path='/termsofservices' component={TermsofServices}/>
+
        <Route path='/contact' component={ContactPage}/>
       
        <Route path= '/about' component={AboutPage}/>
 
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>
-
+       <Route path= '/privacy' component={Privacy}/>
        {/*<Route path='/schoolsearch' component={StateDashboard}/>*/}
 
        <Route path='/stateviz' component={() => {
@@ -96,6 +95,7 @@ render(){
       <Route path='/documentation' component={() => {
         window.location.href = 'https://clixindia-dev.github.io/clix_vis_demo/pages/documentation.html';
         return null; }}/>
+       
 
 	  {/*<Route path='/documentation' component={() => {
 	 window.open("https://pardhu448.github.io/clix_vis_demo/pages/documentation.html", "_blank");

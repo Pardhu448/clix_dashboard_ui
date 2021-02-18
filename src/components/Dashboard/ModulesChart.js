@@ -173,7 +173,7 @@ const handleChange = name => event => {
                {createOptions(months_available)}
              </Select>
             </FormControl>
-      <Typography variant="h5" color="textSecondary">
+      <Typography variant="h6" color="textSecondary">
         Students Engagement with Modules**
         </Typography>
       </div>
@@ -184,10 +184,12 @@ const handleChange = name => event => {
         margin={{
           top: 0, right: 5, left: 10, bottom: 5,
         }}
-        height={300}
+        height={400}
         >
         <CartesianGrid strokeDasharray="3 3" />
-        <Legend align="right" layout= 'vertical' height= {360} width={220}/>
+        {/* <Legend /> */}
+        <Legend verticalAlign="bottom" height={36}/>
+
         <XAxis dataKey="date">
           <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />
          </XAxis>

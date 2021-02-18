@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     maxWidth: 500,
+    alignItems: 'center'
   },
 });
 
@@ -15,7 +16,7 @@ export default function Types() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
     <Helmet>
       <meta charSet="utf-8" />
                 <title>CLIx Dashboard Contact </title>

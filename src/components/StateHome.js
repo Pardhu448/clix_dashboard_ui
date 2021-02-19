@@ -110,7 +110,7 @@ export default function StateHome() {
         </Grid>
         <Helmet>
           <meta charSet="utf-8" />
-          <title> CLIx Dashboard About</title>
+          <title> CLIx Dashboard </title>
         </Helmet>
         {/* <Typography variant="h5" align='justify' gutterBottom>
         About

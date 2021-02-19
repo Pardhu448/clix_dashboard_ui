@@ -17,7 +17,7 @@ const NavLinkStyle = {
 class Header extends Component{
   constructor(props){
     super(props);
-    this.state = {isNavOpen: false, Login: 'School Login',Logout: "Logout",isTooltipOpen: false, isopen:false };
+    this.state = {isNavOpen: false, Login: 'School Login',Logout: "Logout",isTooltipOpen: false, isopen:false , click: true};
 
     // this.props.dispatch(userActions.login());
     // this.props.dispatch(userActions.logout());
@@ -89,9 +89,9 @@ class Header extends Component{
               <i className="fas fa-home 2x"></i>  Home
             </NavLink>
            </NavItem>
-           <UncontrolledDropdown isOpen={this.state.isopen} onMouseEnter={this.isopen.bind(this)} onMouseLeave={this.isclose.bind(this)} toggle={this.toggleData}  >
+           <UncontrolledDropdown isOpen={this.state.isopen} onMouseEnter={this.isopen.bind(this)} onMouseLeave={this.isclose.bind(this)} toggle={this.toggleData.bind(this)} onClick={(e) => e.preventDefault()}  >
 
-              <DropdownToggle nav caret style={{color: '#000'}}  disabled={this.state.isopen} onClike={e => e.preventDefault()} >
+              <DropdownToggle nav caret style={{color: '#000'}}  disabled={this.state.isopen}  onClick={(e) => e.preventDefault()} >
        
               <span className=''></span>  <i className="fas fa-link 2x"></i> Useful Links 
                  

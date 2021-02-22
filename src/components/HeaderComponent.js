@@ -89,7 +89,7 @@ class Header extends Component{
               <i className="fas fa-home 2x"></i>  Home
             </NavLink>
            </NavItem>
-           <UncontrolledDropdown isOpen={this.state.isopen} onMouseEnter={this.isopen.bind(this)} onMouseLeave={this.isclose.bind(this)} toggle={this.toggleData.bind(this)} onClick={(e) => e.preventDefault()}  >
+           <UncontrolledDropdown isOpen={this.state.isopen} onMouseEnter={this.isopen.bind(this)} onMouseLeave={this.isclose.bind(this)} toggle={this.toggleData.bind(this)}   >
 
               <DropdownToggle nav caret style={{color: '#000'}}  disabled={this.state.isopen}  onClick={(e) => e.preventDefault()} >
        

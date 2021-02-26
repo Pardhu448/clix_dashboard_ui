@@ -23,7 +23,6 @@ export default function DocumentationPage() {
 
 <Grid container spacing={3} xs={12} md={12} lg={12}>
       
-<div class="container-fluid">
   <Grid item xs={12} md={3} lg={3}>
     <div class="nav-docs">
 	<div class="nav-docs-section">
@@ -273,7 +272,7 @@ export default function DocumentationPage() {
 		    </div><br/>
 </div></div></div>
 </Grid>
-</div>
+
 <FaqPage/>
 
       </Grid>

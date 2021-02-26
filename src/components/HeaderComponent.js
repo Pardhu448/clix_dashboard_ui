@@ -99,9 +99,9 @@ class Header extends Component{
               <DropdownMenu right>
                 
                 <DropdownItem>
-                <NavLink style={NavLinkStyle} className='nav-link' to='/documentation'>
+                <Link  href='/documentation' targete="_blank">
               <span className=''></span>  Documentation
-            </NavLink>
+            </Link>
       
                 </DropdownItem>
                 <DropdownItem>

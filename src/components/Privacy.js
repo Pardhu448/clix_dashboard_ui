@@ -27,7 +27,10 @@ function Privacy() {
   return (
     <div  className={classes.root} >
 
-
+<Typography variant="body2" align="justify" gutterBottom>
+      Privacy page
+    
+      </Typography>
 
 
 

@@ -2,6 +2,7 @@
 #fixed-social {
   position: fixed;
   top: 130px;
+  right:0px;
 
 }
 
@@ -18,12 +19,12 @@
 }
 #fixed-social a:hover>span{
  visibility: visible;
- left: 41px;
+ right: 41px;
  opacity: 1;
 } 
 #fixed-social a span {
  line-height: 40px;
-   left: 60px;
+   right: 60px;
    position: absolute;
    text-align: center;
    width: 120px;
@@ -49,6 +50,12 @@
  background-color: #00AF54;
 
 }
+.fixed-youtube{
+  background-color: #FF0000;
+}
+.fixed-youtube span{
+  background-color: #FF0000;
+}
 .fixed-gplus span{
   background-color: #00AF54;
 }
@@ -60,11 +67,11 @@
   background-color: #FFC41E;
 }
 .fixed-instagrem{
- background-color: #964584;
+ background-color: #3f729b;
 
 }
 .fixed-instagrem span{
-  background-color: #964584;
+  background-color: #3f729b;
 }
 .fixed-tumblr{
  background-color: #EB1471;
@@ -178,7 +185,7 @@
   .dropdownOpen:hover{
 background: #444;
   }
-
+  
 
 
   /* loading css */
@@ -239,3 +246,5 @@ background: #444;
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+

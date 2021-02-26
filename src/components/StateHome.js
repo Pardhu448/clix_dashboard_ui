@@ -20,11 +20,11 @@ export default function StateHome() {
   return (
     <div className="container">
       <div className={classes.root}>
-        <Typography variant="h4" align="center" style={{ margin: 40 }}>
+        <Typography variant="h4" align="center" style={{ marginTop: 40 }}>
           {" "}
           State Level Visualisations{" "}
         </Typography>
-        <Typography style={{ margin: 20 }}>
+        <Typography style={{ margin: 20 }}  align="justify" >
           {" "}
           Visualisations are an excellent tool for exploring datasets, which are
           huge and have multiple dimensions and layers. They let people slice

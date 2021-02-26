@@ -22,7 +22,12 @@ export default function TermsofServices() {
   return (
     <div className="container">
    
-
+   <Typography variant="body2" align="justify" gutterBottom>
+      
+      
+    <h1> Terms of Service page</h1>
+      
+      </Typography>
     </div>
   );
 }

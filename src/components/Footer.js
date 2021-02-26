@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    
   },
 }));
 
@@ -63,7 +64,7 @@ function Footer() {
           <Typography>Led by</Typography>
           <span>
             {" "}
-            <a href="https://tiss.edu/"  target="_blank">            <img
+            <a href="https://tiss.edu/"  target="_blank" >            <img
               style={{ width: "140px", paddingRight: 40 }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tiss.svg"
             />
@@ -95,7 +96,7 @@ function Footer() {
             </li>
             <li>
               {" "}
-              <NavLink className="" to="/termsofservice">
+              <NavLink className="" to="/termsofservices">
                 Terms of services
               </NavLink>
             </li>
@@ -121,16 +122,17 @@ function Footer() {
           © 2019-2020 Tata Institute of Social Sciences and Massachusetts
           Institute of Technology
         </Grid>
-        <Grid item xs={6} md={6} lg={6} align="right">
+        <Grid item xs={12} md={6} lg={6} align="right" >
           <i className=" fas fa-globe 2x"> </i> Visit our site :{" "}
-          <a href="clix.tiss.edu"  target="_blank"> clix.tiss.edu</a>
+          <a href="clix.tiss.edu"  target="_blank" style={{ marginRight: 50}}> clix.tiss.edu</a>
           <br />
           <i className="fas fa-envelope 2x"></i> Contact us :{" "}
-          <a href="mailto:contact@clix.tiss.edu" target="_blank"> contact@clix.tiss.edu </a>
+          <a href="mailto:contact@clix.tiss.edu" align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
-        Except where otherwise noted, content on this site is licensed under a{" "}
+     <Typography>   Except where otherwise noted, content on this site is licensed under a{" "}
         <br />
-        Creative Commons Attribution 4.0 International license
+        Creative Commons Attribution 4.0 International license  </Typography>
+        {/* <br/> <span> <i className="fas fa-copyright"></i> </span> */}
       </Grid>
       {/* <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}

@@ -5,12 +5,12 @@ function TheSocialButton() {
   return (
     <div id="fixed-social">
       <div>
-        <a href="#" className="fixed-facebook" target="_blank">
+        <a href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" className="fixed-facebook" target="_blank" >
           <i className="fa fa-facebook"></i> <span>Facebook</span>
         </a>
       </div>
       <div>
-        <a href="#" className="fixed-twitter" target="_blank">
+        <a href="https://twitter.com/@cetei_tiss" className="fixed-twitter" target="_blank" >
           <i className="fa fa-twitter"></i> <span>Twitter</span>
         </a>
       </div>
@@ -20,12 +20,12 @@ function TheSocialButton() {
         </a>
       </div> */}
       <div>
-        <a href="#" className="fixed-linkedin" target="_blank">
-          <i className="fa fa-linkedin"></i> <span>LinkedIn</span>
+        <a href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA" className="fixed-youtube" target="_blank" >
+          <i className="fa fa-youtube"></i> <span>Youtube</span>
         </a>
       </div>
       <div>
-        <a href="#" className="fixed-instagrem" target="_blank">
+        <a href="https://www.instagram.com/cetei_tiss/" className="fixed-instagrem" target="_blank" >
           <i className="fa fa-instagram"></i> <span>Instagram</span>
         </a>
       </div>

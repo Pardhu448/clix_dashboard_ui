@@ -24,6 +24,7 @@ import FaqPage from './FaqPage';
 import StateChart from './StateHome'
 
 import TermsofServices from './TermsofServices';
+import Documentation from './Documentation'
 import Privacy from './Privacy'
 import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
@@ -34,6 +35,7 @@ import Dashboard from './Dashboard/Dashboard';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { Helmet } from "react-helmet"
 import { connect } from 'react-redux';
+import DocumentationPage from './Documentation';
 
 const mapStateToProps = state => {
   return{
@@ -74,10 +76,11 @@ render(){
 
       
        <Route path='/home' component={The}/>
+       <Route path="/documentation" component={DocumentationPage}/>
 
        <Route path='/login' component={LoginPage}/>
-
-       <Route path='/faq' component={FaqPage}/>
+       {/* <Route path='/faq' component={FaqPage}/> */}
+       
        <Route path='/termsofservices' component={TermsofServices}/>
 
        <Route path='/contact' component={ContactPage}/>
@@ -96,7 +99,6 @@ render(){
         window.location.href = 'https://clixindia-dev.github.io/clix_vis_demo/pages/documentation.html';
         return null; }}/>
        
-
 	  {/*<Route path='/documentation' component={() => {
 	 window.open("https://pardhu448.github.io/clix_vis_demo/pages/documentation.html", "_blank");
          <>

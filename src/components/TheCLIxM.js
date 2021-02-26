@@ -66,7 +66,7 @@ export default function TabGlance() {
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="CLIx Phase - I " {...a11yProps(0)} />
           <Tab label="CLIx Phase - II " {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -76,10 +76,10 @@ export default function TabGlance() {
       <TabPanel value={value} index={1}>
       <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}"  style={{width: '100%'}} />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      {/* <TabPanel value={value} index={2}>
         Item Three
-      </TabPanel>
+      </TabPanel> */}
  </div>
-    </div>
+ </div>
   );
 }

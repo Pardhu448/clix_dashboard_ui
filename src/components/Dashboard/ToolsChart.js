@@ -182,7 +182,7 @@ const CustomTooltipContent = function(props){
         }}
         >
         <CartesianGrid strokeDasharray="3 3" />
-        <Legend align="right" layout= 'vertical' height= {360} width={230}/>
+        <Legend verticalAlign="bottom" height= {36} />
         <XAxis dataKey="date">
           <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />
          </XAxis>

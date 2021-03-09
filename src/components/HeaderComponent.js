@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 const NavLinkStyle = {
   color: 'black',
+
 };
 
 class Header extends Component{
@@ -105,21 +106,21 @@ class Header extends Component{
       
                 </DropdownItem>
                 <DropdownItem>
-              <span className=''></span>                   <Link href="https://clix.tiss.edu/" target="_blank"> CLIx Website </Link>
+              <span className=''></span>                   <Link href="https://clix.tiss.edu/" target="_blank"> CLIx Website  </Link>
   
                 </DropdownItem>
                 <DropdownItem>
-              <span className=''></span>        <Link href="https://clixoer.tiss.edu" target="_blank"> CLIxOER</Link> 
+              <span className=''></span>        <Link href="https://clixoer.tiss.edu" target="_blank"> CLIxOER <i className="fas fa-external-link-alt 2x"></i></Link> 
                 </DropdownItem>
              
                 <DropdownItem>
-              <span className=''></span>    <Link href="https://clixguidebook.tiss.edu/" target="_blank"> CLIx GuideBook</Link> 
+              <span className=''></span>    <Link href="https://clixguidebook.tiss.edu/" target="_blank"> CLIx GuideBook  <i className="fas fa-external-link-alt 2x"> </i></Link> 
       
                 </DropdownItem>
                 <DropdownItem>
               
               
-              <span className=''> </span>    <Link href="https://www.tissx.tiss.edu/" target="_blank"> Teacher Platform<br/> TISSx </Link> 
+              <span className=''> </span>    <Link href="https://www.tissx.tiss.edu/" target="_blank"> Teacher Platform <br/> TISSx <i className="fas fa-external-link-alt 2x"></i> </Link> 
             
                 </DropdownItem>
                 

@@ -3,7 +3,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import { Helmet } from "react-helmet";
 import clixdemopicurc from "../shared/clix_dashboard_login_image.png";
 const useStyles = makeStyles({
@@ -11,7 +15,16 @@ const useStyles = makeStyles({
     flexGrow: 1,
     padding: "20px",
     justifyItems: "space-between",
+    
   },
+  media: {
+    height: 140,
+  },
+  card:{
+    padding: "20px",
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+
+  }
 });
 
 export default function StateHome() {
@@ -35,77 +48,141 @@ export default function StateHome() {
           month with syncthing data from schools.
         </Typography>
 
-        <Grid container spacing={1}>
-          <Grid item xs={10} sm={3} md={3} spacing={3}>
-            <Paper>
+        <Grid container spacing={1} justify="center">
+
+
+
+          <Grid item xs={10} sm={6} md={3} spacing={3}>
+
+
+
+       
+
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/uniqueuser_data_viz.html"
                 target="_blank"
               >
                 {" "}
-                <img
+                {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/uniqueuser.png"
                   alt="clix image"
                   style={{ maxWidth: 417, maxHeight: 172 }}
-                />
-                <Typography align="center">
-                  Explore data related to unique user metrics
-                </Typography>
+                /> */}
+                <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://clixindia-dev.github.io/clix_vis_demo/images/uniqueuser.png"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom component="h2">
+          Explore data related to unique user metrics
+          </Typography>
+        
+        </CardContent>
+      </CardActionArea>
+     
+    </Card>
               </a>
-            </Paper>
           </Grid>
-          <Grid item xs={10} sm={3} md={3} spacing={3}>
-            <Paper>
+          <Grid item xs={10} sm={6} md={3} spacing={3}>
+          
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/server_data_viz.html"
                 target="_blank"
               >
                 {" "}
-                <img
+                {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
                   alt="clix image"
                   style={{ maxWidth: 417, maxHeight: 172 }}
-                />{" "}
-                <Typography align="center">
-                  Explore data related to server metrics
-                </Typography>{" "}
+                />{" "} */}
+
+
+<Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom  component="h2">
+          Explore data related to server metrics
+          </Typography>
+        
+        </CardContent>
+      </CardActionArea>
+     
+    </Card>
+               
               </a>{" "}
-            </Paper>
+           
           </Grid>
-          <Grid item xs={10} sm={3} md={3} spacing={3}>
-            <Paper>
+          <Grid item xs={10} sm={6} md={3} spacing={3}>
+            
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/progress_data_viz.html"
                 targrt="_blank"
               >
-                <img
+                {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"
                   alt="clix image"
                   style={{ width: 200, height: 170 }}
-                />
-                <Typography align="center">
-                  Explore data related to course module section of platform
-                </Typography>{" "}
+                /> */}
+                <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom component="h2">
+          Explore data related to course module section of platform
+          </Typography>
+        
+        </CardContent>
+      </CardActionArea>
+     
+    </Card> 
+             
               </a>
-            </Paper>
+            
           </Grid>
 
-          <Grid item xs={10} sm={3} md={3} spacing={3}>
-            <Paper>
+          <Grid item xs={10} sm={6} md={3} spacing={3}>
+           
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/tools_data_viz.html"
                 target="_blank"
               >
-                <img
+                {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/tools_data_image.png"
                   alt="clix image"
                   style={{ width: 200, height: 161 }}
-                />
-                <Typography align="center">
-                  Explore data related to tools section of platform
-                </Typography>
+                /> */}
+                <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://clixindia-dev.github.io/clix_vis_demo/images/tools_data_image.png"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom component="h2">
+          Explore data related to tools section of platform
+          </Typography>
+        
+        </CardContent>
+      </CardActionArea>
+     
+    </Card> 
+                
+                
               </a>
-            </Paper>
+           
           </Grid>
         </Grid>
         <Helmet>

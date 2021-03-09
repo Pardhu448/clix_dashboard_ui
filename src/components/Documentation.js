@@ -10,7 +10,8 @@ const useStyles = makeStyles({
     flexGrow: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
-    margin: 40,
+	margin: 40,
+	fontWeight: 300
   },
 
 });
@@ -26,15 +27,16 @@ export default function DocumentationPage() {
   <Grid item xs={12} md={3} lg={3}>
     <div class="nav-docs">
 	<div class="nav-docs-section">
+		<h3><a href="#thefa"> FA </a></h3>
 		<h3><a href=" #getting-started">Getting Started</a></h3>
 			<a href=" #modules_data_vis">Modules Data Visualisation</a>
-			<li><a href=" #data_source2">2.1 Data Source</a>
-			</li><li><a href=" #data_processing2">2.2 Data Processing</a>
-			</li><li><a href=" #calculation_metrics2">2.3 Calculation Metrics</a>
+			<li><a href=" #data_source2">1.1 Data Source</a>
+			</li><li><a href=" #data_processing2">1.2 Data Processing</a>
+			</li><li><a href=" #calculation_metrics2">1.3 Calculation Metrics</a>
 			<a href=" #tools_data_vis">Tools Data Visualisation</a>
-			</li><li><a href=" #data_source1">1.1 Data Source</a>
-			</li><li><a href=" #data_processing1">1.2 Data Processing</a>
-			</li><li><a href=" #calculation_metrics1">1.3 Calculation Metrics</a>
+			</li><li><a href=" #data_source1">2.1 Data Source</a>
+			</li><li><a href=" #data_processing1">2.2 Data Processing</a>
+			</li><li><a href=" #calculation_metrics1">2.3 Calculation Metrics</a>
                         <a href=" #school_level_vis">School Dashboard Visualisations</a>
 			</li><li><a href=" #data_source3">3.1 Data Source</a>
 		       </li><li><a href=" #data_processing3">3.2 Data Processing</a>
@@ -44,13 +46,16 @@ export default function DocumentationPage() {
     </div>
 </Grid>
  <Grid item xs={12} md={8} lg={8}>
+	 <div id="thefaq">
+	 	 <FaqPage/>
+  </div>
     <div class="inner-content">
       <h1>Introduction</h1>
          <div class="section" id="getting-started">
           <h2>Getting Started</h2>
              <p>This page contains documentation of methodology and data processing involved in generating visualisations for this website.
 		We have a section for each type(based on data source) of visualisation, with all the information about data source, processing and 
-		different metrics used. The questions underlying these visualisations are outcome of collaborative exploration between CLIx technology team and implementation, domain, research and various other teams. Please refer <a href="https://github.com/Pardhu448/clix_dashboard_backend_AF/tree/master/dags/scripts/clix_platform_data_processing">these</a> scripts for more detailed look into data processing methodology.  </p>
+		different metrics used. The questions underlying these visualisations are outcome of collaborative exploration between CLIx technology team and implementation, domain, research and various other teams. Please refer <a href="https://github.com/CLIxIndia-Dev/clix_dashboard_backend_AF/tree/master/dags/scripts/clix_platform_data_processing" >these</a> scripts for more detailed look into data processing methodology.  </p>
 
 
 	 <div class="section" id="modules_data_vis">
@@ -60,9 +65,9 @@ export default function DocumentationPage() {
 			 <p>A language isn't something you learn so much as something you join.</p>
 			 <p class="attribution">—<a class="reference external" href="http://arikaokrent.com/">Arika Okrent</a></p>
 	   		</blockquote>
-                --> */}
+                --> */} 
    	   	       <div class="section" id="data_source2">
-		       <h4>Data Source:</h4>
+		       <h4> 1.1 Data Source:</h4>
 		       <p>Module level progress csvs are generated every hour in each school and is packaged in to syncthing tar file which 
 		       is referred as thin data. Each csv, lists the students along with their buddies if any and quantitative data in a 
 		       cummulative way. This quantitative data talks about the total lessons, activites visited along with the percentage of 
@@ -81,7 +86,7 @@ export default function DocumentationPage() {
 		       unlike tools data as they are generated from 3rd party not by the platform itself.
 		       </p>
 		      <div class="section" id="data_processing2"> 
-			<h4>Data Processing:</h4>
+			<h4>1.2 Data Processing:</h4>
 			<p>
 			Following steps are followed as part of collating the progress data across all schools of a particular state for a given 
 			month of enagagement:
@@ -105,7 +110,7 @@ export default function DocumentationPage() {
 
 	 	      </div>
                     <div class="section" id="calculation_metrics2">
-		        <h4>Calculation of Metrics:</h4> 
+		        <h4>1.3 Calculation of Metrics:</h4> 
                         <p>
                         </p><h5>Total Number of Days Used</h5> 
 			  <h6> How many students have gone through a particular module in a given school? </h6>
@@ -133,7 +138,7 @@ export default function DocumentationPage() {
 	   		</blockquote>
                 --> */}
    	   	       <div class="section" id="data_source1">
-		       <h4>Data Source:</h4>
+		       <h4> 2.1 Data Source:</h4>
 		       <p>Primary Source of tools data is json file generated whenever a user accesses Tools/Apps section of the 
 			  CLIx software. These files along with other thin data are available from schools as part of synthing data.
 			  In a given school (in a particular machine), seperate json file is generated for each tool. 
@@ -149,7 +154,7 @@ export default function DocumentationPage() {
                        </p>
                        </div>
 		      <div class="section" id="data_processing1"> 
-			<h4>Data Processing:</h4>
+			<h4>   2.2 Data Processing:</h4>
 	 	       <p>To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
 		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 
@@ -166,7 +171,7 @@ export default function DocumentationPage() {
 		      </p>
 		      </div>
                     <div class="section" id="calculation_metrics1">
-		        <h4>Calculation of Metrics:</h4> 
+		        <h4> 2.3 Calculation of Metrics:</h4> 
                         <p>
 			</p><h5>Total Number of Days Tool is Used </h5> 
 			  <h6> How many days was the tools section of the platform used during the observation period? </h6>
@@ -207,7 +212,7 @@ export default function DocumentationPage() {
 	   		</blockquote>
                 --> */}
    	   	       <div class="section" id="data_source3">
-		       <h4>Data Source:</h4>
+		       <h4> 3.1 Data Source:</h4>
 		       <p>Primary source of data for these visuals is syncthing data which comprises of tools data (json logs) and modules data (csv files). 
 		       At the time of development of these visuals activity timestamp data was not available. Tools data is json file generated whenever a 
 		       user accesses Tools/Apps section of the CLIx software. Each module(progress) csv, lists the students along with their buddies if any 
@@ -220,7 +225,7 @@ export default function DocumentationPage() {
 		       times as and when they occur.</p>
                        </div>
 		      <div class="section" id="data_processing3"> 
-			<h4>Data Processing:</h4>
+			<h4> 3.1 Data Processing:</h4>
 	 	       <p>To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
 		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 
@@ -241,7 +246,7 @@ export default function DocumentationPage() {
 
 		      </div>
                     <div class="section" id="calculation_metrics3">
-		        <h4>Calculation of Metrics:</h4> 
+		        <h4> 3.3 Calculation of Metrics:</h4> 
                         <p>
 			</p><h5>Attendance of Modules and Tools</h5> 
 			  <h6> How many students were present working on modules or tools section on a given day? </h6>
@@ -273,7 +278,7 @@ export default function DocumentationPage() {
 </div></div></div>
 </Grid>
 
-<FaqPage/>
+{/* <FaqPage/> */}
 
       </Grid>
 <Helmet>

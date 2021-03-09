@@ -17,6 +17,7 @@ import Grid from '@material-ui/core/Grid';
 import Select from "react-select";
 import {Helmet} from 'react-helmet';
 import { compose } from "redux";
+import thebannerc from "../shared/Banner.png";
 
 import baseUrl from "../shared/baseUrl";
 
@@ -231,19 +232,26 @@ class The extends Component {
     // console.log(planet);
     return (
       <div>
-        
+      
         <div
-          className="selectMenu"
           style={{
-            backgroundImage:
-              "url('https://clixoer.tiss.edu/static/ndf/Website%20Banners/Landing%20Page/Revised-eLibrary/eLibrary-1.jpg')",
-            backgroundPosition: "center", backgroundSize: 'cover'
+            width:'100%', height:300,
+            backgroundImage: `url(${thebannerc})`,
+            backgroundPosition: "center", backgroundSize: 'cover',
+            backgroundColor: 'rgba(0,0,0,0.1)'
           }}
         >
-          <Grid container justify="center">
-
-          <form onSubmit={this.handleSubmit}>
+                <Typography variant="h5" align="center" color="#fff" style={{color:'#fff'}}>
+                  CLIx Dashboard
+                </Typography>
+                {/* <Typography variant="" align="center">
+                  Live School Implemation 
+                </Typography> */}
+          <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu">
             {this.state.loading ? <CircularProgress color="secondary" /> : null}
+            <Grid container  spacing={1}  justfiy="center" style={{width:"100vw"}} >
+          <Grid item xs={12} sm={4} md={3} >
+          
             <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
@@ -260,12 +268,14 @@ class The extends Component {
 
               <option value="4"> Telengana </option>
             </select>
-            {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
+            </Grid>
+                          {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
             <span style={{ color: "red" }} e>
               {" "}
               {this.state.errorCallDistrict}{" "}
             </span>
-            <select
+            <Grid item xs={12} sm={4} md={3} >
+              <select
               defaultValue={"District"}
               disabled={!this.state.state_code}
               className="select"
@@ -273,12 +283,13 @@ class The extends Component {
               required="requried"
             >
               {" "}
-              <option value="District" disabled>
+              <option value="District" selected={this.state.districts_code == undefined} disabled>
                 {" "}
                 Please select District {" "}
               </option>
               {DistName}{" "}
             </select>
+            </Grid>
             {loginFailed ? (
               <div style={{ color: "red" }} e>
                 {this.state.error}{" "}
@@ -290,6 +301,7 @@ class The extends Component {
               {" "}
               {this.state.errorCallSchool}{" "}
             </span>
+            <Grid item xs={12} sm={4} md={3} >
             <select
               defaultValue={"schoolname"}
               disabled={!this.state.districts_code}
@@ -304,11 +316,13 @@ class The extends Component {
               </option>
               {SchName}
             </select>
+
+            </Grid>
             {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
           Submit
           
         </Button> */}
-
+  <Grid item xs={12} sm={12} md={2}  align="center">
             <button
               type="submit"
               className="selectMenuSubmit"
@@ -317,12 +331,14 @@ class The extends Component {
               {" "}
               Submit
             </button>
+            </Grid>
+            </Grid>
           </form>
-          </Grid>
-          <h4 style={{ color: "#fff" }}>
+      
+          <h6 style={{ color: "#fff" }} align="center">
             {" "}
-            Note: Access Schools using About Menu{" "}
-          </h4>
+            Note: Access Schools using Above Menu{" "}
+          </h6>
         </div>
         <StateHome />
         <TabGlance />

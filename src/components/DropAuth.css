@@ -149,6 +149,14 @@
    background-color: #2c3e50;
    color: #fff;
   }
+
+  .nav-link:hover{
+    color: #3974c0 !important;
+  }
+  .active{
+    color: #f33c3c !;
+  }
+
   #themenu{
     width: 100%;
     height: 200px;
@@ -162,21 +170,21 @@
    box-shadow: 2px -2px skyblue;
  }
   .selectMenuSubmit{
-    background: #000000;
-    background-image: -webkit-linear-gradient(top, #000000, #ffffff);
+    background: #96dfdb;
+    background-image: -webkit-linear-gradient(top, #000000, #5d9df0);
     background-image: -moz-linear-gradient(top, #000000, #ffffff);
     background-image: -ms-linear-gradient(top, #000000, #ffffff);
     background-image: -o-linear-gradient(top, #000000, #ffffff);
-    background-image: linear-gradient(to bottom, #000000, #ffffff, 0.5);
+    background-image: linear-gradient(to bottom, #93bce8, #ffffff, 0.5);
     -webkit-border-radius: 14;
     -moz-border-radius: 14;
     border-radius: 14px;
     -webkit-box-shadow: 5px 6px 3px #ffffff;
     -moz-box-shadow: 5px 6px 3px #ffffff;
     box-shadow: 5px 6px 3px #ffffff;
-    font-family: Arial;
-    color: #000000;
-    font-size: 12px;
+    /* font-family: Arial; */
+    color: #962789;
+    /* font-size: 12px; */
     padding: 11px 23px 11px 24px;
     text-decoration: none;
     /* text-align: center;
@@ -187,7 +195,8 @@
   -webkit-box-shadow: 39px 36px 44px 18px rgba(28,142,143,0.57);
   -moz-box-shadow: 39px 36px 44px 18px rgba(28,142,143,0.57);
     padding:10px 20px; */
-    color: #ffffff;
+    color: #000000;
+    font-weight: normal;
     /* margin:  15px; */
     border-radius: 5px;
     
@@ -211,6 +220,7 @@
  .themaile{
    text-align: left !important;
  }
+ 
 .selectMenu select {
     
   -webkit-appearance: none;
@@ -231,6 +241,156 @@
 background: #444;
   }
   
+
+/* Wrapper */
+.icon-button {
+	background-color: white;
+	border-radius: 2.6rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.3rem;
+	height: 2.6rem;
+	line-height: 2.6rem;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	width: 2.6rem;
+}
+
+/* Circle */
+.icon-button span {
+	border-radius: 0;
+	display: block;
+	height: 0;
+	left: 50%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 0;
+}
+.icon-button:hover span {
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 2.6rem;
+	margin: -1.3rem;
+}
+
+/* Icons */
+.icon-button i {
+	background: none;
+	/* color: white; */
+	height: 2.6rem;
+	left: 0;
+	line-height: 2.6rem;
+	position: absolute;
+	top: 0;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 2.6rem;
+	z-index: 10;
+}
+
+
+
+
+
+.twitter span {
+	background-color: #4099ff;
+}
+.facebook span {
+	background-color: #3B5998 !important;
+}
+.google-plus span {
+	background-color: #db5a3c;
+}
+.tumblr span {
+	background-color: #34526f;
+}
+.instagram span {
+	background-color: #517fa4;
+}
+.youtube span {
+	background-color: #bb0000;
+}
+.pinterest span {
+	background-color: #cb2027;
+}
+
+
+
+.icon-button .icon-twitter {
+	color: #4099ff;
+}
+.icon-button .icon-facebook {
+	color: #3B5998;
+}
+.icon-button .fa-tumblr {
+	color: #34526f;
+}
+.icon-button .icon-google-plus {
+	color: #db5a3c;
+}
+.icon-button .fa-instagram {
+	color: #517fa4;
+}
+.icon-button .fa-youtube {
+	color: #bb0000;
+}
+.icon-button .fa-pinterest {
+	color: #cb2027;
+}
+
+
+
+
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-google-plus,
+.icon-button:hover .fa-tumblr,
+.icon-button:hover .fa-instagram,
+.icon-button:hover .fa-youtube,
+.icon-button:hover .fa-pinterest {
+	color: white;
+}
+
+@media all and (max-width: 680px) {
+  .icon-button {
+    border-radius: 1.6rem;
+    font-size: 0.8rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    width: 1.6rem;
+  }
+
+  .icon-button:hover span {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 1.6rem;
+    margin: -0.8rem;
+  }
+
+  /* Icons */
+  .icon-button i {
+	  height: 1.6rem;
+	  line-height: 1.6rem;
+	  width: 1.6rem;
+  }
+  
+  .pinterest {
+   /* display: none;  */
+  }
+
+}
 
 
   /* loading css */

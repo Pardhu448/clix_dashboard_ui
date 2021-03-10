@@ -14,6 +14,9 @@ const NavLinkStyle = {
   color: 'black',
 
 };
+const LInkStyle = {
+     
+}
 
 class Header extends Component{
   constructor(props){
@@ -84,7 +87,7 @@ class Header extends Component{
         <Nav className="ml-auto" navbar>
 
            <NavItem >
-            <NavLink style={NavLinkStyle} className='nav-link' to='/home'>
+            <NavLink style={NavLinkStyle} activeClassName="active" exact  className='nav-link' active  to='/home'>
               <span className=''> </span>       {/* <HomeIcon fontSize="small"  title="Home"/> */}
            
               <i className="fas fa-home 2x"></i>  Home
@@ -173,7 +176,7 @@ class Header extends Component{
       
             :
         
-            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+            <NavLink style={NavLinkStyle} exact className='nav-link'  activeClassName="active" to='/login'>
               <span className=''></span>   <i className="fas fa-sign-in-alt"></i>
               <span id="tooltip-data">  {this.state.Login} </span>
               <Tooltip placement="top" isOpen={this.state.isTooltipOpen} autohide={false} target="tooltip-data" toggle={this.toggleTooltip}>

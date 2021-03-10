@@ -2,6 +2,7 @@ import React from "react";
 //import { Link as RouterLink } from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import Box from '@material-ui/core/Box'
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { NavLink } from "react-router-dom";
@@ -61,7 +62,7 @@ function Footer() {
         </Grid>
 
         <Grid item xs={12} sm={3} md={3} align="center">
-          <ul style={{ listStyle: "none", marginTop: 10, marginRight:20 }} align="center">
+          <ul style={{ listStyle: "none", marginTop: 10, marginRight:20 }} align="left">
             <li >
               <NavLink className="" to="/about">
                 About{" "}
@@ -109,6 +110,14 @@ function Footer() {
           <i className="fas fa-envelope 2x"></i> Contact us :{" "}
           <a href="mailto:contact@clix.tiss.edu" align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
+        <Box display={ {xs:'block',sm:'none', md:'none'}}>
+        <a href="#" className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
+<a href="#" className="icon-button facebook"><i className="fa fa-facebook"></i><span></span></a>
+<a href="#" className="icon-button youtube"><i className="fa fa-youtube"></i><span></span></a>
+<a href="#" className="icon-button pinterest"><i className="fa fa-instagram"></i><span></span></a>
+             
+     
+          </Box>
      <Typography variant="p">  
         Except where otherwise noted, content on this site is licensed under a{" "}
         <br />

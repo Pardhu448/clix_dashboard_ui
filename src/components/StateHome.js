@@ -17,14 +17,19 @@ const useStyles = makeStyles({
     justifyItems: "space-between",
     
   },
+  fontsize:{
+    fontSize: '12px'
+  },
   media: {
     height: 140,
   },
   card:{
     padding: "20px",
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+     fontSize: 12
+  }, 
 
-  }
+  
 });
 
 export default function StateHome() {
@@ -73,10 +78,10 @@ export default function StateHome() {
         <CardMedia
           className={classes.media}
           image="https://clixindia-dev.github.io/clix_vis_demo/images/uniqueuser.png"
-          title="Contemplative Reptile"
+          title=" Explore data related to unique user metrics"
         />
         <CardContent>
-          <Typography gutterBottom component="h2">
+          <Typography gutterBottom component="h2" className={classes.fontsize} style={{fontSize:12}}>
           Explore data related to unique user metrics
           </Typography>
         
@@ -102,13 +107,14 @@ export default function StateHome() {
 
 <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
+        <CardMedia 
+        gutterUp
           className={classes.media}
           image="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
           title="Contemplative Reptile"
         />
-        <CardContent>
-          <Typography gutterBottom  component="h2">
+        <CardContent> 
+          <Typography gutterBottom  className={classes.fontsize} component="h2">
           Explore data related to server metrics
           </Typography>
         
@@ -136,10 +142,10 @@ export default function StateHome() {
         <CardMedia
           className={classes.media}
           image="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"
-          title="Contemplative Reptile"
+          title="  Explore data related to course module section of platform"
         />
         <CardContent>
-          <Typography gutterBottom component="h2">
+          <Typography gutterBottom  component="h2" className={classes.fontsize} >
           Explore data related to course module section of platform
           </Typography>
         
@@ -171,7 +177,7 @@ export default function StateHome() {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom component="h2">
+          <Typography gutterBottom component="h2" className={classes.fontsize} >
           Explore data related to tools section of platform
           </Typography>
         

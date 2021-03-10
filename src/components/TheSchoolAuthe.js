@@ -236,18 +236,18 @@ class The extends Component {
         <div
           style={{
             width:'100%', height:300,
-            backgroundImage: `url(${thebannerc})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${thebannerc})`,
             backgroundPosition: "center", backgroundSize: 'cover',
-            backgroundColor: 'rgba(0,0,0,0.1)'
+            backgroundColor: 'rgba(0,0,0,0.7)',
           }}
         >
                 <Typography variant="h5" align="center" color="#fff" style={{color:'#fff'}}>
-                  CLIx Dashboard
+                 <span className="color">   CLIx </span>  Dashboard
                 </Typography>
                 {/* <Typography variant="" align="center">
                   Live School Implemation 
                 </Typography> */}
-          <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu">
+          <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
             {this.state.loading ? <CircularProgress color="secondary" /> : null}
             <Grid container  spacing={1}  justfiy="center" style={{width:"100vw"}} >
           <Grid item xs={12} sm={4} md={3} >
@@ -337,7 +337,7 @@ class The extends Component {
       
           <h6 style={{ color: "#fff" }} align="center">
             {" "}
-            Note: Access Schools using Above Menu{" "}
+            Note: Access School level visuals using Above Menus{" "}
           </h6>
         </div>
         <StateHome />

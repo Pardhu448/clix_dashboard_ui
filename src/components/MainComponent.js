@@ -96,10 +96,10 @@ render(){
       <Switch>
 
       
-       <Route path='/home' component={The}/>
+       <Route  path='/home' component={The}/>
        <Route path="/documentation" component={DocumentationPage}/>
 
-       <Route path='/login' component={LoginPage}/>
+       <Route  path='/login' component={LoginPage}/>
        {/* <Route path='/faq' component={FaqPage}/> */}
        
        <Route path='/termsofservices' component={TermsofServices}/>

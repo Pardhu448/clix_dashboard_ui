@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, Dropdown, DropdownToggle, DropdownItem,DropdownMenu , Tooltip} from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink,withRouter } from 'react-router-dom';
 
 import Link from '@material-ui/core/Link'
 import { userActions } from '../redux/useractions';
@@ -63,6 +63,7 @@ class Header extends Component{
 
   }
   render(){
+    const isActive = (path, match, location) => !!(match || path === location.pathname);
 
     const { loggingIn, loggedIn, loginFailed } = this.props;
     
@@ -109,7 +110,7 @@ class Header extends Component{
       
                 </DropdownItem>
                 <DropdownItem>
-              <span className=''></span>                   <Link href="https://clix.tiss.edu/" target="_blank"> CLIx Website  </Link>
+              <span className=''></span>                   <Link href="https://clix.tiss.edu/" target="_blank"> CLIx Website <i className="fas fa-external-link-alt 2x"></i>  </Link>
   
                 </DropdownItem>
                 <DropdownItem>
@@ -208,4 +209,4 @@ function mapStateToProps(state){
       view_mode,user
   };
 }
-export default compose(connect(mapStateToProps))(Header);
+export default withRouter(compose(connect(mapStateToProps))(Header));

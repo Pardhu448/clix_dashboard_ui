@@ -61,7 +61,7 @@ function Footer() {
           </span>
         </Grid>
 
-        <Grid item xs={12} sm={3} md={3} align="center">
+        <Grid item xs={4} sm={3} md={3} align="center">
           <ul style={{ listStyle: "none", marginTop: 10, marginRight:20 }} align="left">
             <li >
               <NavLink className="" to="/about">
@@ -97,8 +97,8 @@ function Footer() {
         </Grid>
       </Grid>
       <hr />
-      <Grid container justfy="center">
-        <Grid item xs={12} sm={6} md={6} lg={6} align="left" >
+      <Grid container justfy="center" style={{fontWeight: 300}}>
+        <Grid item xs={12} sm={6} md={6} lg={6} align="left"   >
           © 2019-2020 Tata Institute of Social Sciences and Massachusetts
           Institute of Technology
         </Grid>
@@ -111,14 +111,14 @@ function Footer() {
           <a href="mailto:contact@clix.tiss.edu" align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
         <Box display={ {xs:'block',sm:'none', md:'none'}}>
-        <a href="#" className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
-<a href="#" className="icon-button facebook"><i className="fa fa-facebook"></i><span></span></a>
-<a href="#" className="icon-button youtube"><i className="fa fa-youtube"></i><span></span></a>
-<a href="#" className="icon-button pinterest"><i className="fa fa-instagram"></i><span></span></a>
-             
+        <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" href="https://twitter.com/@cetei_tiss" className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
+<a href="#" href="https://www.facebook.com/cetei.tiss/?ref=bookmarks"  className="icon-button facebook"><i className="fa fa-facebook"></i><span></span></a>
+<a href="#"  href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA" className="icon-button youtube"><i className="fa fa-youtube"></i><span></span></a>
+<a href="#"  href="https://www.instagram.com/cetei_tiss/" className="icon-button pinterest"><i className="fa fa-instagram"></i><span></span></a>
+              
      
           </Box>
-     <Typography variant="p">  
+     <Typography variant="p" >  
         Except where otherwise noted, content on this site is licensed under a{" "}
         <br />
         Creative Commons Attribution 4.0 International license  <span> <i className="fas fa-copyright"></i> </span>

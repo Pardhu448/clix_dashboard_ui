@@ -76,9 +76,10 @@ class The extends Component {
     let _id = e.target.value;
 
     this.setState({ loading: true });
-    fetch(`${baseUrl}/districts/${_id}`)
+  fetch(`${baseUrl}/districts/${_id}`)
       .then((response) => {
         return response.json();
+    
       })
       .then((data) => {
         let state_code = data.dist_data.map((item, index) => item.state_code);
@@ -94,8 +95,16 @@ class The extends Component {
           loading: false,
           //   planet: data.planets
         });
+  
         console.log(this.state);
-      });
+      })
+      // .catch((error) =>{ 
+      //   console.log(error)
+      //   this.setState({
+      //     loading: false,
+      //     error: "failed to fetch data"
+      //   })
+      // });
   };
   handleSubmit = (e) => {
     // console.log(e.target.value);
@@ -172,8 +181,10 @@ class The extends Component {
     this.setState({ loading: true });
 
     fetch(`${baseUrl}/schools/${_id}/${id}`)
+   
       .then((response) => {
         return response.json();
+
       })
       .then((data) => {
         console.log(data.sch_data);
@@ -241,7 +252,7 @@ class The extends Component {
             backgroundColor: 'rgba(0,0,0,0.7)',
           }}
         >
-                <Typography variant="h5" align="center" color="#fff" style={{color:'#fff'}}>
+                <Typography variant="h3" align="center" color="#fff" style={{color:'#fff'}}>
                  <span className="color">   CLIx </span>  Dashboard
                 </Typography>
                 {/* <Typography variant="" align="center">
@@ -249,17 +260,17 @@ class The extends Component {
                 </Typography> */}
           <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
             {this.state.loading ? <CircularProgress color="secondary" /> : null}
-            <Grid container  spacing={1}  justfiy="center" style={{width:"100vw"}} >
-          <Grid item xs={12} sm={4} md={3} >
+            <Grid container  direction="row"  alignItems="center"  justfiy="center"  style={{width:"100vw", display: 'inline-block'}} >
           
             <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
               required
+            
             >
               <option selected disabled>
                 {" "}
-                Please select State{" "}
+            State{" "}
               </option>
               <option value="1"> Chattisgarh </option>
               <option value="3"> Rajasthan</option>
@@ -268,13 +279,12 @@ class The extends Component {
 
               <option value="4"> Telengana </option>
             </select>
-            </Grid>
                           {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
             <span style={{ color: "red" }} e>
               {" "}
+              {/* {this.state.error} */}
               {this.state.errorCallDistrict}{" "}
             </span>
-            <Grid item xs={12} sm={4} md={3} >
               <select
               defaultValue={"District"}
               disabled={!this.state.state_code}
@@ -285,11 +295,10 @@ class The extends Component {
               {" "}
               <option value="District" selected={this.state.districts_code == undefined} disabled>
                 {" "}
-                Please select District {" "}
+        District {" "}
               </option>
               {DistName}{" "}
             </select>
-            </Grid>
             {loginFailed ? (
               <div style={{ color: "red" }} e>
                 {this.state.error}{" "}
@@ -301,7 +310,6 @@ class The extends Component {
               {" "}
               {this.state.errorCallSchool}{" "}
             </span>
-            <Grid item xs={12} sm={4} md={3} >
             <select
               defaultValue={"schoolname"}
               disabled={!this.state.districts_code}
@@ -312,33 +320,40 @@ class The extends Component {
               {" "}
               <option value="schoolname" disabled={!this.state.state_code}>
                 {" "}
-                Please select School{" "}
+            School{" "}
               </option>
               {SchName}
             </select>
 
-            </Grid>
             {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
           Submit
           
         </Button> */}
-  <Grid item xs={12} sm={12} md={2}  align="center">
             <button
               type="submit"
+              color='primary'
               className="selectMenuSubmit"
               disabled={!this.state.state_code}
-            >
+               style={{margin: '0 auto'}}
+              >
               {" "}
               Submit
             </button>
-            </Grid>
-            </Grid>
-          </form>
-      
-          <h6 style={{ color: "#fff" }} align="center">
+            <Grid item xs={12} md={12}>
+<h6 style={{ color: "#fff" }} align="center">
             {" "}
             Note: Access School level visuals using Above Menus{" "}
           </h6>
+
+            </Grid>
+            </Grid>
+            
+          </form>
+      
+          {/* <h6 style={{ color: "#fff" }} align="center">
+            {" "}
+            Note: Access School level visuals using Above Menus{" "}
+          </h6> */}
         </div>
         <StateHome />
         <TabGlance />

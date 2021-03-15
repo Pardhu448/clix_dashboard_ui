@@ -2,11 +2,13 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+
 import Paper from "@material-ui/core/Paper";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+
 import CardMedia from '@material-ui/core/CardMedia';
 import { Helmet } from "react-helmet";
 import clixdemopicurc from "../shared/clix_dashboard_login_image.png";
@@ -15,10 +17,11 @@ const useStyles = makeStyles({
     flexGrow: 1,
     padding: "20px",
     justifyItems: "space-between",
-    
+
   },
   fontsize:{
     fontSize: '12px'
+  
   },
   media: {
     height: 140,
@@ -26,7 +29,7 @@ const useStyles = makeStyles({
   card:{
     padding: "20px",
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-     fontSize: 12
+     fontSize: 12,
   }, 
 
   
@@ -37,12 +40,12 @@ export default function StateHome() {
 
   return (
     <div className="container">
-      <div className={classes.root}>
+      <div className={classes.root} >
         <Typography variant="h4" align="center" style={{ marginTop: 40 }}>
           {" "}
           State Level Visualisations{" "}
         </Typography>
-        <Typography style={{ margin: 20 }}  align="justify" >
+        <Typography style={{ margin: 20, fontWeight: 300}}  className='thefont'  align="justify"  >
           {" "}
           Visualisations are an excellent tool for exploring datasets, which are
           huge and have multiple dimensions and layers. They let people slice

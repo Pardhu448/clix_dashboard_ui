@@ -39,7 +39,8 @@ const theme = createMuiTheme({
 
 const useStyles = theme => ({
   root: {
-    height: '80vh',
+    // height: '80vh',
+
   },
   image: {
     backgroundImage: `url(${school_image})`,

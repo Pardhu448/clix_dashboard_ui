@@ -273,9 +273,12 @@ class The extends Component {
             State{" "}
               </option>
               <option value="1"> Chattisgarh </option>
-              <option value="3"> Rajasthan</option>
+            
 
-              <option value="2"> Mizoram </option>
+              {/* <option value="3"> Rajasthan</option>        */}
+                     <option value="2"> Mizoram </option>
+                     <option value="3"> Rajasthan</option>       
+
 
               <option value="4"> Telengana </option>
             </select>

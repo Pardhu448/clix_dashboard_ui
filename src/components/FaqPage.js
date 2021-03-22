@@ -2,12 +2,13 @@ import React from "react";
 //import ReactDOM from "react-dom";
 import FAQ from "./FAQ";
 import Typography from '@material-ui/core/Typography';
+import "./DropAuth.css";
 
 export default function FaqPage() {
   return (
     <div>
-    <Typography variant="h5" align='justify' gutterBottom>
-      FAQ
+    <Typography variant="h5"  align='justify' gutterBottom>
+      FAQs
     </Typography>
 
       <FAQ>
@@ -21,7 +22,7 @@ export default function FaqPage() {
               );
             }}
           </FAQ.Question>
-          <FAQ.Answer id="q1"> All the data for tools and course modules are part of thin data gathered
+          <FAQ.Answer id="q1" > All the data for tools and course modules are part of thin data gathered
           using syncthing from schools through internet and sometimes manually by our field tech team.
           Tools data corresponds to json files logged whenever a student accesses tools section of the
           platform and course module data are from progress csv's generated every hour capturing activity on

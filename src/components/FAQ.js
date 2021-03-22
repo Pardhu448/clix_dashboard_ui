@@ -32,11 +32,11 @@ export default function FAQ({
   };
   return (
     <dl>
-      <Helmet>
+      {/* <Helmet>
         
         <title>             CLIx Dashboard FAQ   </title>
         {" "}
-      </Helmet>
+      </Helmet> */}
       {React.Children.map(children, (child, index) => {
         return React.cloneElement(child, {
           isOpen: isOpen(index),

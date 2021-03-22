@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-
 import  { Helmet } from 'react-helmet';
 const useStyles = makeStyles({
   root: {
@@ -21,6 +20,10 @@ export default function TermsofServices() {
 
   return (
     <div className="container">
+      <Helmet>
+
+        <title>  CLIx Dashboard Terms of Privacy </title>
+      </Helmet>
    
    <Typography variant="body2" align="justify" gutterBottom>
       

@@ -32,7 +32,7 @@ export default function FAQ({
   };
   return (
     <dl>
-  
+    
       {React.Children.map(children, (child, index) => {
         return React.cloneElement(child, {
           isOpen: isOpen(index),

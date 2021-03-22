@@ -32,18 +32,7 @@ export default function FAQ({
   };
   return (
     <dl>
-      <Helmet>
-        
-        {/* <title>             CLIx Dashboard FAQ   </title> */}
-        <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://clixdashboard.tiss.edu/documentation"/>
-<meta property="og:title" content=" Documentation | CLIxDashboard - implementation metric and learning analytics"/>
-<meta property="og:description" content=" Understand the open data documentation of CLIx learning analytics and implementation monitoring metrics."/>
-<meta property="og:image" content="https://staging-clixdashboard.tiss.edu/static/media/Banner.1c665a81.png"/>
-<meta property="og:image:width" content="400"/>
-<meta property="og:image:height" content="800" />
-        {" "}
-      </Helmet>
+  
       {React.Children.map(children, (child, index) => {
         return React.cloneElement(child, {
           isOpen: isOpen(index),

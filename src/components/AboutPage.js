@@ -43,11 +43,16 @@ Students use CLIx platform regularly generating a lot of datasets which are bein
         </Grid>
         
       </Grid>
-{/* <Helmet>
+<Helmet>
 <meta charSet="utf-8" />
-                <title> CLIx Dashboard About</title>
+                {/* <title> CLIx Dashboard About</title> */}
+                <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://clixdashboard.tiss.edu/about"/>
+<meta property="og:title" content="  About |  CLIxDashboard - implementation metric and learning analytics "/>
+<meta property="og:description" content=" Explore the CLIx implementation monitoring metrics and learning analytics across our partner schools."/>
+<meta property="og:image" content="https://staging-clixdashboard.tiss.edu/static/media/Banner.1c665a81.png"/>
 
-</Helmet> */}
+</Helmet>
       {/* <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography> */}

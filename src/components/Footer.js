@@ -31,12 +31,13 @@ function Footer() {
       <hr />
      
 
-      <Grid container justify="center">
+      <Grid container justify="center" >
         <Grid item xs={12} sm={3} md={3} align="center">
           <a href="https://www.tatatrusts.org/" target="_blank" >
           <img
             style={{ marginTop: 10 }}
             src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tata_trusts.svg"
+            alt="tata trust"
           />
           </a>
         </Grid>
@@ -47,6 +48,7 @@ function Footer() {
             <a href="https://tiss.edu/"  target="_blank" >            <img
               style={{ width: "140px", paddingRight: 40 }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tiss.svg"
+              alt="tiss"
             />
             </a>
           </span>
@@ -56,6 +58,7 @@ function Footer() {
             <img
               style={{ width: "140px", }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/mit.svg"
+              alt="themit"
             />
             </a>
           </span>
@@ -118,7 +121,7 @@ function Footer() {
               
      
           </Box>
-     <Typography variant="p" >  
+     <Typography variant="inherit" >  
         Except where otherwise noted, content on this site is licensed under a{" "}
         <br />
         Creative Commons Attribution 4.0 International license  <span> <i className="fas fa-copyright"></i> </span>

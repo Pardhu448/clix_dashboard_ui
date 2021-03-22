@@ -27,7 +27,7 @@ export default function DocumentationPage() {
   <Grid item xs={12} md={3} lg={3}>
     <div class="nav-docs">
 	<div class="nav-docs-section">
-		<h3><a href="#thefa"> FA </a></h3>
+		<h3><a href="#thefa"> FAQs </a></h3>
 		<h3><a href=" #getting-started">Getting Started</a></h3>
 			<a href=" #modules_data_vis">Modules Data Visualisation</a>
 			<li><a href=" #data_source2">1.1 Data Source</a>

@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {NavLink} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
+import  { Helmet } from 'react-helmet';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,9 +27,12 @@ function Privacy() {
 
   return (
     <div  className={classes.root} >
+ <Helmet>
 
+<title>  CLIx Dashboard  Privacy  </title>
+</Helmet>
 <Typography variant="body2" align="justify" gutterBottom>
-      Privacy page
+      Pravcay page
     
       </Typography>
 

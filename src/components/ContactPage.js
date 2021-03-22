@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import "./DropAuth.css";
 
 import { Helmet } from 'react-helmet';
 
@@ -29,12 +30,12 @@ export default function Types() {
         Contact
       </Typography>
 
-      <Typography variant="body2" gutterBottom>
+      <Typography variant="body2" className="text" gutterBottom>
       All the data sources including the code is available for CLIx community to recreate, refine and further these visualisations.
 If you are having any problems, any questions or suggestions, feel free to contact us at below:
       </Typography>
 
-      <Typography variant="overline" display="block" gutterBottom>
+      <Typography variant="overline" className="text" display="block" gutterBottom>
       durga.garapati@tiss.edu,
       parthasarathi.edupally@tiss.edu,
       sadaqat.mulla@tiss.edu,

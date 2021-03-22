@@ -179,17 +179,21 @@ class The extends Component {
     let _id = this.state.state_code;
 
     this.setState({ loading: true });
-
+try {
+  
+} catch (error) {
+  
+}
     fetch(`${baseUrl}/schools/${_id}/${id}`)
-   
       .then((response) => {
+      
         return response.json();
 
       })
       .then((data) => {
         console.log(data.sch_data);
         console.log(data.sch_data.distirct_code);
-        this.setState({
+                this.setState({
           school_data: data.sch_data,
           error: "",
           errorCallDistrict: "",
@@ -259,9 +263,8 @@ class The extends Component {
                   Live School Implemation 
                 </Typography> */}
           <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
-            {this.state.loading ? <CircularProgress color="secondary" /> : null}
             <Grid container  direction="row"  alignItems="center"  justfiy="center"  style={{width:"100vw", display: 'inline-block'}} >
-          
+            {this.state.loading ? <CircularProgress color="secondary" /> : null}
             <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
@@ -301,7 +304,8 @@ class The extends Component {
         District {" "}
               </option>
               {DistName}{" "}
-            </select>
+                </select>
+
             {loginFailed ? (
               <div style={{ color: "red" }} e>
                 {this.state.error}{" "}
@@ -345,7 +349,7 @@ class The extends Component {
             <Grid item xs={12} md={12}>
 <h6 style={{ color: "#fff" }} align="center">
             {" "}
-            Note: Access School level visuals using Above Menus{" "}
+            Note: Access school level visuals using above menus{" "}
           </h6>
 
             </Grid>

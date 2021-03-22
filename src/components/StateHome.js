@@ -114,7 +114,7 @@ export default function StateHome() {
         gutterUp
           className={classes.media}
           image="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
-          title="Contemplative Reptile"
+          title=" Explore data related to server metrics"
         />
         <CardContent> 
           <Typography gutterBottom  className={classes.fontsize} component="h2">
@@ -177,7 +177,7 @@ export default function StateHome() {
         <CardMedia
           className={classes.media}
           image="https://clixindia-dev.github.io/clix_vis_demo/images/tools_data_image.png"
-          title="Contemplative Reptile"
+          title="  Explore data related to tools section of platform"
         />
         <CardContent>
           <Typography gutterBottom component="h2" className={classes.fontsize} >

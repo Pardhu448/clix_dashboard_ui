@@ -64,7 +64,7 @@ export default function TabGlance() {
     <div className={classes.root} justify="center">
         <Typography align='center' style={{margin:40}} gutterBottom variant='h4'>
 
-            CLIx at the Glance 
+            CLIx at a Glance 
         </Typography>
       <AppBar position="static" >
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
@@ -78,7 +78,7 @@ export default function TabGlance() {
         className="img-fluid" alt="" style={{width: '100%'}} />
       </TabPanel> */}
       <TabPanel value={value} index={0}>
-      <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}"  style={{width: '100%'}} />
+      <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}"  style={{width: '100%'}}  />
       </TabPanel>
       {/* <TabPanel value={value} index={2}>
         Item Three

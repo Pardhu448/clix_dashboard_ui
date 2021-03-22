@@ -43,11 +43,11 @@ Students use CLIx platform regularly generating a lot of datasets which are bein
         </Grid>
         
       </Grid>
-<Helmet>
+{/* <Helmet>
 <meta charSet="utf-8" />
                 <title> CLIx Dashboard About</title>
 
-</Helmet>
+</Helmet> */}
       {/* <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography> */}

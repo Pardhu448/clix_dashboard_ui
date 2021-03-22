@@ -281,11 +281,11 @@ export default function DocumentationPage() {
 {/* <FaqPage/> */}
 
       </Grid>
-<Helmet>
+{/* <Helmet>
 <meta charSet="utf-8" />
                 <title> CLIx Dashboard About</title>
 
-</Helmet>
+</Helmet> */}
       {/* <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography> */}

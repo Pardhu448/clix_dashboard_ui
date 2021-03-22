@@ -263,7 +263,7 @@ try {
                   Live School Implemation 
                 </Typography> */}
           <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
-            <Grid container  direction="row"  alignItems="center"  justfiy="center"  style={{width:"100vw", display: 'inline-block'}} >
+            <Grid  direction="row"  alignItems="center"  justfiy="center"  style={{ display: 'inline-block' }} >
             {this.state.loading ? <CircularProgress color="secondary" /> : null}
             <select
               className="select"

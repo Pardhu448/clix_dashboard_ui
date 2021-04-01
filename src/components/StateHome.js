@@ -194,10 +194,7 @@ export default function StateHome() {
            
           </Grid>
         </Grid>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title> CLIx Dashboard </title>
-        </Helmet>
+        
         {/* <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography> */}

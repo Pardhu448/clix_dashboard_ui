@@ -47,7 +47,6 @@ function Question({ children, isOpen, answerId, onToggle }) {
   return (
     <dt>
       <Link
-        component="button"
         className="FAQ__question"
         aria-expanded={isOpen}
         aria-controls={answerId}

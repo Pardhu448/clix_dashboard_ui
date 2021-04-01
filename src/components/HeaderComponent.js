@@ -103,28 +103,27 @@ class Header extends Component{
               </DropdownToggle>
               <DropdownMenu right>
                 
-                <DropdownItem>
-                <Link  href='/documentation' targete="_blank">
+                <DropdownItem href='/documentation'  >
+               
               <span className=''></span>  Documentation
-            </Link>
       
                 </DropdownItem>
-                <DropdownItem>
-              <span className=''></span>                   <Link href="https://clix.tiss.edu/"   target="_blank"> CLIx Website <i className="fas fa-external-link-alt 2x"></i>  </Link>
+                <DropdownItem  href="https://clix.tiss.edu/"  target="_blank">
+           CLIx Website <i className="fas fa-external-link-alt 2x"></i> 
   
                 </DropdownItem>
-                <DropdownItem>
-              <span className=''></span>        <Link href="https://clixoer.tiss.edu" rel="noreffer" target="_blank"> CLIxOER <i className="fas fa-external-link-alt 2x"></i></Link> 
+                <DropdownItem href="https://clixoer.tiss.edu" rel="noreffer" target="_blank">
+          CLIxOER <i className="fas fa-external-link-alt 2x"></i>  
                 </DropdownItem>
              
-                <DropdownItem>
-              <span className=''></span>    <Link href="https://clixguidebook.tiss.edu/" rel="noreffer" target="_blank"> CLIx GuideBook  <i className="fas fa-external-link-alt 2x"> </i></Link> 
+                <DropdownItem   href="https://clixguidebook.tiss.edu/" rel="noreffer" target="_blank">
+      CLIx GuideBook  <i className="fas fa-external-link-alt 2x"> </i> 
       
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem  href="https://www.tissx.tiss.edu/" rel="noreffer" target="_blank">
               
               
-              <span className=''> </span>    <Link href="https://www.tissx.tiss.edu/" rel="noreffer" target="_blank"> Teacher Platform <br/> TISSx <i className="fas fa-external-link-alt 2x"></i> </Link> 
+   Teacher Platform <br/> TISSx <i className="fas fa-external-link-alt 2x"></i> 
             
                 </DropdownItem>
                 

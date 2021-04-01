@@ -5,7 +5,20 @@
   right:0px;
 
 }
-
+.background-wrok{
+  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 111111;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-tap-highlight-color: transparent;
+}
 #fixed-social a {
   color: #fff;
   display: block;
@@ -115,6 +128,7 @@
     position: relative;
     /* display: flex; */
     width:15em;
+    margin: 6px;
     height: 3em;
     line-height: 3;
     background: #ffffff;
@@ -125,7 +139,7 @@
     flex: 1 1;
     padding: 0 .5em;
     color: #fff;
-    cursor: pointer;
+    cursor: pointer !important;
   }
   /* Arrow */
  .select::after {
@@ -160,12 +174,16 @@
   }
  
   .nav-link:hover{
-    color: #3974c0 !important;
+    color: #000000 !important;
   }
   .active{
     color: #f33c3c !important;
   }
+.dropdown-item{
+  color: #3974c0 !important;
 
+  padding: .25rem 0.5rem;
+}
   #themenu{
     width: 100%;
     height: 200px;
@@ -179,12 +197,14 @@
    box-shadow: 2px -2px skyblue;
  }
   .selectMenuSubmit{
-     background: #2498ce; 
+     background: #2db1ee; 
+     
+    /* 
     background-image: -webkit-linear-gradient(top, #000000, #5d9df0);
     background-image: -moz-linear-gradient(top, #000000, #ffffff);
     background-image: -ms-linear-gradient(top, #000000, #ffffff);
     background-image: -o-linear-gradient(top, #000000, #ffffff);
-    background-image: linear-gradient(to bottom, #93bce8, #ffffff, 0.5); 
+    background-image: linear-gradient(to bottom, #93bce8, #ffffff, 0.5);  */
     -webkit-border-radius: 14;
     -moz-border-radius: 14;
     border-radius: 14px;
@@ -211,6 +231,48 @@
     border-radius: 5px;
     
   }
+
+  .selectMenuSubmit {
+    background: #2db1ee; 
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    /* height: 19px; */
+    color: #000000;
+    width: 114px;
+
+  
+    font-size: 12px;
+    font-weight: 400;
+    padding: 13px;
+    -webkit-box-shadow: 1px 1px 20px 0 #000000;
+    -moz-box-shadow: 1px 1px 20px 0 #000000;
+    box-shadow: 1px 1px 20px 0 #000000;
+    border: solid #337FED 1px;
+    text-decoration: none;
+    /* display: inline-block; */
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ /* .BUTTON_YGX:hover {
+    border: solid #337FED 1px;
+    background: #1E62D0;
+    background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ } */
   .selectMenuSubmit:hover{
     background: #1a68a988;
     background-image: -webkit-linear-gradient(top, #ffffff, #000000);
@@ -256,7 +318,7 @@
   }
   .dropdown-item:hover{
  background-color: #3974c0;
- color: #fff;
+ color: #fff!important;
   }
   .dropdownOpen:hover{
   background: #444;

@@ -85,7 +85,7 @@ class The extends Component {
         let state_code = data.dist_data.map((item, index) => item.state_code);
         console.log(state_code);
         this.setState({
-          school_data: [],
+          school_name: "",
           error: "",
           errorCallSchool: "",
           errorCallDistrict: "",
@@ -93,6 +93,8 @@ class The extends Component {
           districts_code: data.dist_data.distirct_code,
           state_code: state_code[0][0],
           loading: false,
+          school_data: [],
+
           //   planet: data.planets
         });
   
@@ -248,6 +250,9 @@ try {
     return (
       <div>
       
+
+     
+
         <div
           style={{
             width:'100%', height:300,
@@ -264,7 +269,7 @@ try {
                 </Typography> */}
           <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
             <Grid  direction="row"  alignItems="center"  justfiy="center"  style={{ display: 'inline-block' }} >
-            {this.state.loading ? <CircularProgress color="secondary" /> : null}
+            {this.state.loading ? <div class="background-wrok"> <CircularProgress color="secondary" /> </div> : null}
             <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
@@ -286,11 +291,7 @@ try {
               <option value="4"> Telengana </option>
             </select>
                           {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-            <span style={{ color: "red" }} e>
-              {" "}
-              {/* {this.state.error} */}
-              {this.state.errorCallDistrict}{" "}
-            </span>
+          
               <select
               defaultValue={"District"}
               disabled={!this.state.state_code}
@@ -306,18 +307,8 @@ try {
               {DistName}{" "}
                 </select>
 
-            {loginFailed ? (
-              <div style={{ color: "red" }} e>
-                {this.state.error}{" "}
-              </div>
-            ) : (
-              ""
-            )}
-            <span style={{ color: "red" }} e>
-              {" "}
-              {this.state.errorCallSchool}{" "}
-            </span>
-            <select
+           
+            <select 
               defaultValue={"schoolname"}
               disabled={!this.state.districts_code}
               className="select"
@@ -349,6 +340,22 @@ try {
             <Grid item xs={12} md={12}>
 <h6 style={{ color: "#fff" }} align="center">
             {" "}
+            <span style={{ color: "red" }} e>
+              {" "}
+              {this.state.errorCallSchool}{" "}
+            </span>
+            <span style={{ color: "red" }} e>
+              {" "}
+              {/* {this.state.error} */}
+              {this.state.errorCallDistrict}{" "}
+            </span>
+            {loginFailed ? (
+              <div style={{ color: "red" }} e>
+                {this.state.error}{" "}
+              </div>
+            ) : (
+              ""
+            )}
             Note: Access school level visuals using above menus{" "}
           </h6>
 

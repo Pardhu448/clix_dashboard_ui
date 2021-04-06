@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     // justifyContent: 'center',
 	margin: 40,
 	fontWeight: 300
+	
   },
 
 });
@@ -20,7 +21,7 @@ export default function DocumentationPage() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} align="justify">
+    <div className={classes.root} >
 
 <Grid container spacing={3} xs={12} md={12} lg={12}>
       
@@ -45,10 +46,10 @@ export default function DocumentationPage() {
 	</li></div>
     </div>
 </Grid>
- <Grid item xs={12} md={8} lg={8}>
+ <Grid item xs={12} md={8} lg={8} >
 	 <div id="thefaq">
 	 	 <FaqPage/>
-  </div>
+  </div> 
     <div class="inner-content">
       <h1>Introduction</h1>
          <div class="section" id="getting-started">
@@ -68,7 +69,7 @@ export default function DocumentationPage() {
                 --> */} 
    	   	       <div class="section" id="data_source2">
 		       <h4> 1.1 Data Source:</h4>
-		       <p>Module level progress csvs are generated every hour in each school and is packaged in to syncthing tar file which 
+		       <p align="justify">Module level progress csvs are generated every hour in each school and is packaged in to syncthing tar file which 
 		       is referred as thin data. Each csv, lists the students along with their buddies if any and quantitative data in a 
 		       cummulative way. This quantitative data talks about the total lessons, activites visited along with the percentage of 
 		       completion and even the number of times a particular activity being visited.<br/><br/>
@@ -87,7 +88,7 @@ export default function DocumentationPage() {
 		       </p>
 		      <div class="section" id="data_processing2"> 
 			<h4>1.2 Data Processing:</h4>
-			<p>
+			<p align="justify">
 			Following steps are followed as part of collating the progress data across all schools of a particular state for a given 
 			month of enagagement:
 			</p>
@@ -139,7 +140,7 @@ export default function DocumentationPage() {
                 --> */}
    	   	       <div class="section" id="data_source1">
 		       <h4> 2.1 Data Source:</h4>
-		       <p>Primary Source of tools data is json file generated whenever a user accesses Tools/Apps section of the 
+		       <p align="justify">Primary Source of tools data is json file generated whenever a user accesses Tools/Apps section of the 
 			  CLIx software. These files along with other thin data are available from schools as part of synthing data.
 			  In a given school (in a particular machine), seperate json file is generated for each tool. 
 			  This json file will have logs of all the users of the tool on that machine.
@@ -157,7 +158,7 @@ export default function DocumentationPage() {
 			<h4>   2.2 Data Processing:</h4>
 	 	       <p>To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
-		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 
+		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html" target="_blank">csv file</a> corresponds to a unique log of a user with the 
 		       following features (columns): <br/><br/>
 
 		      <i>school_server_code</i>: Unique code of the school in which log is generated<br/>
@@ -175,7 +176,7 @@ export default function DocumentationPage() {
                         <p>
 			</p><h5>Total Number of Days Tool is Used </h5> 
 			  <h6> How many days was the tools section of the platform used during the observation period? </h6>
-		          <p>This corresponds to total number of days tools section was accessed (irrespective of the time spent) by students. 
+		          <p align="justify">This corresponds to total number of days tools section was accessed (irrespective of the time spent) by students. 
 		           In a given school, for each tool, we add up all unique date entries (a date entry corresponds to atleast one student accessing tool). 
 			   This sum gives us the total number of unique days a tool was accessed by students during the observation period.</p>
                        <h5>Number of Students Engaging with different Tools per Day</h5>
@@ -213,7 +214,7 @@ export default function DocumentationPage() {
                 --> */}
    	   	       <div class="section" id="data_source3">
 		       <h4> 3.1 Data Source:</h4>
-		       <p>Primary source of data for these visuals is syncthing data which comprises of tools data (json logs) and modules data (csv files). 
+		       <p align="justify">Primary source of data for these visuals is syncthing data which comprises of tools data (json logs) and modules data (csv files). 
 		       At the time of development of these visuals activity timestamp data was not available. Tools data is json file generated whenever a 
 		       user accesses Tools/Apps section of the CLIx software. Each module(progress) csv, lists the students along with their buddies if any 
 		       and quantitative data in a cummulative way.
@@ -226,7 +227,7 @@ export default function DocumentationPage() {
                        </div>
 		      <div class="section" id="data_processing3"> 
 			<h4> 3.1 Data Processing:</h4>
-	 	       <p>To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
+	 	       <p align="justify">To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
 		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 
 		       following features (columns): <br/><br/>
@@ -248,7 +249,7 @@ export default function DocumentationPage() {
                     <div class="section" id="calculation_metrics3">
 		        <h4> 3.3 Calculation of Metrics:</h4> 
                         <p>
-			</p><h5>Attendance of Modules and Tools</h5> 
+			</p ><h5>Attendance of Modules and Tools</h5> 
 			  <h6> How many students were present working on modules or tools section on a given day? </h6>
 		          <p>Each bar represents a unique number of logins for tools and modules section of the platform.
 			   In a given school, for each day that has some login information, number of unique login ids are calculated. This 
@@ -281,11 +282,7 @@ export default function DocumentationPage() {
 {/* <FaqPage/> */}
 
       </Grid>
-{/* <Helmet>
-<meta charSet="utf-8" />
-                <title> CLIx Dashboard About</title>
 
-</Helmet> */}
       {/* <Typography variant="h5" align='justify' gutterBottom>
         About
       </Typography> */}

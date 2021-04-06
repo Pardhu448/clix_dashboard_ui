@@ -72,8 +72,8 @@ class The extends Component {
   //   console.log(this.props)
   // }
   hanldeChange = (e) => {
-    console.log(e.target.value);
-    let _id = e.target.value;
+    // console.log(e.target.value);
+    let _id = e.value;
 
     this.setState({ loading: true });
   fetch(`${baseUrl}/districts/${_id}`)
@@ -226,7 +226,7 @@ try {
 
     if (localStorage.getItem("user") && view_mode)
       return <Redirect to={from.pathname} />;
-
+    
     let districts = this.state.districts;
     let school_data = this.state.school_data;
     let DistName = districts.map((item, index) => (
@@ -270,6 +270,8 @@ try {
           <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
             <Grid  direction="row"  alignItems="center"  justfiy="center"  style={{ display: 'inline-block' }} >
             {this.state.loading ? <div class="background-wrok"> <CircularProgress color="secondary" /> </div> : null}
+         
+         
             <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
@@ -337,8 +339,8 @@ try {
               {" "}
               Submit
             </button>
-            <Grid item xs={12} md={12}>
-<h6 style={{ color: "#fff" }} align="center">
+            <Grid item xs={12} md={12} >
+<h6 style={{ color: "#fff", marginTop: 4 }} align="center">
             {" "}
             <span style={{ color: "red" }} e>
               {" "}

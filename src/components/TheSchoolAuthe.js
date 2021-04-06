@@ -73,7 +73,7 @@ class The extends Component {
   // }
   hanldeChange = (e) => {
     // console.log(e.target.value);
-    let _id = e.value;
+    let _id = e.target.value;
 
     this.setState({ loading: true });
   fetch(`${baseUrl}/districts/${_id}`)
@@ -226,7 +226,7 @@ try {
 
     if (localStorage.getItem("user") && view_mode)
       return <Redirect to={from.pathname} />;
-    
+   
     let districts = this.state.districts;
     let school_data = this.state.school_data;
     let DistName = districts.map((item, index) => (

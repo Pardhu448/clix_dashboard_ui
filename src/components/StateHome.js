@@ -133,7 +133,7 @@ export default function StateHome() {
             
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/progress_data_viz.html"
-                targrt="_blank"
+                target="_blank"
               >
                 {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"

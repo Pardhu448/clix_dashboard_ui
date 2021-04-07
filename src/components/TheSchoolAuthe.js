@@ -226,7 +226,7 @@ try {
 
     if (localStorage.getItem("user") && view_mode)
       return <Redirect to={from.pathname} />;
-   
+
     let districts = this.state.districts;
     let school_data = this.state.school_data;
     let DistName = districts.map((item, index) => (
@@ -261,8 +261,8 @@ try {
             backgroundColor: 'rgba(0,0,0,0.7)',
           }}
         >
-                <Typography variant="h3" align="center" color="#fff" style={{color:'#fff'}}>
-                 <span className="color">   CLIx </span>  Dashboard
+                <Typography variant="h3" align="center" color="#fff" className="thename" style={{color:'#fff'}}>
+                 <span className="color">   CLIx  Dashboard </span> 
                 </Typography>
                 {/* <Typography variant="" align="center">
                   Live School Implemation 
@@ -340,7 +340,7 @@ try {
               Submit
             </button>
             <Grid item xs={12} md={12} >
-<h6 style={{ color: "#fff", marginTop: 4 }} align="center">
+<h6 style={{ color: "#fff", marginTop: 4 }}  align="center">
             {" "}
             <span style={{ color: "red" }} e>
               {" "}

@@ -34,10 +34,12 @@ export default function DocumentationPage() {
 			<li><a href=" #data_source2">1.1 Data Source</a>
 			</li><li><a href=" #data_processing2">1.2 Data Processing</a>
 			</li><li><a href=" #calculation_metrics2">1.3 Calculation Metrics</a>
+			<br/>
 			<a href=" #tools_data_vis">Tools Data Visualisation</a>
 			</li><li><a href=" #data_source1">2.1 Data Source</a>
 			</li><li><a href=" #data_processing1">2.2 Data Processing</a>
 			</li><li><a href=" #calculation_metrics1">2.3 Calculation Metrics</a>
+			<br/>
                         <a href=" #school_level_vis">School Dashboard Visualisations</a>
 			</li><li><a href=" #data_source3">3.1 Data Source</a>
 		       </li><li><a href=" #data_processing3">3.2 Data Processing</a>
@@ -226,7 +228,7 @@ export default function DocumentationPage() {
 		       times as and when they occur.</p>
                        </div>
 		      <div class="section" id="data_processing3"> 
-			<h4> 3.1 Data Processing:</h4>
+			<h4> 3.2 Data Processing:</h4>
 	 	       <p align="justify">To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
 		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 

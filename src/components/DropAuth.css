@@ -292,10 +292,12 @@
     /* form{
       margin-top: 250px;
     } */
+    
     .selectMenuSubmit{
       display: block;
       
     }
+  
     #themenu{
       margin: 20px 0;
 
@@ -303,7 +305,9 @@
  .themaile{
    text-align: left !important;
  }
- 
+ .thename{
+  font-size: 2rem;
+}
 .selectMenu select {
     
   -webkit-appearance: none;

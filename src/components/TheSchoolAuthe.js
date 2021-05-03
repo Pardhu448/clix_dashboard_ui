@@ -13,9 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import StateHome from "./StateHome";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TabGlance from "./TheCLIxM";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 import Select from "react-select";
-import {Helmet} from 'react-helmet';
+import { Helmet } from "react-helmet";
 import { compose } from "redux";
 import thebannerc from "../shared/Banner.png";
 
@@ -27,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
 }));
+const styles = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
+
 // import data from "./data.json";
 // let Data = data.dist_data;
 // console.log(Data);
@@ -60,9 +67,11 @@ class The extends Component {
   //   dispatch(schoolInfoFetch.getschoolname())
   // }
   handleSchool = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
+   
     this.setState({
-      school_name: e.target.value,
+      // school_name: e.target.value,
+      school_name: e.value,
       errorCallSchool: "",
       errorCallDistrict: "",
     });
@@ -73,13 +82,12 @@ class The extends Component {
   // }
   hanldeChange = (e) => {
     // console.log(e.target.value);
-    let _id = e.target.value;
-
+    // let _id = e.target.value;
+    let _id = e.value;
     this.setState({ loading: true });
-  fetch(`${baseUrl}/districts/${_id}`)
+    fetch(`${baseUrl}/districts/${_id}`)
       .then((response) => {
         return response.json();
-    
       })
       .then((data) => {
         let state_code = data.dist_data.map((item, index) => item.state_code);
@@ -97,16 +105,16 @@ class The extends Component {
 
           //   planet: data.planets
         });
-  
+
         console.log(this.state);
-      })
-      // .catch((error) =>{ 
-      //   console.log(error)
-      //   this.setState({
-      //     loading: false,
-      //     error: "failed to fetch data"
-      //   })
-      // });
+      });
+    // .catch((error) =>{
+    //   console.log(error)
+    //   this.setState({
+    //     loading: false,
+    //     error: "failed to fetch data"
+    //   })
+    // });
   };
   handleSubmit = (e) => {
     // console.log(e.target.value);
@@ -133,7 +141,7 @@ class The extends Component {
 
     if (
       this.state.school_data == !this.state.school_data ||
-      this.state.school_data === ""
+      this.state.school_name === ""
     ) {
       this.setState({
         errorCallSchool: " Please choose valid schoolname ",
@@ -175,27 +183,23 @@ class The extends Component {
   };
 
   handleExpandClick = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
-    let id = e.target.value || 0;
+    // let id = e.target.value || 0;
     let _id = this.state.state_code;
+    let id = e.value || 0;
 
     this.setState({ loading: true });
-try {
-  
-} catch (error) {
-  
-}
+    try {
+    } catch (error) {}
     fetch(`${baseUrl}/schools/${_id}/${id}`)
       .then((response) => {
-      
         return response.json();
-
       })
       .then((data) => {
         console.log(data.sch_data);
         console.log(data.sch_data.distirct_code);
-                this.setState({
+        this.setState({
           school_data: data.sch_data,
           error: "",
           errorCallDistrict: "",
@@ -226,7 +230,35 @@ try {
 
     if (localStorage.getItem("user") && view_mode)
       return <Redirect to={from.pathname} />;
+    {
+      /* <Select 
+            
+isSearchable={true}
+isDisabled={false}
+defaultValue="State"
+ options={thestate}
+ onChange={this.hanldeChange.bind(this)}
 
+          />   
+         let ArrayState = [
+      { value: "1", label:' Chattisgarh'},
+      { value: "2", label: 'Mizoram'},
+      { value: "3", label: 'Rajasthan'},
+      { value: "4", label: 'Telengana'}
+
+    ];
+    let thestate = ArrayState.map(state => {
+      return {value : state.value , label: state.label} })*/
+    }
+    let ArrayState = [
+      { value: "1", label: " Chattisgarh" },
+      { value: "2", label: "Mizoram" },
+      { value: "3", label: "Rajasthan" },
+      { value: "4", label: "Telengana" },
+    ];
+    let thestate = ArrayState.map((state) => {
+      return { value: state.value, label: state.label };
+    });
     let districts = this.state.districts;
     let school_data = this.state.school_data;
     let DistName = districts.map((item, index) => (
@@ -234,45 +266,86 @@ try {
         {item.districtName}
       </option>
     ));
-    let SchName = school_data.map((item, index) => (
-      <option
-        key={index}
-        value={item.school_name}
-        disabled={item.school_name.includes("Not synced")}
-      >
-        {item.school_name}
-      </option>
-    ));
+    let TheState = districts.map((item) => {
+      return { value: item.distirct_code, label: item.districtName };
+    });
+    // let SchName = school_data.map((item, index) => (
+    //   <option
+    //     key={index}
+    //     value={item.school_name}
+    //     disabled={item.school_name.includes("Not synced")}
+    //   >
+    //     {item.school_name}
+    //   </option>
+
+    // ));
+    let SchoolName = school_data.map((item, index) => {
+      return { value: item.school_name, label: item.school_name };
+    });
+    // <option
+    //   key={index}
+    //   value={item.school_name}
+    //   disabled={item.school_name.includes("Not synced")}
+    // >
+    //   {item.school_name}
+    // </option>
     let planet = this.state.planet;
     let Planet = planet.map((c) => <option value={c}>{c} </option>);
 
     // console.log(planet);
     return (
       <div>
-      
-
-     
-
         <div
           style={{
-            width:'100%', height:300,
+            width: "100%",
+            height: 300,
             backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${thebannerc})`,
-            backgroundPosition: "center", backgroundSize: 'cover',
-            backgroundColor: 'rgba(0,0,0,0.7)',
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundColor: "rgba(0,0,0,0.7)",
           }}
         >
-                <Typography variant="h3" align="center" color="#fff" className="thename" style={{color:'#fff'}}>
-                 <span className="color">   CLIx  Dashboard </span> 
-                </Typography>
-                {/* <Typography variant="" align="center">
+          <Typography
+            variant="h3"
+            align="center"
+            color="#fff"
+            className="thename"
+            style={{ color: "#fff" }}
+          >
+            <span className="color"> CLIx Dashboard </span>
+          </Typography>
+          {/* <Typography variant="" align="center">
                   Live School Implemation 
                 </Typography> */}
-          <form onSubmit={this.handleSubmit} align="center" justify="center" id="themenu" >
-            <Grid  direction="row"  alignItems="center"  justfiy="center"  style={{ display: 'inline-block' }} >
-            {this.state.loading ? <div class="background-wrok"> <CircularProgress color="secondary" /> </div> : null}
-         
-         
-            <select
+          <form
+            onSubmit={this.handleSubmit}
+            align="center"
+            justify="center"
+            id="themenu"
+          >
+            <Grid
+              direction="row"
+              alignItems="center"
+              justfiy="center"
+              style={{ display: "inline-block" }}
+            >
+              {this.state.loading ? (
+                <div class="background-wrok">
+                  {" "}
+                  <CircularProgress color="secondary" />{" "}
+                </div>
+              ) : null}
+        
+              <Select 
+              className="react-select"
+                isSearchable={true}
+                isDisabled={false}
+                defaultValue="State"
+                placeholder="State"
+                options={thestate.sort((a,b) => a-b)}
+                onChange={this.hanldeChange.bind(this)}
+              />
+              {/* <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
               required
@@ -282,19 +355,30 @@ try {
                 {" "}
             State{" "}
               </option>
-              <option value="1"> Chattisgarh </option>
-            
+              <option value="1"> Chattisgarh </option> */}
 
               {/* <option value="3"> Rajasthan</option>        */}
-                     <option value="2"> Mizoram </option>
+              {/* <option value="2"> Mizoram </option>
                      <option value="3"> Rajasthan</option>       
 
 
               <option value="4"> Telengana </option>
-            </select>
-                          {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-          
-              <select
+            </select> */}
+              {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
+
+              <Select               className="react-select"
+
+              styles={styles}
+                key={this.state.distirct_code || this.state.state_code}
+                isSearchable={true}
+                isDisabled={!this.state.state_code}
+                defaultValue={{ label: "District", value: 0 }}
+                placeholder="District"
+                options={TheState.sort((a,b)=> a.label-b.label)}
+              
+                onChange={this.handleExpandClick.bind(this)}
+              />
+              {/* <select
               defaultValue={"District"}
               disabled={!this.state.state_code}
               className="select"
@@ -307,10 +391,22 @@ try {
         District {" "}
               </option>
               {DistName}{" "}
-                </select>
+                </select> */}
 
-           
-            <select 
+              <Select               className="react-select"
+
+                key={`secret-unique-key${this.state.districts_code}`}
+                isSearchable={true}
+                isDisabled={!this.state.districts_code}
+                defaultValue={{ label: "School", value: 0 }}
+                placeholder="School"
+                options={SchoolName}
+                isOptionDisabled={(option) =>
+                  option.label.includes("Not synced")
+                }
+                onChange={this.handleSchool.bind(this)}
+              />
+              {/* <select 
               defaultValue={"schoolname"}
               disabled={!this.state.districts_code}
               className="select"
@@ -318,54 +414,52 @@ try {
               required
             >
               {" "}
-              <option value="schoolname" disabled={!this.state.state_code}>
+              <option value="schoolname" disabled={!this.state.state_code} selected={this.state.school_data}>
                 {" "}
             School{" "}
               </option>
               {SchName}
-            </select>
+            </select> */}
 
-            {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
+              {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
           Submit
           
         </Button> */}
-            <button
-              type="submit"
-              color='primary'
-              className="selectMenuSubmit"
-              disabled={!this.state.state_code}
-               style={{margin: '0 auto'}}
+              <button
+                type="submit"
+                color="primary"
+                className="selectMenuSubmit"
+                disabled={!this.state.school_name && !this.state.state_code}
+                style={{ margin: "0 auto" }}
               >
-              {" "}
-              Submit
-            </button>
-            <Grid item xs={12} md={12} >
-<h6 style={{ color: "#fff", marginTop: 4 }}  align="center">
-            {" "}
-            <span style={{ color: "red" }} e>
-              {" "}
-              {this.state.errorCallSchool}{" "}
-            </span>
-            <span style={{ color: "red" }} e>
-              {" "}
-              {/* {this.state.error} */}
-              {this.state.errorCallDistrict}{" "}
-            </span>
-            {loginFailed ? (
-              <div style={{ color: "red" }} e>
-                {this.state.error}{" "}
-              </div>
-            ) : (
-              ""
-            )}
-            Note: Access school level visuals using above menus{" "}
-          </h6>
-
+                {" "}
+                Submit
+              </button>
+              <Grid item xs={12} md={12}>
+                <h6 style={{ color: "#fff", marginTop: 4 }} align="center">
+                  {" "}
+                  <span style={{ color: "red" }} e>
+                    {" "}
+                    {this.state.errorCallSchool}{" "}
+                  </span>
+                  <span style={{ color: "red" }} e>
+                    {" "}
+                    {/* {this.state.error} */}
+                    {this.state.errorCallDistrict}{" "}
+                  </span>
+                  {loginFailed ? (
+                    <div style={{ color: "red" }} e>
+                      {this.state.error}{" "}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  Note: Access school level visuals using above menus{" "}
+                </h6>
+              </Grid>
             </Grid>
-            </Grid>
-            
           </form>
-      
+
           {/* <h6 style={{ color: "#fff" }} align="center">
             {" "}
             Note: Access School level visuals using Above Menus{" "}

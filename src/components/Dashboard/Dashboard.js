@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,lazy,Suspense } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -25,12 +25,12 @@ import Link from '@material-ui/core/Link';
 //import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 //import NotificationsIcon from '@material-ui/icons/Notifications';
 //import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import PieChart from './PieChartIdleDays';
-//import Deposits from './Deposits';
-//import Orders from './Orders';
-import ToolsChart from './ToolsChart';
-import ModulesChart from './ModulesChart';
+// import Chart from './Chart';
+// import PieChart from './PieChartIdleDays';
+// //import Deposits from './Deposits';
+// //import Orders from './Orders';
+// import ToolsChart from './ToolsChart';
+// import ModulesChart from './ModulesChart';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import SaveButton from '../SaveDashboard';
@@ -65,9 +65,23 @@ import { userActionsLogin } from "../../redux/fetchmodeactions"
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import EdiText from 'react-editext';
 
+
+
+import EdiText from 'react-editext';
+const Chart = lazy(()=> import("./Chart"))  
+
+const PieChart = lazy(()=> import('./PieChartIdleDays'))
+
+
+const ToolsChart = lazy(()=> import('./ToolsChart'))
+
+const ModulesChart = lazy(()=> import('./ModulesChart'))
+
+const RenderFallData = ()=> <div> ...Loading </div>
 const school_image = require('../../shared/student_logs_group.jpeg');
+
+
 const drawerWidth = 0;
 
 const theme = createMuiTheme({
@@ -170,7 +184,7 @@ const useStyles = theme => ({
   details: {
     display: 'flex',
     flexDirection: 'column',
-    width: '150vh',
+    // width: '150vh',
   },
   content:{
     flex: '1 0 ',	   
@@ -552,6 +566,7 @@ handleSubmit = (e) => {
   {DistName} </select>  */}
        {/* <select> <option value={films.title}> {films.title} </option></select> */}
      {/* </div> : null} */}
+    
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root} id={dashboard_id}>
      
@@ -559,10 +574,12 @@ handleSubmit = (e) => {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={2}>
            <Grid item xs={12} sm={12} lg={12}>
+          
             <Card className={classes.card} >
              {/*<div className={classes.details}>*/}
               {/*<Grid container spacing = {5}>*/}
               {/* <Grid item >*/}
+             
             <Grid item xs={12} sm={12} md={6} lg={6}>
               <div className={classes.details}>
                <CardContent className={classes.content}>
@@ -570,7 +587,7 @@ handleSubmit = (e) => {
                  {school_name1[0] ? school_name1[0] : this.props.username}
                </Typography>
                <Typography variant="subtitle1" color="textSecondary">
-                {state}, {this.props.username}
+                {state}, {this.props.username} 
                </Typography>
                <Typography variant="subtitle2" align="left" color="textSecondary" paragraph>
                 School dashboards below are generated to enable teachers access data, corresponding to their student's interactiont with CLIx platform. Live data synced from schools is processed at centralized servers to generate these dashboards. Please upload your school image and a short paragraph of anything you want to share about your school below.
@@ -594,22 +611,26 @@ handleSubmit = (e) => {
                                   handleMouseIn={this.handleMouseIn}
                                   handleMouseOut={this.handleMouseOut}
                                   />} */}
-
+     
                                   { loggedIn ?   <SchoolImageUpload schoolImage={this.props.schoolImage}
                                   isImageUploading={this.props.isImageUploading}
                                   onImageUpload={this.onImageUpload}
                                   handleMouseIn={this.handleMouseIn}
                                   handleMouseOut={this.handleMouseOut}
                                   />:<SchoolImageUpload schoolImage={this.props.schoolImage}/> }
+      
+
+        
             </Card>
             </Grid>
-
+         
            <Grid item xs={12} sm={12} lg={12}>
 
            <Card >
            <CardContent className={classes.content}>
            { loggedIn ?      <Typography paragraph>
             {/* { loggedIn ?  */}
+            s
               <EdiText
                 showButtonsOnHover
                 value={get_first_few_words(schoolIntroText)[0]}
@@ -651,7 +672,7 @@ handleSubmit = (e) => {
            </Collapse>
           </Card>
            </Grid>
-
+<Suspense fallback={RenderFallData}>
       <Grid item xs={12} sm={12} lg={9}>
         <Paper className={fixedHeightPaper}>
         {/*Bar chart to display school attendance */}
@@ -683,6 +704,7 @@ handleSubmit = (e) => {
         </Paper>
         <p> ***Buddy users and Anonymous users are also considered </p>
       </Grid>
+      </Suspense>
       </Grid>
       </Container>
       </main>

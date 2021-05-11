@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,lazy,Suspense } from "react";
 import "./DropAuth.css";
 // import { schoolInfoFetch } from "../redux/schoolfetch";
 import { userActions } from "../redux/useractions";
@@ -10,9 +10,9 @@ import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import StateHome from "./StateHome";
+// import StateHome from "./StateHome";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import TabGlance from "./TheCLIxM";
+// import TabGlance from "./TheCLIxM";
 import Grid from "@material-ui/core/Grid";
 import Select from "react-select";
 import { Helmet } from "react-helmet";
@@ -20,8 +20,12 @@ import { compose } from "redux";
 import thebannerc from "../shared/Banner.png";
 
 import baseUrl from "../shared/baseUrl";
-
 import ReactDOM from "react-dom";
+
+const StateHome  = lazy(()=> import('./StateHome'))
+const TabGlance = lazy(()=> import('./TheCLIxM'))
+
+const RenderFall = ()=> <div> ...Loading </div>
 const useStyles = makeStyles((theme) => ({
   progress: {
     margin: theme.spacing(2),
@@ -299,6 +303,7 @@ defaultValue="State"
           style={{
             width: "100%",
             height: 300,
+        
             backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${thebannerc})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
@@ -308,7 +313,7 @@ defaultValue="State"
           <Typography
             variant="h3"
             align="center"
-            color="#fff"
+            color="primary"
             className="thename"
             style={{ color: "#fff" }}
           >
@@ -324,8 +329,8 @@ defaultValue="State"
             id="themenu"
           >
             <Grid
-              direction="row"
-              alignItems="center"
+              // direction="row"
+              // alignItems="center"
               justfiy="center"
               style={{ display: "inline-block" }}
             >
@@ -337,12 +342,13 @@ defaultValue="State"
               ) : null}
         
               <Select 
+                
               className="react-select"
                 isSearchable={true}
                 isDisabled={false}
                 defaultValue="State"
                 placeholder="State"
-                options={thestate.sort((a,b) => a-b)}
+                options={thestate.sort((a,b) => a > b)}
                 onChange={this.hanldeChange.bind(this)}
               />
               {/* <select
@@ -374,7 +380,7 @@ defaultValue="State"
                 isDisabled={!this.state.state_code}
                 defaultValue={{ label: "District", value: 0 }}
                 placeholder="District"
-                options={TheState.sort((a,b)=> a.label-b.label)}
+                options={TheState.sort((a,b)=> a.label > b.label ? 1: -1)}
               
                 onChange={this.handleExpandClick.bind(this)}
               />
@@ -400,7 +406,8 @@ defaultValue="State"
                 isDisabled={!this.state.districts_code}
                 defaultValue={{ label: "School", value: 0 }}
                 placeholder="School"
-                options={SchoolName}
+            
+                options={SchoolName.sort((a,b)=> a.label> b.label? 1: -1)}
                 isOptionDisabled={(option) =>
                   option.label.includes("Not synced")
                 }
@@ -436,26 +443,26 @@ defaultValue="State"
                 Submit
               </button>
               <Grid item xs={12} md={12}>
-                <h6 style={{ color: "#fff", marginTop: 4 }} align="center">
+                <p style={{ color: "#fff", marginTop: 4 }} align="center">
                   {" "}
-                  <span style={{ color: "red" }} e>
+                  <span style={{ color: "red" }} >
                     {" "}
                     {this.state.errorCallSchool}{" "}
                   </span>
-                  <span style={{ color: "red" }} e>
+                  <span style={{ color: "red" }} >
                     {" "}
                     {/* {this.state.error} */}
                     {this.state.errorCallDistrict}{" "}
                   </span>
                   {loginFailed ? (
-                    <div style={{ color: "red" }} e>
+                    <div style={{ color: "red" }} >
                       {this.state.error}{" "}
                     </div>
                   ) : (
                     ""
                   )}
                   Note: Access school level visuals using above menus{" "}
-                </h6>
+                </p>
               </Grid>
             </Grid>
           </form>
@@ -465,9 +472,10 @@ defaultValue="State"
             Note: Access School level visuals using Above Menus{" "}
           </h6> */}
         </div>
+       <Suspense fallback={RenderFall()}>
         <StateHome />
         <TabGlance />
-
+           </Suspense>
         {/* <select className="select" onChange={this.handleExpandClick}>             <option > Please select  </option>
    {DistName} </select>  */}
         {/* <select> <option value={films.title}> {films.title} </option></select> */}

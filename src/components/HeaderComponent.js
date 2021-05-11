@@ -8,8 +8,11 @@ import "./DropAuth.css";
 import HomeIcon from '@material-ui/icons/Home'
 
 import InsertLinkIcon from '@material-ui/icons/InsertLink';
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import clixlogoimage from '../shared/Clix_logo.png'
+
 const NavLinkStyle = {
   color: 'black',
 
@@ -74,21 +77,22 @@ class Header extends Component{
        <NavbarBrand className="mr-auto" href="/">
         <img
           alt="CLIx Logo"
-          src="https://clixoer.tiss.edu/static/ndf/images/Clix_logo.png"
+          src={clixlogoimage}
           width="150"
           height="40"
-          className="d-inline-block align-bottom"
+          
+          className="d-inline-block align-bottom img-fluid"
         />
         {''}
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleNav}/>
 
-
+ 
         <Collapse isOpen={this.state.isNavOpen} navbar>
         <Nav className="ml-auto" navbar>
 
            <NavItem >
-            <NavLink style={NavLinkStyle} activeClassName="active" exact  className='nav-link' active  to='/home'>
+            <NavLink style={NavLinkStyle} activeClassName="active" exact  className='nav-link' active="true" rel="noopener" to='/home'>
               <span className=''> </span>       {/* <HomeIcon fontSize="small"  title="Home"/> */}
            
               <i className="fas fa-home 2x"></i>  Home
@@ -108,19 +112,19 @@ class Header extends Component{
               <span className=''></span>  Documentation
       
                 </DropdownItem>
-                <DropdownItem  href="https://clix.tiss.edu/"  target="_blank">
+                <DropdownItem  href="https://clix.tiss.edu/"   target="_blank">
            CLIx Website <i className="fas fa-external-link-alt 2x"></i> 
   
                 </DropdownItem>
-                <DropdownItem href="https://clixoer.tiss.edu" rel="noreffer" target="_blank">
+                <DropdownItem href="https://clixoer.tiss.edu" rel="noreferrer" target="_blank">
           CLIxOER <i className="fas fa-external-link-alt 2x"></i>  
                 </DropdownItem>
              
-                <DropdownItem   href="https://clixguidebook.tiss.edu/" rel="noreffer" target="_blank">
+                <DropdownItem   href="https://clixguidebook.tiss.edu/" rel="noreferrer" target="_blank">
       CLIx GuideBook  <i className="fas fa-external-link-alt 2x"> </i> 
       
                 </DropdownItem>
-                <DropdownItem  href="https://www.tissx.tiss.edu/" rel="noreffer" target="_blank">
+                <DropdownItem  href="https://www.tissx.tiss.edu/" rel="noreferrer" target="_blank">
               
               
    Teacher Platform <br/> TISSx <i className="fas fa-external-link-alt 2x"></i> 

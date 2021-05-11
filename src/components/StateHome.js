@@ -11,7 +11,10 @@ import CardContent from '@material-ui/core/CardContent';
 
 import CardMedia from '@material-ui/core/CardMedia';
 import { Helmet } from "react-helmet";
-import clixdemopicurc from "../shared/clix_dashboard_login_image.png";
+import clixuser from '../shared/uniqueuser.png'
+import clixuserplot from '../shared/newplot().png'
+import clixuserdata from '../shared/module_data_image.png'
+import cliximage from '../shared/tools_data_image.png'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -60,7 +63,7 @@ export default function StateHome() {
 
 
 
-          <Grid item xs={10} sm={6} md={3} spacing={3}>
+          <Grid item xs={10} sm={6} md={3} >
 
 
 
@@ -80,7 +83,7 @@ export default function StateHome() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://clixindia-dev.github.io/clix_vis_demo/images/uniqueuser.png"
+          image={clixuser}
           title=" Explore data related to unique user metrics"
         />
         <CardContent>
@@ -111,9 +114,9 @@ export default function StateHome() {
 <Card className={classes.card}>
       <CardActionArea>
         <CardMedia 
-        gutterUp
+        gutterup
           className={classes.media}
-          image="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
+          image={clixuserplot}
           title=" Explore data related to server metrics"
         />
         <CardContent> 
@@ -144,7 +147,7 @@ export default function StateHome() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"
+          image={clixuserdata}
           title="  Explore data related to course module section of platform"
         />
         <CardContent>
@@ -176,7 +179,7 @@ export default function StateHome() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://clixindia-dev.github.io/clix_vis_demo/images/tools_data_image.png"
+          image={cliximage}
           title="  Explore data related to tools section of platform"
         />
         <CardContent>

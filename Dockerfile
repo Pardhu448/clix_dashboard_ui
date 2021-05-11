@@ -1,6 +1,7 @@
 FROM node:9-alpine
 
 WORKDIR /home/node/app
+COPY entrypoint.sh ./
 COPY .env.local .env.local
 COPY --chown=node:node . . 
 
@@ -10,9 +11,11 @@ RUN npm install
 RUN npm install -g serve
 RUN npm run build
 
+RUN chmod a+x entrypoint.sh
+
 EXPOSE 3000
 
 #CMD npm start
-CMD serve -s build -l 3000
-
+#CMD serve -s build -l 3000
+ENTRYPOINT ["./entrypoint.sh"]
 

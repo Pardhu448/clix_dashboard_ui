@@ -72,6 +72,7 @@ export default function StateHome() {
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/uniqueuser_data_viz.html"
                 target="_blank"
+                rel="noreferrer"
               >
                 {" "}
                 {/* <img
@@ -102,7 +103,8 @@ export default function StateHome() {
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/server_data_viz.html"
                 target="_blank"
-              >
+                rel="noreferrer"
+             >
                 {" "}
                 {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/newplot.png"
@@ -137,7 +139,8 @@ export default function StateHome() {
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/progress_data_viz.html"
                 target="_blank"
-              >
+                rel="noreferrer"
+           >
                 {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/module_data_image.png"
                   alt="clix image"
@@ -169,7 +172,8 @@ export default function StateHome() {
               <a
                 href="https://clixindia-dev.github.io/clix_vis_demo/visualisationtype/tools_data_viz.html"
                 target="_blank"
-              >
+           rel="noreferrer"
+          >
                 {/* <img
                   src="https://clixindia-dev.github.io/clix_vis_demo/images/tools_data_image.png"
                   alt="clix image"

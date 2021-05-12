@@ -38,6 +38,7 @@ const styles = {
   })
 };
 
+
 // import data from "./data.json";
 // let Data = data.dist_data;
 // console.log(Data);
@@ -342,8 +343,11 @@ defaultValue="State"
               ) : null}
         
               <Select 
-                
-              className="react-select"
+                // label="select state"
+                // //  aria-labelledby="state"
+                // //  inputId="aria-example-input"
+                // //  name="aria-live-color"
+                className="react-select"
                 isSearchable={true}
                 isDisabled={false}
                 defaultValue="State"

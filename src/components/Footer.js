@@ -8,7 +8,12 @@ import Paper from "@material-ui/core/Paper";
 import { NavLink } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import './DropAuth.css'
+import tataimage from '../shared/tata_trusts.svg'
 import ShareIcon from "@material-ui/icons/Share";
+import tissimge from '../shared/tisstiss.svg'
+
+import mitimage from '../shared/mit.svg'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,7 +40,7 @@ function Footer() {
 
       <Grid container justify="center" >
         <Grid item xs={12} sm={3} md={3} align="center">
-          <a href="https://www.tatatrusts.org/" target="_blank" rel="noopener" >
+          <a href={tataimage} target="_blank" rel="noopener" >
           <img
             style={{ marginTop: 10 }}
             src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tata_trusts.svg"
@@ -48,7 +53,7 @@ function Footer() {
           <Typography>Led by</Typography>
           <span>
             {" "} 
-            <a href="https://tiss.edu/"  target="_blank" rel="noopener">            <img
+            <a href={tissimge} target="_blank" rel="noopener">            <img
               style={{ width: "140px", paddingRight: 40 }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tiss.svg"
               alt="tiss"
@@ -57,7 +62,7 @@ function Footer() {
           </span>
           <span>
             {" "}
-            <a href="https://mit.edu/" target="_blank" rel="noopener">
+            <a href={mitimage} target="_blank" rel="noopener">
             <img
               style={{ width: "140px", }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/mit.svg"
@@ -70,31 +75,31 @@ function Footer() {
         <Grid item xs={4} sm={3} md={3} align="center" >
           <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }} >
             <li className="Navlink-color">
-              <NavLink className="" to="/about" rel="noopener">
+              <NavLink className="colorNavlink" to="/about" rel="noopener">
                 About{" "}
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/faq" rel="noopener">
+              <NavLink className="colorNavlink" to="/faq" rel="noopener">
                 FAQ{" "}
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/termsofservices" rel="noopener">
+              <NavLink className="colorNavlink" to="/termsofservices" rel="noopener">
                 Terms of services
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/privacy" rel="noopener">
+              <NavLink className="colorNavlink" to="/privacy" rel="noopener">
                 Privacy Policy{" "}
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/contact" rel="noopener">
+              <NavLink className="colorNavlink" to="/contact" rel="noopener">
                 {" "}
                 Contact{" "}
               </NavLink>

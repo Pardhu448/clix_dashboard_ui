@@ -112,7 +112,7 @@ class Header extends Component{
               <span className=''></span>  Documentation
       
                 </DropdownItem>
-                <DropdownItem  href="https://clix.tiss.edu/"   target="_blank">
+                <DropdownItem  href="https://clix.tiss.edu/" rel="noreferrer"  target="_blank">
            CLIx Website <i className="fas fa-external-link-alt 2x"></i> 
   
                 </DropdownItem>

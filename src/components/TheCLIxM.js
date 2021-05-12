@@ -78,7 +78,7 @@ export default function TabGlance() {
         className="img-fluid" alt="" style={{width: '100%'}} />
       </TabPanel> */}
       <TabPanel value={value} index={0}>
-      <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}"  style={{width: '100%'}}  />
+      <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}" width="100" height="100" style={{width: '100%'}}  />
       </TabPanel>
       {/* <TabPanel value={value} index={2}>
         Item Three

@@ -12,6 +12,8 @@ import ShareIcon from "@material-ui/icons/Share";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    paddingLeft: '15px',
+    paddingRight: '15px',
   },
   paper: {
     padding: theme.spacing(2),
@@ -33,19 +35,20 @@ function Footer() {
 
       <Grid container justify="center" >
         <Grid item xs={12} sm={3} md={3} align="center">
-          <a href="https://www.tatatrusts.org/" target="_blank" >
+          <a href="https://www.tatatrusts.org/" target="_blank" rel="noopener" >
           <img
             style={{ marginTop: 10 }}
             src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tata_trusts.svg"
             alt="tata trust"
+            
           />
           </a>
         </Grid>
         <Grid item xs={12} sm={6} md={6} align="center">
           <Typography>Led by</Typography>
           <span>
-            {" "}
-            <a href="https://tiss.edu/"  target="_blank" >            <img
+            {" "} 
+            <a href="https://tiss.edu/"  target="_blank" rel="noopener">            <img
               style={{ width: "140px", paddingRight: 40 }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tiss.svg"
               alt="tiss"
@@ -54,7 +57,7 @@ function Footer() {
           </span>
           <span>
             {" "}
-            <a href="https://mit.edu/" target="_blank">
+            <a href="https://mit.edu/" target="_blank" rel="noopener">
             <img
               style={{ width: "140px", }}
               src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/mit.svg"
@@ -64,34 +67,34 @@ function Footer() {
           </span>
         </Grid>
 
-        <Grid item xs={4} sm={3} md={3} align="center">
-          <ul style={{ listStyle: "none", marginTop: 10, marginRight:20 }} align="left">
-            <li >
-              <NavLink className="" to="/about">
+        <Grid item xs={4} sm={3} md={3} align="center" >
+          <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }} >
+            <li className="Navlink-color">
+              <NavLink className="" to="/about" rel="noopener">
                 About{" "}
               </NavLink>
             </li>
-            <li>
+            <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/faq">
+              <NavLink className="" to="/faq" rel="noopener">
                 FAQ{" "}
               </NavLink>
             </li>
-            <li>
+            <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/termsofservices">
+              <NavLink className="" to="/termsofservices" rel="noopener">
                 Terms of services
               </NavLink>
             </li>
-            <li>
+            <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/privacy">
+              <NavLink className="" to="/privacy" rel="noopener">
                 Privacy Policy{" "}
               </NavLink>
             </li>
-            <li>
+            <li className="Navlink-color">
               {" "}
-              <NavLink className="" to="/contact">
+              <NavLink className="" to="/contact" rel="noopener">
                 {" "}
                 Contact{" "}
               </NavLink>
@@ -108,16 +111,16 @@ function Footer() {
         <Grid item xs={12} sm={6} md={6} lg={6} className="themaile">
           
           <i className=" fas fa-globe 2x"> </i> Visit our site :{" "}
-          <a href="clix.tiss.edu"  target="_blank" style={{ marginRight: 50}}> clix.tiss.edu</a>
+          <a href="clix.tiss.edu"  target="_blank" rel='noreferrer' style={{ marginRight: 50}}> clix.tiss.edu</a>
           <br />
           <i className="fas fa-envelope 2x"></i> Contact us :{" "}
-          <a href="mailto:contact@clix.tiss.edu" align="left" target="_blank"> contact@clix.tiss.edu </a>
+          <a href="mailto:contact@clix.tiss.edu" rel='noreferrer' align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
         <Box display={ {xs:'block',sm:'none', md:'none'}}>
-        <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" href="https://twitter.com/@cetei_tiss" className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
-<a href="#" href="https://www.facebook.com/cetei.tiss/?ref=bookmarks"  className="icon-button facebook"><i className="fa fa-facebook"></i><span></span></a>
-<a href="#"  href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA" className="icon-button youtube"><i className="fa fa-youtube"></i><span></span></a>
-<a href="#"  href="https://www.instagram.com/cetei_tiss/" className="icon-button pinterest"><i className="fa fa-instagram"></i><span></span></a>
+        <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" target="_blank"  href="https://twitter.com/@cetei_tiss" rel='noreferrer' className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
+<a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks"  className="icon-button facebook" target="_blank" rel='noreferrer'><i className="fa fa-facebook"></i><span></span></a>
+<a href="#"  href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA"  className="icon-button youtube" target="_blank"  rel='noreferrer'><i className="fa fa-youtube"></i><span></span></a>
+<a href="#"  href="https://www.instagram.com/cetei_tiss/"  className="icon-button pinterest" rel='noreferrer' target="_blank"><i className="fa fa-instagram"></i><span></span></a>
               
      
           </Box>

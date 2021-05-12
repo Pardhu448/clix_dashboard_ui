@@ -183,6 +183,7 @@ select::-ms-expand {
   -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
 }
+
 .text {
   font-family: "Roboto";
   font-weight: 300 !important;
@@ -214,6 +215,10 @@ select::-ms-expand {
 
   padding: 0.25rem 0.5rem;
 }
+
+.color-link{
+  color: #1d1d1d !important;
+}
 #themenu {
   width: 100%;
   height: 200px;
@@ -227,6 +232,10 @@ form button {
   display: inline;
   box-shadow: 2px -2px skyblue;
 }
+.css-1wa3eu0-placeholder{
+  color: rgb(7, 6, 6) !important;
+}
+
 .selectMenuSubmit {
   background: #2db1ee;
 

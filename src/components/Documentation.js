@@ -58,7 +58,7 @@ export default function DocumentationPage() {
           <h2>Getting Started</h2>
              <p>This page contains documentation of methodology and data processing involved in generating visualisations for this website.
 		We have a section for each type(based on data source) of visualisation, with all the information about data source, processing and 
-		different metrics used. The questions underlying these visualisations are outcome of collaborative exploration between CLIx technology team and implementation, domain, research and various other teams. Please refer <a href="https://github.com/CLIxIndia-Dev/clix_dashboard_backend_AF/tree/master/dags/scripts/clix_platform_data_processing" target="_blank">these</a> scripts for more detailed look into data processing methodology.  </p>
+		different metrics used. The questions underlying these visualisations are outcome of collaborative exploration between CLIx technology team and implementation, domain, research and various other teams. Please refer <a  href="https://github.com/CLIxIndia-Dev/clix_dashboard_backend_AF/tree/master/dags/scripts/clix_platform_data_processing" target="_blank" rel="noreferrer" >these</a> scripts for more detailed look into data processing methodology.  </p>
 
 
 	 <div class="section" id="modules_data_vis">
@@ -160,7 +160,7 @@ export default function DocumentationPage() {
 			<h4>   2.2 Data Processing:</h4>
 	 	       <p>To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
-		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html" target="_blank">csv file</a> corresponds to a unique log of a user with the 
+		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html" target="_blank" rel="noreferrer">csv file</a> corresponds to a unique log of a user with the 
 		       following features (columns): <br/><br/>
 
 		      <i>school_server_code</i>: Unique code of the school in which log is generated<br/>
@@ -231,7 +231,7 @@ export default function DocumentationPage() {
 			<h4> 3.2 Data Processing:</h4>
 	 	       <p align="justify">To process tools data, we first convert json files into csv files extracting only information relevant for our analysis.
 		       All these csv files of tools across all the schools is collated to create one big csv file. Each row of 
-		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html">csv file</a> corresponds to a unique log of a user with the 
+		       this <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/data_source.html" target="_llank" rel="noreferrer">csv file</a> corresponds to a unique log of a user with the 
 		       following features (columns): <br/><br/>
 
 		      <i>school_server_code</i>: Unique code of the school in which log is generated<br/>

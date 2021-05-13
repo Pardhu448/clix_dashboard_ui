@@ -17,7 +17,7 @@ import Grid from "@material-ui/core/Grid";
 import Select from "react-select";
 import { Helmet } from "react-helmet";
 import { compose } from "redux";
-import thebannerc from "../shared/Banner.png";
+import thebannerc from "../shared/BannerforDashboard.png";
 
 import baseUrl from "../shared/baseUrl";
 import ReactDOM from "react-dom";
@@ -312,13 +312,13 @@ defaultValue="State"
           }}
         >
           <Typography
-            variant="h3"
+            variant="h1"
             align="center"
             color="primary"
             className="thename"
-            style={{ color: "#fff" }}
+            style={{ color: "#fff", fontSize:'3rem', fontWeight: '400', lineHeight: 1 }}
           >
-            <span className="color"> CLIx Dashboard </span>
+             CLIx Dashboard 
           </Typography>
           {/* <Typography variant="" align="center">
                   Live School Implemation 
@@ -341,9 +341,10 @@ defaultValue="State"
                   <CircularProgress color="secondary" />{" "}
                 </div>
               ) : null}
-        
-              <Select 
+            
+              <Select  
                 // label="select state"
+                
                 // //  aria-labelledby="state"
                 // //  inputId="aria-example-input"
                 // //  name="aria-live-color"
@@ -403,8 +404,7 @@ defaultValue="State"
               {DistName}{" "}
                 </select> */}
 
-              <Select               className="react-select"
-
+              <Select               className="react-select" 
                 key={`secret-unique-key${this.state.districts_code}`}
                 isSearchable={true}
                 isDisabled={!this.state.districts_code}
@@ -439,6 +439,7 @@ defaultValue="State"
               <button
                 type="submit"
                 color="primary"
+                aria-label="submit"
                 className="selectMenuSubmit"
                 disabled={!this.state.school_name && !this.state.state_code}
                 style={{ margin: "0 auto" }}
@@ -478,6 +479,9 @@ defaultValue="State"
         </div>
        <Suspense fallback={RenderFall()}>
         <StateHome />
+        </Suspense>
+
+        <Suspense fallback={RenderFall()}>
         <TabGlance />
            </Suspense>
         {/* <select className="select" onChange={this.handleExpandClick}>             <option > Please select  </option>

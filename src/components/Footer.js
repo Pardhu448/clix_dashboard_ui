@@ -72,7 +72,7 @@ function Footer() {
           </span>
         </Grid>
 
-        <Grid item xs={4} sm={3} md={3} align="center" >
+        <Grid item xs={12} sm={3} md={3} align="center" >
           <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }} >
             <li className="Navlink-color">
               <NavLink className="colorNavlink" to="/about" rel="noopener">
@@ -122,10 +122,10 @@ function Footer() {
           <a href="mailto:contact@clix.tiss.edu" rel='noreferrer' align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
         <Box display={ {xs:'block',sm:'none', md:'none'}}>
-        <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" target="_blank"  href="https://twitter.com/@cetei_tiss" rel='noreferrer' className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
-<a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks"  className="icon-button facebook" target="_blank" rel='noreferrer'><i className="fa fa-facebook"></i><span></span></a>
-<a href="#"  href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA"  className="icon-button youtube" target="_blank"  rel='noreferrer'><i className="fa fa-youtube"></i><span></span></a>
-<a href="#"  href="https://www.instagram.com/cetei_tiss/"  className="icon-button pinterest" rel='noreferrer' target="_blank"><i className="fa fa-instagram"></i><span></span></a>
+        <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" target="_blank" aria-label="button for facebook"  href="https://twitter.com/@cetei_tiss" rel='noreferrer' className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
+<a href="#" aria-lable="button for facebook"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks"  className="icon-button facebook" target="_blank" rel='noreferrer'><i className="fa fa-facebook"></i><span></span></a>
+<a href="#" aria-label="button for youtube" href="https://www.youtube.com/channel/UCHeg9vBiapABVkb6TTWBgYA"  className="icon-button youtube" target="_blank"  rel='noreferrer'><i className="fa fa-youtube"></i><span></span></a>
+<a href="#" aria-label="button for instgram" href="https://www.instagram.com/cetei_tiss/"  className="icon-button pinterest" rel='noreferrer' target="_blank"><i className="fa fa-instagram"></i><span></span></a>
               
      
           </Box>

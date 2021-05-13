@@ -276,11 +276,11 @@ form button {
 
 .selectMenuSubmit {
   background: #3fb1f5;
-  background-image: -webkit-linear-gradient(top, #3fb1f5, #1e62d0);
+  /* background-image: -webkit-linear-gradient(top, #3fb1f5, #1e62d0);
   background-image: -moz-linear-gradient(top, #3fb1f5, #1e62d0);
   background-image: -ms-linear-gradient(top, #3fb1f5, #1e62d0);
   background-image: -o-linear-gradient(top, #3fb1f5, #1e62d0);
-  background-image: -webkit-gradient(to bottom, #3fb1f5, #1e62d0);
+  background-image: -webkit-gradient(to bottom, #3fb1f5, #1e62d0); */
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -340,6 +340,9 @@ form button {
 
   #themenu {
     margin: 20px 0;
+  }
+  .react-select{
+    margin-bottom: 8px;
   }
   .themaile {
     text-align: left !important;

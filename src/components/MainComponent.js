@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,lazy,Lazy,Suspense } from 'react';
 
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -37,12 +37,13 @@ import { Helmet } from "react-helmet"
 import { connect } from 'react-redux';
 import DocumentationPage from './Documentation';
 import { NonceProvider } from 'react-select';
-
+// const AboutPage = lazy(()=> import('./AboutPage'))
 const mapStateToProps = state => {
   return{
      items: state.slider_items
    };
 };
+const RenderFallData = ()=> <div> ...Loading </div>
 
 class Main extends Component {
 
@@ -71,9 +72,9 @@ render(){
     <Box display={{xs:'none',sm:'block',md:'block'}}>
       <TheSocialButton/> 
       </Box>
-     
+      <Suspense fallback={RenderFallData}>
       <Switch>
-
+ 
       
        <Route  path='/home' component={The}/>
        <Route path="/documentation" component={DocumentationPage}/>
@@ -109,7 +110,7 @@ render(){
       }}/>*/}
        <Redirect to="/home" />
       </Switch>
-
+</Suspense>
       <Box mt={5}>
         <Footer />
       </Box>

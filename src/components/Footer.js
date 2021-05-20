@@ -72,8 +72,8 @@ function Footer() {
           </span>
         </Grid>
 
-        <Grid item xs={12} sm={3} md={3} align="center" >
-          <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }} >
+        <Grid item xs={12} sm={3} md={3} align="center"  >
+          <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }}  class="footer-link" >
             <li className="Navlink-color">
               <NavLink className="colorNavlink" to="/about" rel="noopener">
                 About{" "}

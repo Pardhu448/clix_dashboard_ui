@@ -35,9 +35,9 @@ const styles = {
   container: base => ({
     ...base,
     flex: 1
-  })
-};
+  }),
 
+};
 
 // import data from "./data.json";
 // let Data = data.dist_data;
@@ -328,7 +328,7 @@ defaultValue="State"
             align="center"
             justify="center"
             id="themenu"
-          >
+          >  
             <Grid
               // direction="row"
               // alignItems="center"
@@ -341,13 +341,15 @@ defaultValue="State"
                   <CircularProgress color="secondary" />{" "}
                 </div>
               ) : null}
-            
+           <div class="label-div" style={{ display: "inline-block" }}>
+                           <label styles={styles} id="state" htmlFor="aria-state-input" className="cust-select">
+                Select State
+              </label>
               <Select  
                 // label="select state"
-                
-                // //  aria-labelledby="state"
-                // //  inputId="aria-example-input"
-                // //  name="aria-live-color"
+                 aria-labelledby="state"
+                 inputId="aria-state-input"
+                 name="aria-live-state"
                 className="react-select"
                 isSearchable={true}
                 isDisabled={false}
@@ -356,6 +358,9 @@ defaultValue="State"
                 options={thestate.sort((a,b) => a > b)}
                 onChange={this.hanldeChange.bind(this)}
               />
+ 
+
+                </div>
               {/* <select
               className="select"
               onChange={this.hanldeChange.bind(this)}
@@ -376,9 +381,14 @@ defaultValue="State"
               <option value="4"> Telengana </option>
             </select> */}
               {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-
+              <div class="label-div" style={{ display: "inline-block" }}>
+              <label styles={styles} id="district" htmlFor="aria-district-input" className="cust-select">
+                Select District
+              </label>
               <Select               className="react-select"
-
+    a  ria-labelledby="district"
+    inputId="aria-district-input"
+    name="aria-live-district"
               styles={styles}
                 key={this.state.distirct_code || this.state.state_code}
                 isSearchable={true}
@@ -389,6 +399,8 @@ defaultValue="State"
               
                 onChange={this.handleExpandClick.bind(this)}
               />
+ </div>
+               
               {/* <select
               defaultValue={"District"}
               disabled={!this.state.state_code}
@@ -403,8 +415,16 @@ defaultValue="State"
               </option>
               {DistName}{" "}
                 </select> */}
-
+                <div class="label-div" style={{ display: "inline-block" }}>
+ <label styles={styles} id="school" htmlFor="aria-school-input" className="cust-select">
+                Select School
+              </label>
               <Select               className="react-select" 
+             id="react-select"
+               aria-labelledby="school"
+                 inputId="aria-school-input"
+                 name="aria-live-school"
+             styles={styles}
                 key={`secret-unique-key${this.state.districts_code}`}
                 isSearchable={true}
                 isDisabled={!this.state.districts_code}
@@ -417,6 +437,7 @@ defaultValue="State"
                 }
                 onChange={this.handleSchool.bind(this)}
               />
+               </div>
               {/* <select 
               defaultValue={"schoolname"}
               disabled={!this.state.districts_code}
@@ -448,11 +469,11 @@ defaultValue="State"
                 Submit
               </button>
               <Grid item xs={12} md={12}>
-                <p style={{ color: "#fff", marginTop: 4 }} align="center">
+                <p style={{ color: "#fff", marginTop: 4 , fontSize: '0.8rem'}} align="center">
                   {" "}
                   <span style={{ color: "red" }} >
                     {" "}
-                    {this.state.errorCallSchool}{" "}
+                  {this.state.errorCallSchool}{" "}
                   </span>
                   <span style={{ color: "red" }} >
                     {" "}

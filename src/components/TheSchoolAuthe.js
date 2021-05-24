@@ -272,7 +272,7 @@ defaultValue="State"
       </option>
     ));
     let TheState = districts.map((item) => {
-      return { value: item.distirct_code, label: item.districtName };
+      return { value: item.distirct_code, label: item.districtName   };
     });
     // let SchName = school_data.map((item, index) => (
     //   <option
@@ -285,7 +285,9 @@ defaultValue="State"
 
     // ));
     let SchoolName = school_data.map((item, index) => {
-      return { value: item.school_name, label: item.school_name };
+        let udicode =  item.school_udisce_code;
+       
+      return { value: item.school_name, label: udicode === null ? item.school_name :  item.school_name + "-" + udicode};
     });
     // <option
     //   key={index}

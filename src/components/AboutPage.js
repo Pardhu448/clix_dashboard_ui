@@ -21,6 +21,29 @@ export default function AboutPage() {
   const classes = useStyles();
 
   return (
+    <>
+    {/* <Helmet>
+   <title> 
+     A CLIx Dashboard 
+   </title>
+
+    <meta name="title" content=" A  | CLIxDashboard - implementation metric and learning analytics"/>
+<meta name="description" content="fake Explore the CLIx implementation monitoring metrics and learning analytics across our partner schools."/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://staging-clixdashboard.tiss.edu/about"/>
+<meta property="og:title" content="A | CLIxDashboard - implementation metric and learning analytics "/>
+<meta property="og:description" content=" Fake Explore the CLIx implementation monitoring metrics and learning analytics across our partner schools."/>
+<meta property="og:image" content="https://staging-clixdashboard.tiss.edu/static/media/Banner.1c665a81.png"/>
+
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:url" content="https://staging-clixdashboard.tiss.edu/about/"/>
+<meta property="twitter:title" content="A  CLIxDashboard - implementation metric and learning analytics"/>
+<meta property="twitter:description" content="fake Explore the CLIx implementation monitoring metrics and learning analytics across our partner schools."/>
+<meta property="twitter:image" content="https://staging-clixdashboard.tiss.edu/static/media/Banner.1c665a81.png"/>
+
+
+    </Helmet> */}
     <div className={classes.root} align="center">
 
 
@@ -72,5 +95,6 @@ Students use CLIx platform regularly generating a lot of datasets which are bein
            */}
          
     </div>
+    </>
   );
 }

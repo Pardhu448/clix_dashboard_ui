@@ -579,8 +579,9 @@ handleSubmit = (e) => {
              {/*<div className={classes.details}>*/}
               {/*<Grid container spacing = {5}>*/}
               {/* <Grid item >*/}
-             
-            <Grid item xs={12} sm={12} md={6} lg={6}>
+             <Grid container>
+               
+                           <Grid item xs={12} sm={12} md={6} lg={6}>
               <div className={classes.details}>
                <CardContent className={classes.content}>
                                 <Typography component="h4" variant="h5">
@@ -620,7 +621,7 @@ handleSubmit = (e) => {
                                   />:<SchoolImageUpload schoolImage={this.props.schoolImage}/> }
       
 
-        
+      </Grid>
             </Card>
             </Grid>
          
@@ -630,7 +631,7 @@ handleSubmit = (e) => {
            <CardContent className={classes.content}>
            { loggedIn ?      <Typography paragraph>
             {/* { loggedIn ?  */}
-            s
+           
               <EdiText
                 showButtonsOnHover
                 value={get_first_few_words(schoolIntroText)[0]}

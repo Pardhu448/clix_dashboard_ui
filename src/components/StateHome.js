@@ -15,6 +15,7 @@ import clixuser from '../shared/uniqueuser.png'
 import clixuserplot from '../shared/newplot().png'
 import clixuserdata from '../shared/module_data_image.png'
 import cliximage from '../shared/tools_data_image.png'
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -44,9 +45,9 @@ export default function StateHome() {
   return (
     <div className="container">
       <div className={classes.root} >
-        <Typography variant="h4" align="center" style={{ marginTop: 40 }}>
+        <Typography  align="center" style={{ marginTop: 40 }}>
           {" "}
-          State Level Visualisations{" "}
+         <h2> State Level Visualisations{" "} </h2>
         </Typography>
         <Typography style={{ margin: 20, fontWeight: 300}}  className='thefont'  align="justify"  >
           {" "}

@@ -26,8 +26,8 @@ function TheSocialButton() {
       </div>
       <div>
         <a href="https://www.instagram.com/cetei_tiss/" className="fixed-instagrem" target="_blank" rel='noopener' >
-          <i className="fa fa-instagram"></i> <span>Instagram</span>
-        </a>
+          
+          <i className="fa fa-instagram"></i> <span>Instagram</span>   </a> 
       </div>
       {/* <div>
         <a href="#" className="fixed-tumblr" target="_blank">

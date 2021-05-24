@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://staging-clixdashboard.tiss.edu/sitemap.xml

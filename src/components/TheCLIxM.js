@@ -62,9 +62,9 @@ export default function TabGlance() {
   return (
     <div className="container">
     <div className={classes.root} justify="center">
-        <Typography align='center' style={{margin:40}} gutterBottom variant='h4'>
+        <Typography align='center' style={{margin:40}} gutterBottom >
 
-            CLIx at a Glance 
+           <h2> CLIx at a Glance  </h2>
         </Typography>
       <AppBar position="static" >
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">

@@ -235,10 +235,24 @@ form button {
   display: inline;
   box-shadow: 2px -2px skyblue;
 }
+.cust-select{
+  font-size: 0.6rem;
+  color: #ffffffd2;
+display: block;
+margin:0;
+text-align: left;
+padding-left: 10px;
+padding-top: 10px;
+
+}
 .css-1wa3eu0-placeholder{
   color: rgb(7, 6, 6) !important;
 }
 
+/* input::placeholder{
+  color: rgb(7, 6, 6) !important;
+
+} */
 .selectMenuSubmit {
   background: #2db1ee;
 
@@ -336,19 +350,24 @@ form button {
 
   .selectMenuSubmit {
     display: block;
+    
   }
-
+  
   #themenu {
     margin: 20px 0;
   }
-  .react-select{
-    margin-bottom: 8px;
-  }
+  /* .react-select:last-of-type{
+    margin-bottom: 20px;
+  } */
   .themaile {
     text-align: left !important;
   }
+  .footer-link{
+    margin-left: 40px;
+  }
   .thename {
-    font-size: 2rem;
+    font-size: 2rem !important;
+    margin-bottom: 3rem !important;
   }
   .selectMenu select {
     -webkit-appearance: none;
@@ -407,6 +426,7 @@ form button {
   transition: all 0.3s;
   width: 0;
 }
+
 .icon-button:hover span {
   width: 2.6rem;
   height: 2.6rem;

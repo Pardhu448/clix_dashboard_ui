@@ -95,45 +95,46 @@ class Header extends Component{
             <NavLink style={NavLinkStyle} activeClassName="active" exact  className='nav-link' active="true" rel="noopener" to='/home'>
               <span className=''> </span>       {/* <HomeIcon fontSize="small"  title="Home"/> */}
            
-              <i className="fas fa-home 2x"></i>  Home
+              <i className="fa fa-home 2x"></i>  Home
             </NavLink>
            </NavItem>
+           <NavItem>
            <UncontrolledDropdown isOpen={this.state.isopen} onMouseEnter={this.isopen.bind(this)} onMouseLeave={this.isclose.bind(this)} toggle={this.toggleData.bind(this)}   >
 
               <DropdownToggle nav caret style={{color: '#000'}}  disabled={this.state.isopen}  onClick={(e) => e.preventDefault()} >
        
-              <span className=''></span>  <i className="fas fa-link 2x"></i> Useful Links 
+              <span className=''></span>  <i className="fa fa-link 2x"></i> Useful Links 
                  
               </DropdownToggle>
               <DropdownMenu right>
                 
-                <DropdownItem href='/documentation'  >
+                <DropdownItem href='/documentation' target="_blank" >
                
               <span className=''></span>  Documentation
       
                 </DropdownItem>
                 <DropdownItem  href="https://clix.tiss.edu/" rel="noreferrer"  target="_blank">
-           CLIx Website <i className="fas fa-external-link-alt 2x"></i> 
+           CLIx Website <i className="fa fa-external-link 2x"></i> 
   
                 </DropdownItem>
                 <DropdownItem href="https://clixoer.tiss.edu" rel="noreferrer" target="_blank">
-          CLIxOER <i className="fas fa-external-link-alt 2x"></i>  
+          CLIxOER <i className="fa fa-external-link 2x"></i>  
                 </DropdownItem>
              
                 <DropdownItem   href="https://clixguidebook.tiss.edu/" rel="noreferrer" target="_blank">
-      CLIx GuideBook  <i className="fas fa-external-link-alt 2x"> </i> 
+      CLIx GuideBook  <i className="fa fa-external-link 2x"> </i> 
       
                 </DropdownItem>
                 <DropdownItem  href="https://www.tissx.tiss.edu/" rel="noreferrer" target="_blank">
               
               
-   Teacher Platform <br/> TISSx <i className="fas fa-external-link-alt 2x"></i> 
+   Teacher Platform <br/> TISSx <i className="fa fa-external-link 2x"></i> 
             
                 </DropdownItem>
                 
               </DropdownMenu>
               </UncontrolledDropdown>
-       
+              </NavItem>
             {/* <NavLink style={NavLinkStyle} className='nav-link' to='/about'>
               <span className=''></span> About
             </NavLink>
@@ -181,7 +182,7 @@ class Header extends Component{
             :
         
             <NavLink style={NavLinkStyle} exact className='nav-link'  activeClassName="active" to='/login'>
-              <span className=''></span>   <i className="fas fa-sign-in-alt"></i>
+              <span className=''></span>   <i className="fa fa-sign-in"></i>
               <span id="tooltip-data">  {this.state.Login} </span>
               <Tooltip placement="top" isOpen={this.state.isTooltipOpen} autohide={false} target="tooltip-data" toggle={this.toggleTooltip}>
         Login to update your school information.

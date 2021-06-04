@@ -98,6 +98,7 @@
   scrollbar-width: thin !important;
 }
 *::-webkit-scrollbar {
+  height: 5px;
   width: 10px;
   scrollbar-width: 10px;
 }
@@ -110,9 +111,9 @@
   background-color: rgb(15, 16, 16);
   scrollbar-color:rgb(15, 16, 16) #322 ;
 }
-*::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(29, 28, 28);
-}
+
+
+
 
 .selectMenu {
   width: 100%;
@@ -133,6 +134,7 @@
   padding: 20px;
 
   margin: 20px;
+  overflow-x: hidden;
   border: 2px solid aliceblue !important;
   background: #2c3e50;
   background-image: none;
@@ -248,7 +250,9 @@ padding-top: 10px;
 .css-1wa3eu0-placeholder{
   color: rgb(7, 6, 6) !important;
 }
-
+.css-1uccc91-singleValue{
+  padding: 1px;
+}
 /* input::placeholder{
   color: rgb(7, 6, 6) !important;
 

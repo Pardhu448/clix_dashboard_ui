@@ -173,9 +173,11 @@ const useStyles = theme => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+  
   },
   fixedHeight: {
     height: 430,
+
   },
   card: {
     display: 'flex',
@@ -201,7 +203,7 @@ const useStyles = theme => ({
   }),
 },
 expandOpen: {
-  transform: 'rotate(180deg)',
+transform: 'rotate(180deg) !important' ,
 },
 });
 
@@ -261,8 +263,7 @@ class Dashboard extends Component {
             //  
 
             loading: false,
-            districts: [],
-            school_data: [],
+          
             state_code: "",
             districts_code: "",
             school_name: null,
@@ -286,111 +287,6 @@ class Dashboard extends Component {
 
 
 // 
-handleSchool = (e) => {
-  console.log(e.target.value);
-  this.setState({ school_name : e.target.value, errorCallSchool: "", errorCallDistrict: ''})
-  
-}
-hanldeChange = (e) => {
-  console.log(e.target.value);
-  let _id = e.target.value;
- 
-  this.setState({ loading: true });
-  fetch(`${baseUrl}/districts/${_id}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      let state_code = data.dist_data.map((item, index) => item.state_code);
-      console.log(state_code);
-      this.setState({
-        school_data:  [],
-        error: '',
-        errorCallSchool: '',
-        errorCallDistrict: '',
-        districts: data.dist_data,
-        districts_code: data.dist_data.distirct_code,
-        state_code: state_code[0][0],
-        loading: false,
-        //   planet: data.planets
-      });
-      console.log(this.state);
-    });
- 
-    
-};
-
-handleSubmit = (e) => {
-  // console.log(e.target.value);
-  e.preventDefault();
- 
-//     fetch('/${baseUrl}/gettoken`', {
-//       method: 'post',
-//       headers: {'Content-Type':'application/json'},
-//       body:   JSON.stringify({school_name, view_mode})
-// }
-// durga will give this url 
-   const { school_name, view_mode } = this.state;
-
-
-  this.setState({ view_mode: true, submitted:true , loading: true});
-  // const { school_name, view_mode } = this.state;
-  const { dispatch } = this.props;
-
-  //const { from } = this.props.location.state || { from: { pathname: '/' } };
-  //const { loggedIn } = this.props;
-
-  if (this.state.school_name &&  this.state.view_mode) {
-      dispatch(userActionsLogin.directlogin(school_name , view_mode));
-
-  }
-
-  if(this.state.school_data == !this.state.school_data || this.state.school_data === ''){
-    this.setState({
-      errorCallSchool: " Please choose valid schoolname ",
-    })
-  }
-  if(this.state.districts == !this.state.districts || this.state.districts_code === ''){
-    this.setState({
-      errorCallDistrict: "Please choose valid district ",
-    })
-  }
- if(this.props.loginFailed){
-   this.setState({
-     error: "No data in database"
-   })
- }
- this.setState({submitted:true , loading: false});
-  
-   }
-   handleExpandClick = (e) => {
-    console.log(e.target.value);
-    
-    let id = e.target.value || 0;
-    let _id = this.state.state_code;
-
-    this.setState({ loading: true });
-
-    fetch(`${baseUrl}/schools/${_id}/${id}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.sch_data);
-        console.log(data.sch_data.distirct_code)
-        this.setState({
-          school_data: data.sch_data,
-          error: "",
-          errorCallDistrict: '',
-          districts_code: data.sch_data[0].distirct_code,
-          //   planet: data.planets
-          loading: false,
-        });
-      });
-      
-  };
-
-
 
 
 
@@ -474,18 +370,18 @@ handleSubmit = (e) => {
     
     // if ( localStorage.getItem('user') && view_mode ) return <Redirect to={from.pathname} />
 
-    let districts = this.state.districts;
-    let school_data = this.state.school_data;
-    let DistName = districts.map((item, index) => (
-      <option key={index} id={item.state_code} value={item.distirct_code}>
-        {item.districtName}
-      </option>
-    ));
-    let SchName = school_data.map((item, index) => (
-      <option key={index} value={item.school_name} >
-        {item.school_name}
-      </option>
-    ));
+    // let districts = this.state.districts;
+    // let school_data = this.state.school_data;
+    // let DistName = districts.map((item, index) => (
+    //   <option key={index} id={item.state_code} value={item.distirct_code}>
+    //     {item.districtName}
+    //   </option>
+    // ));
+    // let SchName = school_data.map((item, index) => (
+    //   <option key={index} value={item.school_name} >
+    //     {item.school_name}
+    //   </option>
+    // ));
     // const { view_mode } = this.props;
     // const { view_mode } = this.props;
 
@@ -523,49 +419,6 @@ handleSubmit = (e) => {
 
   return(
     <>
-    {/* {this.props.view_mode? 
-       <div className="selectMenu">
-       <form onSubmit={this.handleSubmit}>
-       {this.state.loading ?       <CircularProgress  color="secondary" />
-: null}
-       <select  className="select"  onChange={this.hanldeChange.bind(this)} required>
-         <option selected disabled>
-           {" "}
-           Please select State{" "}
-         </option>
-         <option value="1"> Chattisgarh </option>
-         <option value="3"> Rajasthan</option>
-
-         <option value="2"> Mizoram </option>
-
-         <option value="4"> Telengana </option>
-       </select> */}
-       {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
-       {/* <div style= {{color: 'red'}} e> {this.state.errorCallDistrict} </div>
-       <select defaultValue={"District"}  disabled={!this.state.state_code}  className="select" onChange={this.handleExpandClick} required="requried">
-         {" "}
-         <option value="District" disabled> Please select District </option>
-         {DistName}{" "}
-       </select>
-       {loginFailed ? <div style= {{color: 'red'}} e>{this.state.error} </div> : ""}
-       <div style= {{color: 'red'}} e>  {this.state.errorCallSchool} </div>
-       <select  defaultValue={'schoolname'} disabled={!this.state.districts_code }  className="select" onChange={this.handleSchool} required>
-         {" "}
-            
-         <option value="schoolname" disabled={!this.state.state_code}> Please select School </option>
-         {SchName}
-       </select>   */}
-        {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
-         Submit
-         
-       </Button> */}
-
-       {/* <button type="submit" className="selectMenuSubmit" disabled={!this.state.state_code}> Submit</button>
-       </form> */}
-       {/* <select className="select" onChange={this.handleExpandClick}>             <option > Please select  </option>
-  {DistName} </select>  */}
-       {/* <select> <option value={films.title}> {films.title} </option></select> */}
-     {/* </div> : null} */}
     
     <MuiThemeProvider theme = {theme}>
      <div className={classes.root} id={dashboard_id}>
@@ -656,12 +509,11 @@ handleSubmit = (e) => {
               </Link>
                </Typography> 
                :   <Typography paragraph>
-             
-                 <Link component="button"
-                        variant='body2'
+               <p>  {get_first_few_words(schoolIntroText)[0]} </p>
+             <button className="btn"
+                        
                         onClick={this.handleExpandClick}>
-                        {this.state.moreTextIndicator}
-                 </Link>
+                        {this.state.moreTextIndicator} </button>
                   </Typography>  }
             </CardContent>
            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
@@ -675,7 +527,7 @@ handleSubmit = (e) => {
            </Grid>
 <Suspense fallback={RenderFallData}>
       <Grid item xs={12} sm={12} lg={9}>
-        <Paper className={fixedHeightPaper}>
+        <Paper className={fixedHeightPaper} id="thec">
         {/*Bar chart to display school attendance */}
         <Chart data={this.props.data_attendance} isPending={this.props.isPending}/>
         </Paper>

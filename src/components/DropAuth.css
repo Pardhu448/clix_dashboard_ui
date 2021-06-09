@@ -92,6 +92,7 @@
 /* start of scrollbar*/
 .container-fluid{
   scrollbar-color: #0A4C95 #C2D2E4;
+  
 }
 :root{
   scrollbar-color: rgb(24, 24, 24) rgb(255, 255, 255) !important;
@@ -99,7 +100,7 @@
 }
 *::-webkit-scrollbar {
   height: 5px;
-  width: 10px;
+  width: 5px;
   scrollbar-width: 10px;
 }
 *::-webkit-scrollbar-track {
@@ -111,7 +112,10 @@
   background-color: rgb(15, 16, 16);
   scrollbar-color:rgb(15, 16, 16) #322 ;
 }
-
+html{
+  
+  scroll-behavior: smooth;
+}
 
 
 

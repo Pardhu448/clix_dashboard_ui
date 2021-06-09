@@ -215,14 +215,7 @@ class The extends Component {
       });
   };
 
-  // componentDidMount() {
-  //   const { view_mode, loggedIn, loginFailed } = this.props;
-  //   const { school_name, submitted, errorCall, loadding } = this.state;
-  //   const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
-
-  // if (view_mode &&  localStorage.getItem('user')) return <Redirect to={from.pathname} />
-
-  // }
+  
 
   render() {
     const { classes } = this.props;

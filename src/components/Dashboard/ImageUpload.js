@@ -25,7 +25,7 @@ const override = css`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    // display: 'flex',
     flexWrap: 'wrap',
   },
   formControl: {
@@ -63,7 +63,7 @@ function SchoolImageUpload (props){
            </Grid>
     }
     else if (props.isImageHoverIn){
-      return <ImageUploader
+      return   <ImageUploader
                 withIcon={true}
                 buttonText='Choose images'
                 onChange={props.onImageUpload}
@@ -71,12 +71,14 @@ function SchoolImageUpload (props){
                 imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
                 maxFileSize={5242880}
              />
-    }
+    
+            }
   }
 
-  return <div className = {classes.cover} onClick={props.handleMouseIn} onMouseLeave={props.handleMouseOut}>
+  return <Grid item xs={12}  md={6} lg={6}><div className = {classes.cover} onClick={props.handleMouseIn} onMouseLeave={props.handleMouseOut}>
          {content()}
         </div>
+        </Grid>
   }
 
 function mapStateToProps(state){

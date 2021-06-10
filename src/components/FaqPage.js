@@ -17,7 +17,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>What is the primary source of data for these visualisations?</span>
+                  <span>What is the primary source of data for these visualisations?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>} </span>
                 </>
               );
             }}
@@ -35,7 +35,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>For some visualisations y-axis numbers dont make sense, is it true?</span>
+                  <span>For some visualisations y-axis numbers dont make sense, is it true?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -49,7 +49,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>How do we check if these numbers are correct?</span>
+                  <span>How do we check if these numbers are correct? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>} </span>
                 </>
               );
             }}
@@ -77,7 +77,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>What is it with top 50 schoools in each graph?</span>
+                  <span>What is it with top 50 schoools in each graph? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -91,7 +91,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>Can we choose two tools or modules at a time to compare them ?</span>
+                  <span>Can we choose two tools or modules at a time to compare them ?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -105,7 +105,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>How easy is it to replicate this visualisation for other data sets?</span>
+                  <span>How easy is it to replicate this visualisation for other data sets? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}

@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 
 export default function DocumentationPage() {
   const classes = useStyles();
-
   return (
     <div className={classes.root} >
 

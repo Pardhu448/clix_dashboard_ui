@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import './DropAuth.css'
 import tataimage from '../shared/tata_trusts.svg'
 import ShareIcon from "@material-ui/icons/Share";
-import tissimge from '../shared/tisstiss.svg'
+import tissimage from '../shared/tisstiss.svg'
 
 import mitimage from '../shared/mit.svg'
 
@@ -40,10 +40,10 @@ function Footer() {
 
       <Grid container justify="center" >
         <Grid item xs={12} sm={3} md={3} align="center">
-          <a href={tataimage} target="_blank" rel="noopener" >
+          <a href="https://www.tatatrusts.org/" target="_blank" rel="noopener" >
           <img
             style={{ marginTop: 10 }}
-            src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tata_trusts.svg"
+            src={tataimage} 
             alt="tata trust"
             
           />
@@ -53,19 +53,19 @@ function Footer() {
           <Typography>Led by</Typography>
           <span>
             {" "} 
-            <a href={tissimge} target="_blank" rel="noopener">            <img
+            <a href="https://www.tiss.edu/" target="_blank" rel="noopener">            <img
               style={{ width: "140px", paddingRight: 40 }}
-              src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/tiss.svg"
+              src={tissimage}
               alt="tiss"
             />
             </a>
           </span>
           <span>
             {" "}
-            <a href={mitimage} target="_blank" rel="noopener">
+            <a href="https://mit.edu/" target="_blank" rel="noopener">
             <img
               style={{ width: "140px", }}
-              src="https://clixoer.tiss.edu/static/ndf/images/footer-svg/mit.svg"
+              src={mitimage}
               alt="themit"
             />
             </a>
@@ -110,16 +110,16 @@ function Footer() {
       <hr />
       <Grid container justfy="center" style={{fontWeight: 300}}>
         <Grid item xs={12} sm={6} md={6} lg={6} align="left"   >
-          © 2019-2020 Tata Institute of Social Sciences and Massachusetts
+          © 2019-{new Date().getFullYear()} Tata Institute of Social Sciences and Massachusetts
           Institute of Technology
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={6} className="themaile">
           
-          <i className=" fas fa-globe 2x"> </i> Visit our site :{" "}
-          <a href="clix.tiss.edu"  target="_blank" rel='noreferrer' style={{ marginRight: 50}}> clix.tiss.edu</a>
+          <i className=" fa fa-globe 2x"> </i> Visit our site :{" "}
+          <a href="https://clix.tiss.edu"  target="_blank" rel='noreferrer' style={{ marginRight: 50}}> clix.tiss.edu</a>
           <br />
-          <i className="fas fa-envelope 2x"></i> Contact us :{" "}
-          <a href="mailto:contact@clix.tiss.edu" rel='noreferrer' align="left" target="_blank"> contact@clix.tiss.edu </a>
+          <i className="fa fa-envelope 2x"></i> Contact us :{" "}
+          <a href="mailto:https://www.contact@clix.tiss.edu" rel='noreferrer' align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
         <Box display={ {xs:'block',sm:'none', md:'none'}}>
         <a href="#"  href="https://www.facebook.com/cetei.tiss/?ref=bookmarks" target="_blank" aria-label="button for facebook"  href="https://twitter.com/@cetei_tiss" rel='noreferrer' className="icon-button twitter"><i className="fa fa-twitter"></i><span></span></a>
@@ -132,7 +132,7 @@ function Footer() {
      <Typography variant="inherit" >  
         Except where otherwise noted, content on this site is licensed under a{" "}
         <br />
-        Creative Commons Attribution 4.0 International license  <span> <i className="fas fa-copyright"></i> </span>
+        Creative Commons Attribution 4.0 International license  <span> <i className="fa fa-copyright 2x"></i> </span>
   </Typography>
       </Grid>
       {/* <Typography variant="body2" color="textSecondary" align="center">

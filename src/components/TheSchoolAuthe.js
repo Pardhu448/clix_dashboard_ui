@@ -289,8 +289,7 @@ defaultValue="State"
     // >
     //   {item.school_name}
     // </option>
-    let planet = this.state.planet;
-    let Planet = planet.map((c) => <option value={c}>{c} </option>);
+  
 
     // console.log(planet);
     return (

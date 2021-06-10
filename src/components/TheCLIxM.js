@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import  CLIxphase from '../shared/Reach_.png'
+import CLixPhase from '../shared/Reach_2021_900x500_v1-02.svg'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -69,7 +70,7 @@ export default function TabGlance() {
       <AppBar position="static" >
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="CLIx Phase - I " {...a11yProps(0)} />
-          {/* <Tab label="CLIx Phase - II " {...a11yProps(1)} /> */}
+          <Tab label="CLIx Phase - II " {...a11yProps(1)} />
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
@@ -80,9 +81,10 @@ export default function TabGlance() {
       <TabPanel value={value} index={0}>
       <img src={CLIxphase} className="img-fluid" alt="{CLIxphase}" width="100%" height="100%"  />
       </TabPanel>
-      {/* <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel> */}
+      <TabPanel value={value} index={1}>
+      <img src={CLixPhase} className="img-fluid" alt="{CLIxphase}" width="100%" height="100%"  />
+
+      </TabPanel>
  </div>
  </div>
   );

@@ -94,6 +94,7 @@
   scrollbar-color: #0A4C95 #C2D2E4;
   
 }
+
 :root{
   scrollbar-color: rgb(24, 24, 24) rgb(255, 255, 255) !important;
   scrollbar-width: thin !important;
@@ -179,6 +180,7 @@ select::-ms-expand {
   color: #fff;
   cursor: pointer !important;
 }
+
 /* Arrow */
 .select::after {
   content: "\25BC";
@@ -372,6 +374,7 @@ padding-top: 10px;
   .themaile {
     text-align: left !important;
   }
+  
   .footer-link{
     margin-left: 40px;
   }

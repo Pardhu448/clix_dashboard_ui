@@ -75,31 +75,31 @@ function Footer() {
         <Grid item xs={12} sm={3} md={3} align="center"  >
           <ul style={{ listStyle: "none",  marginTop: 10, marginRight:20, textAlign:"left" }}  class="footer-link" >
             <li className="Navlink-color">
-              <NavLink className="colorNavlink" to="/about" rel="noopener">
+              <NavLink className="colorNavlink" to="/about" rel="noopener" target="_blank">
                 About{" "}
               </NavLink>
             </li>
-            <li className="Navlink-color">
+            {/* <li className="Navlink-color">
               {" "}
               <NavLink className="colorNavlink" to="/faq" rel="noopener">
                 FAQ{" "}
               </NavLink>
-            </li>
+            </li> */}
             <li className="Navlink-color">
               {" "}
-              <NavLink className="colorNavlink" to="/termsofservices" rel="noopener">
+              <NavLink className="colorNavlink" to="/termsofservices" rel="noopener" target="_blank">
                 Terms of services
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="colorNavlink" to="/privacy" rel="noopener">
+              <NavLink className="colorNavlink" to="/privacy" rel="noopener" target="_blank">
                 Privacy Policy{" "}
               </NavLink>
             </li>
             <li className="Navlink-color">
               {" "}
-              <NavLink className="colorNavlink" to="/contact" rel="noopener">
+              <NavLink className="colorNavlink" to="/contact" rel="noopener" target="_blank">
                 {" "}
                 Contact{" "}
               </NavLink>

@@ -4,10 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from "@material-ui/core/Grid";
+
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import  CLIxphase from '../shared/Reach_.png'
-import CLixPhase from '../shared/Reach_2021_900x500_v1-02.svg'
+import CLixPhase from '../shared/Reach_2021_900x500_v1-02-1.png'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -61,6 +63,8 @@ export default function TabGlance() {
   };
 
   return (
+    <>
+  
     <div className="container">
     <div className={classes.root} justify="center">
         <Typography align='center' style={{margin:40}} gutterBottom >
@@ -86,6 +90,13 @@ export default function TabGlance() {
 
       </TabPanel>
  </div>
+
  </div>
+<div className="container-fluid" style={{backgroundColor: '#f1f1f1', padding: '0px 20px 20px 20px'}}>
+  <hr/>
+  <p className="bold">Citation:</p> 
+  <p style={{fontWeight: 300}}> Connected Learning Initiative (2019-21). CLIx Dashboard. Retrieved from <a href="https://clixdashboard.tiss.edtu" target="_blank"> https://clixdashboard.tiss.edu </a> </p>
+</div>
+ </>
   );
 }

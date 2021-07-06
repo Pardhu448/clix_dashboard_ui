@@ -117,7 +117,12 @@ html{
   
   scroll-behavior: smooth;
 }
+.dropdown-div{
+  width: 100%;
+  height: 300;
 
+
+}
 .label-div:nth-of-type(3){
   padding-bottom: 10px  !important;
 }
@@ -355,11 +360,17 @@ padding-top: 10px;
 .themaile {
   text-align: right;
 }
+.dropdown .show{
+  transform: translate3d(-35px, 36px, 0px) !important;
+}
 @media only screen and (max-width: 600px) {
   /* form{
       margin-top: 250px;
     } */
-
+   .dropdown-div{
+    
+     height: 400px;
+   }
   .selectMenuSubmit {
     display: block;
     
@@ -367,6 +378,7 @@ padding-top: 10px;
   
   #themenu {
     margin: 20px 0;
+    align-items: ce;
   }
   /* .react-select:last-of-type{
     margin-bottom: 20px;
@@ -380,7 +392,7 @@ padding-top: 10px;
   }
   .thename {
     font-size: 2rem !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 1rem !important;
   }
   .selectMenu select {
     -webkit-appearance: none;
@@ -404,7 +416,15 @@ padding-top: 10px;
 .dropdownOpen:hover {
   background: #444;
 }
+ .sub-header{
 
+ color: #fff;
+ 
+ font-size:0.9rem;
+text-align:center;
+ font-weight: 400;
+  line-height: 1;
+  padding: 10px 40px 0 20px}
 /* Wrapper */
 .icon-button {
   background-color: white;

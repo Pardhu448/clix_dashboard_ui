@@ -8,6 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import { NavLink } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import './DropAuth.css'
+import clogo from '../shared/clogo.png'
 import tataimage from '../shared/tata_trusts.svg'
 import ShareIcon from "@material-ui/icons/Share";
 import tissimage from '../shared/tisstiss.svg'
@@ -35,10 +36,16 @@ function Footer() {
 
   return (
     <div className={classes.root}>
-      <hr />
-     
 
+
+      
+
+     
+ <hr/>
       <Grid container justify="center" >
+      
+
+
         <Grid item xs={12} sm={3} md={3} align="center">
           <a href="https://www.tatatrusts.org/" target="_blank" rel="noopener" >
           <img
@@ -85,6 +92,16 @@ function Footer() {
                 FAQ{" "}
               </NavLink>
             </li> */}
+   <li className="Navlink-color">
+              {" "}
+              <NavLink className="colorNavlink" to="/credits" rel="noopener" target="_blank">
+                {" "}
+                Credits{" "}
+              </NavLink>
+            </li>
+
+
+
             <li className="Navlink-color">
               {" "}
               <NavLink className="colorNavlink" to="/termsofservices" rel="noopener" target="_blank">
@@ -97,11 +114,13 @@ function Footer() {
                 Privacy Policy{" "}
               </NavLink>
             </li>
+        
+        
             <li className="Navlink-color">
               {" "}
-              <NavLink className="colorNavlink" to="/contact" rel="noopener" target="_blank">
+              <NavLink className="colorNavlink" to="https://github.com/CLIxIndia-Dev/CLIxDashboard" rel="noopener" target="_blank">
                 {" "}
-                Contact{" "}
+                <i class="fa fa-github 2x" aria-hidden="true"></i> Github{" "}
               </NavLink>
             </li>
           </ul>
@@ -115,10 +134,10 @@ function Footer() {
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={6} className="themaile">
           
-          <i className=" fa fa-globe 2x"> </i> Visit our site :{" "}
+          <i className=" fa fa-globe 2x"> </i> Visit our site:{" "}
           <a href="https://clix.tiss.edu"  target="_blank" rel='noreferrer' style={{ marginRight: 50}}> clix.tiss.edu</a>
           <br />
-          <i className="fa fa-envelope 2x"></i> Contact us :{" "}
+          <i className="fa fa-envelope 2x"></i> Contact us:{" "}
           <a href="mailto:https://www.contact@clix.tiss.edu" rel='noreferrer' align="left" target="_blank"> contact@clix.tiss.edu </a>
         </Grid>
         <Box display={ {xs:'block',sm:'none', md:'none'}}>
@@ -132,7 +151,8 @@ function Footer() {
      <Typography variant="inherit" >  
         Except where otherwise noted, content on this site is licensed under a{" "}
         <br />
-        Creative Commons Attribution 4.0 International license  <span> <i className="fa fa-copyright 2x"></i> </span>
+        Creative Commons Attribution 4.0 International license   <a href="https://creativecommons.org/licenses/by/4.0" target="_blank"> <img src={clogo} alt="logo for cc"/>  </a>
+        {/* <span> <i className="fa fa-copyright 2x"></i> </span> */}
   </Typography>
       </Grid>
       {/* <Typography variant="body2" color="textSecondary" align="center">

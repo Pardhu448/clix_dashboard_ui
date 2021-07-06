@@ -62,9 +62,11 @@ class The extends Component {
       planet: [],
       data: [],
     };
+    
     this.props.dispatch(userActionsLogin.removeUser());
-  }
 
+  }
+ 
   // componentDidMount() {
   //   const { dispatch } = this.props;
   //   const { districts, school_data, loading, _id, id } = this.props;
@@ -96,6 +98,8 @@ class The extends Component {
       })
       .then((data) => {
         let state_code = data.dist_data.map((item, index) => item.state_code);
+      
+
         console.log(state_code);
         this.setState({
           school_name: "",
@@ -137,7 +141,7 @@ class The extends Component {
     // const { school_name, view_mode } = this.state;
     const { dispatch } = this.props;
 
-    //const { from } = this.props.location.state || { from: { pathname: '/' } };
+    // const { from } = this.props.location.state || { from: { pathname: '/home' } };
     //const { loggedIn } = this.props;
 
     if (this.state.school_name && this.state.view_mode) {
@@ -193,7 +197,7 @@ class The extends Component {
     // let id = e.target.value || 0;
     let _id = this.state.state_code;
     let id = e.value || 0;
-
+     
     this.setState({ loading: true });
     try {
     } catch (error) {}
@@ -225,9 +229,11 @@ class The extends Component {
     const { from } = this.props.location.state || {
       from: { pathname: "/schoolviz" },
     };
-
-    if (localStorage.getItem("user") && view_mode)
-      return <Redirect to={from.pathname} />;
+    
+    if (localStorage.getItem("user") && view_mode){
+      this.props.history.push('/schoolviz')
+    }
+      // return  this.props.history.push('/schoolviz')
     {
       /* <Select 
             
@@ -255,6 +261,7 @@ defaultValue="State"
       { value: "4", label: "Telengana" },
     ];
     let thestate = ArrayState.map((state) => {
+
       return { value: state.value, label: state.label };
     });
     let districts = this.state.districts;
@@ -265,6 +272,7 @@ defaultValue="State"
       </option>
     ));
     let TheState = districts.map((item) => {
+
       return { value: item.distirct_code, label: item.districtName   };
     });
     // let SchName = school_data.map((item, index) => (
@@ -279,7 +287,6 @@ defaultValue="State"
     // ));
     let SchoolName = school_data.map((item, index) => {
         let udicode =  item.school_udisce_code;
-       
       return { value: item.school_name, label: udicode === null ? item.school_name :  item.school_name + "-" + udicode};
     });
     // <option
@@ -289,15 +296,14 @@ defaultValue="State"
     // >
     //   {item.school_name}
     // </option>
-  
+
 
     // console.log(planet);
     return (
       <div>
         <div
+        className="dropdown-div"
           style={{
-            width: "100%",
-            height: 300,
         
             backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${thebannerc})`,
             backgroundPosition: "center",
@@ -313,22 +319,35 @@ defaultValue="State"
             style={{ color: "#fff", fontSize:'3rem', fontWeight: '400', lineHeight: 1 }}
           >
              CLIx Dashboard 
+      
           </Typography>
+          <p  className="sub-header"> 
+          Explore the CLIx implementation monitoring metrics and learning analytics across the partner schools in the states of Chhattisgarh, Mizoram, Rajasthan and Telangana
+
+            </p>
+          <br/>
+          {/* <p   style={{ color: "#fff", fontSize:'0.8rem', textAlign:'center', fontWeight: '400', lineHeight: 1, padding: '0 40px 0 20px'}}> 
+          Explore the CLIx implementation monitoring metrics and learning analytics across the partner schools in the states of Chhattisgarh, Mizoram, Rajasthan and Telangana
+
+            </p> */}
           {/* <Typography variant="" align="center">
                   Live School Implemation 
                 </Typography> */}
+        
           <form
             onSubmit={this.handleSubmit}
             align="center"
             justify="center"
             id="themenu"
           >  
+          
             <Grid
               // direction="row"
               // alignItems="center"
               justfiy="center"
               style={{ display: "inline-block" }}
             >
+                
               {this.state.loading ? (
                 <div class="background-wrok">
                   {" "}
@@ -336,15 +355,17 @@ defaultValue="State"
                 </div>
               ) : null}
            <div class="label-div" style={{ display: "inline-block" }}>
-                           <label styles={styles} id="state" htmlFor="aria-state-input" className="cust-select">
-                Select State
+                           <label                   title="Search/Select State"
+ styles={styles} id="state" htmlFor="aria-state-input" className="cust-select">
+                Select/Search State 
               </label>
               <Select  
+                
                 // label="select state"
                  aria-labelledby="state"
                  inputId="aria-state-input"
                  name="aria-live-state"
-                className="react-select"
+                className="react-select "
                 isSearchable={true}
                 isDisabled={false}
                 defaultValue="State"
@@ -376,8 +397,8 @@ defaultValue="State"
             </select> */}
               {/* <select onChange={this.hanldeClick}> {Planet}</select> */}
               <div class="label-div" style={{ display: "inline-block" }}>
-              <label styles={styles} id="district" htmlFor="aria-district-input" className="cust-select">
-                Select District
+              <label styles={styles} id="district" htmlFor="aria-district-input"  className="cust-select" title="Search/Select District">
+                Select/Search District
               </label>
               <Select               className="react-select"
     a  ria-labelledby="district"
@@ -410,8 +431,8 @@ defaultValue="State"
               {DistName}{" "}
                 </select> */}
                 <div class="label-div" style={{ display: "inline-block" }}>
- <label styles={styles} id="school" htmlFor="aria-school-input" className="cust-select">
-                Select School
+ <label styles={styles} id="school" htmlFor="aria-school-input" className="cust-select" title="Search/Select School">
+                Select/Search School
               </label>
               <Select               className="react-select" 
              id="react-select"

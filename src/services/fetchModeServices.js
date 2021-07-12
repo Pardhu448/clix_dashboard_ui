@@ -29,10 +29,13 @@ export const modeService = {
 
 function removeUser() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
-    localStorage.clear();
-    sessionStorage.clear();
-    	
+   
+
+   
+        localStorage.removeItem('user');
+        // localStorage.clear();
+        // sessionStorage.clear();
+   
     	
 }
 

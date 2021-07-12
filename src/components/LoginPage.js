@@ -21,7 +21,7 @@ import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
 
 import { userActions } from '../redux/useractions';
-
+import { userActionsLogin} from '../redux/fetchmodeactions'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -94,12 +94,15 @@ class LoginPage extends Component {
     handleSubmit(e) {
             e.preventDefault();
             this.setState({ submitted: true });
+            
             const { username, password , errorCall,errorCallUser,errorMessage } = this.state;
             const { dispatch } = this.props;
             //const { from } = this.props.location.state || { from: { pathname: '/' } };
             //const { loggedIn } = this.props;
 
             if (username && password) {
+            dispatch(userActionsLogin.removeUser());
+
                 dispatch(userActions.login(username, password,errorCall,errorCallUser));
             }
             if( password == !password || password === ''   ){

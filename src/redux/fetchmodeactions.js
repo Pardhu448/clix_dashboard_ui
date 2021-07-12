@@ -28,6 +28,8 @@ function directlogin(school_name, view_mode) {
 }
 
 function removeUser() {
+  
     modeService.removeUser();
+    // modeService.removeUser();
     return { type: loginViaModeConstants.REMOVE };
 }

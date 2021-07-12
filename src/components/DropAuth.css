@@ -242,13 +242,16 @@ select::-ms-expand {
   height: 200px;
   display: flex;
   text-align: center;
+
   justify-content: center !important;
+  padding-top: 4rem;
   align-items: center !important;
 }
 form button {
   text-align: center;
   display: inline;
   box-shadow: 2px -2px skyblue;
+  padding-top: 1rem;
 }
 .cust-select{
   font-size: 0.6rem;
@@ -363,22 +366,25 @@ padding-top: 10px;
 .dropdown .show{
   transform: translate3d(-35px, 36px, 0px) !important;
 }
+.thename{
+  padding-top: 1rem !important;
+}
 @media only screen and (max-width: 600px) {
   /* form{
       margin-top: 250px;
     } */
    .dropdown-div{
     
-     height: 400px;
+     height: 500px;
    }
   .selectMenuSubmit {
     display: block;
     
-  }
+  } 
   
   #themenu {
     margin: 20px 0;
-    align-items: ce;
+    align-items: center;
   }
   /* .react-select:last-of-type{
     margin-bottom: 20px;

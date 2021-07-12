@@ -21,6 +21,7 @@ import thebannerc from "../shared/BannerforDashboard.png";
 
 import baseUrl from "../shared/baseUrl";
 import ReactDOM from "react-dom";
+import { userService } from "../services/userservices";
 
 const StateHome  = lazy(()=> import('./StateHome'))
 const TabGlance = lazy(()=> import('./TheCLIxM'))
@@ -64,6 +65,7 @@ class The extends Component {
     };
     
     this.props.dispatch(userActionsLogin.removeUser());
+   
 
   }
  
@@ -136,15 +138,16 @@ class The extends Component {
     // }
     // durga will give this url
     const { school_name, view_mode } = this.state;
-
     this.setState({ view_mode: true, submitted: true, loading: true });
     // const { school_name, view_mode } = this.state;
     const { dispatch } = this.props;
+  
 
     // const { from } = this.props.location.state || { from: { pathname: '/home' } };
     //const { loggedIn } = this.props;
 
     if (this.state.school_name && this.state.view_mode) {
+      dispatch(userActions.logout())
       dispatch(userActionsLogin.directlogin(school_name, view_mode));
     }
 
@@ -188,6 +191,9 @@ class The extends Component {
     //  .catch((error) => {
     //    console.error(error);
     //  });
+       
+
+
     this.setState({ submitted: true, loading: false });
   };
 
@@ -219,7 +225,7 @@ class The extends Component {
       });
   };
 
-  
+    
 
   render() {
     const { classes } = this.props;
@@ -537,6 +543,7 @@ function mapStateToProps(state) {
     loading,
     user,
   } = state.authmode;
+
   return {
     loggedIn,
     view_mode,

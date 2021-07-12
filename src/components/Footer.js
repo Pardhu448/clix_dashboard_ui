@@ -61,7 +61,7 @@ function Footer() {
           <span>
             {" "} 
             <a href="https://www.tiss.edu/" target="_blank" rel="noopener">            <img
-              style={{ width: "140px", paddingRight: 40 }}
+              style={{ width: "140px" }}
               src={tissimage}
               alt="tiss"
             />
@@ -71,7 +71,7 @@ function Footer() {
             {" "}
             <a href="https://mit.edu/" target="_blank" rel="noopener">
             <img
-              style={{ width: "140px", }}
+              style={{ width: "160px"  }}
               src={mitimage}
               alt="themit"
             />
@@ -105,7 +105,7 @@ function Footer() {
             <li className="Navlink-color">
               {" "}
               <NavLink className="colorNavlink" to="/termsofservices" rel="noopener" target="_blank">
-                Terms of services
+                Terms of Services
               </NavLink>
             </li>
             <li className="Navlink-color">
@@ -120,7 +120,7 @@ function Footer() {
               {" "}
               <NavLink className="colorNavlink" to="https://github.com/CLIxIndia-Dev/CLIxDashboard" rel="noopener" target="_blank">
                 {" "}
-                <i class="fa fa-github 2x" aria-hidden="true"></i> Github{" "}
+                <i class="fa fa-github 2x" aria-hidden="true"></i> GitHub{" "}
               </NavLink>
             </li>
           </ul>

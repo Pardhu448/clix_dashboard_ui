@@ -22,7 +22,7 @@ import PrivateRoute from './PrivateRoute';
 import TheSocialButton from './thesocialbutton';
 import FaqPage from './FaqPage';
 import StateChart from './StateHome'
-
+import Credits from './Credits'
 import TermsofServices from './TermsofServices';
 import Documentation from './Documentation'
 import Privacy from './Privacy'
@@ -73,7 +73,7 @@ render(){
       <TheSocialButton/> 
       </Box>
       <Suspense fallback={RenderFallData}>
-      <Switch>
+      <Switch> 
  
       
        <Route  path='/home' component={The}/>
@@ -85,7 +85,8 @@ render(){
        <Route path='/termsofservices' component={TermsofServices}/>
 
        <Route path='/contact' component={ContactPage}/>
-      
+             <Route path='/credits' component={Credits}/>
+
        <Route path= '/about' component={AboutPage}/>
 
        <PrivateRoute path= '/schoolviz' component={Dashboard}/>

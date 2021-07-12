@@ -60,7 +60,6 @@ import {
 import { dataActions } from '../../redux/dataactions';
 import { schoolInfoActions } from '../../redux/schoolinfoactions'
 
-import { userActionsLogin } from "../../redux/fetchmodeactions"
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -297,7 +296,6 @@ class Dashboard extends Component {
 
 
 
-
   handleMouseIn(event) {
          const { dispatch } = this.props;
          //this.setState({isImageHovering: !this.props.isImageHovering});
@@ -312,7 +310,8 @@ class Dashboard extends Component {
   onImageUpload(schoolImageFiles, schoolImageDataURLs){
      //this.setState({isImageUploading: true});
      const { dispatch } = this.props;
-     const { auth_token }  = JSON.parse(localStorage.getItem('user'));
+     const { auth_token }  =  JSON.parse(localStorage.getItem('user') || localStorage.getItem('loggedIn'));
+     
      dispatch(schoolInfoActions.uploadimage(schoolImageFiles));
 
      //this.forceUpdate();
@@ -335,10 +334,10 @@ class Dashboard extends Component {
                  const { name, value } = e.target;
                  this.setState({ [name]: value });
              }
-
+        
    componentDidMount(){
      const { dispatch } = this.props;
-     const { auth_token }  = JSON.parse(localStorage.getItem('user'));
+     const { auth_token }  = JSON.parse(localStorage.getItem('user') || localStorage.getItem('loggedIn'));
      dispatch(dataActions.getdata(auth_token));
      dispatch(schoolInfoActions.getdescription(auth_token));
      dispatch(schoolInfoActions.getimage(auth_token));
@@ -346,7 +345,7 @@ class Dashboard extends Component {
 
     componentDidUpdate(prevProps, prevState){
       const { dispatch } = this.props;
-      const { auth_token }  = JSON.parse(localStorage.getItem('user'));
+      const { auth_token }  = JSON.parse(localStorage.getItem('user') || localStorage.getItem('loggedIn'));
       if (prevProps.lastUploadTime !== this.props.lastUploadTime){
          dispatch(schoolInfoActions.getimage(auth_token));
          window.location.reload();
@@ -364,12 +363,13 @@ class Dashboard extends Component {
     const { classes } = this.props;
     // const { classes } = this.props;
   
-    const { view_mode,loggedIn, loginFailed ,user } = this.props;
+    const { view_mode,loggedIn, loginFailed ,user,history,location } = this.props;
     const { school_name, submitted, errorCall, loadding } = this.state;
     // const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
-    
+    // const component = ({history}) => {
+    //   history.push('/home')
+    // }
     // if ( localStorage.getItem('user') && view_mode ) return <Redirect to={from.pathname} />
-
     // let districts = this.state.districts;
     // let school_data = this.state.school_data;
     // let DistName = districts.map((item, index) => (
@@ -384,7 +384,6 @@ class Dashboard extends Component {
     // ));
     // const { view_mode } = this.props;
     // const { view_mode } = this.props;
-
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const expandButton = clsx(classes.expand, {
             [classes.expandOpen]: this.state.expanded,

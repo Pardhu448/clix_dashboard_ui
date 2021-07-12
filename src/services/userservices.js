@@ -19,8 +19,8 @@ function login(username, password) {
         .then(user => {
             // console.log(user)
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-            sessionStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('loggedIn', JSON.stringify(user));
+            sessionStorage.setItem('loggedIn', JSON.stringify(user))
             // To get login time
             var moment = require('moment');
             const logintime = moment();
@@ -31,7 +31,7 @@ function login(username, password) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    localStorage.removeItem('loggedIn');
     // localStorage.clear();
     // sessionStorage.clear();
     	

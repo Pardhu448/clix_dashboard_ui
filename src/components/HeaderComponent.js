@@ -24,7 +24,7 @@ const LInkStyle = {
 class Header extends Component{
   constructor(props){
     super(props);
-    this.state = {isNavOpen: false, Login: 'School Login',Logout: "Logout",isTooltipOpen: false, isopen:false , click: true};
+    this.state = {isNavOpen: false, Login: 'School Login',Logout: "Logout",isTooltipOpen: false,isprofile:false, isopen:false , click: true};
 
     // this.props.dispatch(userActions.login());
     // this.props.dispatch(userActions.logout());
@@ -34,7 +34,16 @@ class Header extends Component{
     
   
   }
-   
+   isprofile(){
+     this.setState({
+       isprofile: true
+     })
+   }
+   toggleLogout(){
+     this.setState({
+      isprofile: !this.state.isprofile
+     })
+   }
   isopen (){
     this.setState({
       isopen: true
@@ -167,20 +176,49 @@ class Header extends Component{
           </NavItem> */}
           <NavItem>
             
+       
+       
+       
           {loggedIn ? 
           
               
        
-          <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
-              <span className='' onClick={this.handleLogout}></span> 
+          <Dropdown isOpen={this.state.isprofile} toggle={this.toggleLogout.bind(this)}>
+          <DropdownToggle caret nav style={{color: '#000', 
+}} >
+           <i className="fa fa-user-circle-o"></i>
+          </DropdownToggle>
+          <DropdownMenu style={{ transform: 'translate3d(-35px, 36px, 0px)'}}>
+          <DropdownItem className="nav-link">
+            <NavLink to="/schoolviz">           Dashboard </NavLink>
+            
+            
+            </DropdownItem>
+
+            <DropdownItem  >
+              
+            <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+             <span className='' onClick={this.handleLogout}></span> 
               
               
-              Logout
+               Logout
          
-            </NavLink>
+             </NavLink>
+              </DropdownItem>
+            <DropdownItem >Dashboard</DropdownItem>
+          
+          </DropdownMenu>
+        </Dropdown>
+
+          // <NavLink style={NavLinkStyle} className='nav-link' to='/login'>
+          //     <span className='' onClick={this.handleLogout}></span> 
+              
+              
+          //     Logout
+         
+          //   </NavLink>
       
             :
-        
             <NavLink style={NavLinkStyle} exact className='nav-link'  activeClassName="active" to='/login'>
               <span className=''></span>   <i className="fa fa-sign-in"></i>
               <span id="tooltip-data">  {this.state.Login} </span>

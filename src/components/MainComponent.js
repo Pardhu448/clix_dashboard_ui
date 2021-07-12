@@ -73,7 +73,7 @@ render(){
       <TheSocialButton/> 
       </Box>
       <Suspense fallback={RenderFallData}>
-      <Switch>
+      <Switch> 
  
       
        <Route  path='/home' component={The}/>

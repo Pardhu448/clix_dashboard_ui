@@ -5,7 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import ImageUploader from 'react-images-upload';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
-
+import Grid from '@material-ui/core/Grid';
 //import PropTypes from 'prop-types';
 //import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ const override = css`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    // display: 'flex',
     flexWrap: 'wrap',
   },
   formControl: {
@@ -36,8 +36,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
   cover: {
-    width: 500,
-    height: 250,
+    width: '500px',
+    height: '250px',
   },
 }));
 
@@ -56,13 +56,14 @@ function SchoolImageUpload (props){
              />
     }
     else if (props.schoolImage != null && ((!props.isImageHoverIn) || (props.isImageHoverOut))){
-      return <CardMedia
+      return <Grid item xs={12}  md={6} lg={6}><CardMedia
              className={classes.cover}
              image= {props.schoolImage}
            />
+           </Grid>
     }
     else if (props.isImageHoverIn){
-      return <ImageUploader
+      return   <ImageUploader
                 withIcon={true}
                 buttonText='Choose images'
                 onChange={props.onImageUpload}
@@ -70,12 +71,14 @@ function SchoolImageUpload (props){
                 imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
                 maxFileSize={5242880}
              />
-    }
+    
+            }
   }
 
-  return <div className = {classes.cover} onMouseEnter={props.handleMouseIn} onMouseLeave={props.handleMouseOut}>
+  return <Grid item xs={12}  md={6} lg={6}><div className = {classes.cover} onClick={props.handleMouseIn} onMouseLeave={props.handleMouseOut}>
          {content()}
         </div>
+        </Grid>
   }
 
 function mapStateToProps(state){

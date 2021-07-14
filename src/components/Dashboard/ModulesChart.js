@@ -35,6 +35,7 @@ if (data.data === undefined || data.data.length === 0 || data.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>
+      <p> {`if you have tried synchting data please check after 1day`} </p>  
       </React.Fragment>
     );
   }
@@ -172,7 +173,7 @@ const handleChange = name => event => {
                {createOptions(months_available)}
              </Select>
             </FormControl>
-      <Typography variant="h5" color="textSecondary">
+      <Typography variant="h6" color="textSecondary">
         Students Engagement with Modules**
         </Typography>
       </div>
@@ -183,10 +184,12 @@ const handleChange = name => event => {
         margin={{
           top: 0, right: 5, left: 10, bottom: 5,
         }}
-        height={300}
+        height={400}
         >
         <CartesianGrid strokeDasharray="3 3" />
-        <Legend align="right" layout= 'vertical' height= {360} width={220}/>
+        {/* <Legend /> */}
+        <Legend verticalAlign="bottom" height={36}/>
+
         <XAxis dataKey="date">
           <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />
          </XAxis>

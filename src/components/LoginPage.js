@@ -15,13 +15,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 //import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import Tooltip from '@material-ui/core/Tooltip'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
 
 import { userActions } from '../redux/useractions';
-
+import { userActionsLogin} from '../redux/fetchmodeactions'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -39,7 +39,8 @@ const theme = createMuiTheme({
 
 const useStyles = theme => ({
   root: {
-    height: '80vh',
+    // height: '80vh',
+
   },
   image: {
     backgroundImage: `url(${school_image})`,
@@ -47,7 +48,7 @@ const useStyles = theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
-  paper: {
+  paper: { 
     margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
@@ -76,40 +77,64 @@ class LoginPage extends Component {
          this.state = {
              username: '',
              password: '',
+             errorCall:'',
+             errorCallUser:'',
+             errorMessage: ' Username or Password is Incorrect!',
              submitted: false
          };
 
          this.handleChange = this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
      }
-
     handleChange(e) {
             const { name, value } = e.target;
-            this.setState({ [name]: value });
+            this.setState({ [name]: value , errorMessage: "",errorCall: "", errorCallUser: null});
         }
 
     handleSubmit(e) {
             e.preventDefault();
             this.setState({ submitted: true });
-            const { username, password } = this.state;
+            
+            const { username, password , errorCall,errorCallUser,errorMessage } = this.state;
             const { dispatch } = this.props;
             //const { from } = this.props.location.state || { from: { pathname: '/' } };
             //const { loggedIn } = this.props;
 
             if (username && password) {
-                dispatch(userActions.login(username, password));
+               dispatch(userActionsLogin.removeUser());
+
+                dispatch(userActions.login(username, password,errorCall,errorCallUser));
             }
+            if( password == !password || password === ''   ){
+               this.setState({
+     
+                 errorCall: "Please choose valid password"
+               })
+            }
+            if( username == !username || username === ''){
+              this.setState({
+                errorCallUser: "Please choose valid username "
+              })
+            }
+            if(this.props.loginFailed){
+              this.setState({
+                errorMessage: "Username or Password is incorrect"
+              })
+            }
+           
         }
 
  render(){
 
+  
    const { classes } = this.props;
+   
    const { loggingIn, loggedIn, loginFailed } = this.props;
-   const { username, password, submitted } = this.state;
-   const { from } = this.props.location.state || { from: { pathname: '/' } };
+   const { username, password, submitted, errorCall } = this.state;
+   const { from } = this.props.location.state || { from: { pathname: '/schoolviz' } };
 
    if (loggedIn) return <Redirect to={from.pathname} />
-
+  
    return (
      <MuiThemeProvider theme = {theme}>
      <Grid container component="main" className={classes.root}>
@@ -122,12 +147,15 @@ class LoginPage extends Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
+          
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
+              // errorCall = {this.state.errorCallUser.length === 0 ? false : true}
+              helperText = { this.state.errorCallUser }
               required
               fullWidth
               id="username"
@@ -140,6 +168,8 @@ class LoginPage extends Component {
             <TextField
               variant="outlined"
               margin="normal"
+              // errorCall ={this.state.errorCall.length === 0 ? false : true }
+              helperText={this.state.errorCall} 
               required
               fullWidth
               name="password"
@@ -148,12 +178,16 @@ class LoginPage extends Component {
               id="password"
               autoComplete="current-password"
               onChange={this.handleChange}
+            
+              error={this.state.error}
             />
-            {loginFailed ? <div style= {{color: 'red'}}> Username or Password is Incorrect!</div> : null}
+        
+            {loginFailed ? <div style= {{color: 'red'}} e> {this.state.errorMessage}</div> : ""}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            <Tooltip title="Sign In">
             <Button
               type="submit"
               fullWidth
@@ -164,6 +198,8 @@ class LoginPage extends Component {
             >
               Sign In
             </Button>
+            </Tooltip>
+            <p>Note: Don't have login ID? Please write to us at <a href="mailto:contact@clix.tiss.edu" target="_blank"> contact@clix.tiss.edu </a> </p> 
           </form>
         </div>
       </Grid>

@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const HomeCards = (props) => {
   return (
     <Row>
-      <Col sm="4">
+  
+  <Col sm="4">
       <Card bg="light" border="light" style={{ width: '23rem', height: '90%'}}>
         <CardHeader>Live School Implementation</CardHeader>
         <CardBody>
@@ -15,15 +16,15 @@ const HomeCards = (props) => {
          </Link>
          </CardTitle>
           <CardText>
-           Login to explore live school visuals. Updated every day.
+           {/* Login to explore live school visuals. Updated every day. */}
+           Login to explore live school level visuals of each state to understand the implementation of modules and tools.
           </CardText>
         </CardBody>
       </Card>
       </Col>
-
      <Col sm="4">
      <Card bg="light" border="light" style={{ width: '23rem', height: '90%'}}>
-       <CardHeader>Explore Sate Level Data</CardHeader>
+       <CardHeader>Explore State Level Data</CardHeader>
        <CardBody>
         <CardTitle>
 	  <a href="https://clixindia-dev.github.io/clix_vis_demo/pages/visualisations.html" target="_blank">
@@ -47,7 +48,7 @@ const HomeCards = (props) => {
 	  </a>
       </CardTitle>
           <CardText>
-           Comprehensive documentation of methodology and sources to arrive at different visualsations.
+           Comprehensive documentation of methodology and sources to arrive at different visualisations.
           </CardText>
         </CardBody>
       </Card>

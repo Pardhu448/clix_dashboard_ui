@@ -2,12 +2,13 @@ import React from "react";
 //import ReactDOM from "react-dom";
 import FAQ from "./FAQ";
 import Typography from '@material-ui/core/Typography';
+import "./DropAuth.css";
 
 export default function FaqPage() {
   return (
     <div>
-    <Typography variant="h5" align='justify' gutterBottom>
-      FAQ
+    <Typography variant="h5"  align='justify' gutterBottom>
+      FAQs
     </Typography>
 
       <FAQ>
@@ -16,12 +17,12 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>What is the primary source of data for these visualisations?</span>
+                  <span>What is the primary source of data for these visualisations?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>} </span>
                 </>
               );
             }}
           </FAQ.Question>
-          <FAQ.Answer id="q1"> All the data for tools and course modules are part of thin data gathered
+          <FAQ.Answer id="q1" > All the data for tools and course modules are part of thin data gathered
           using syncthing from schools through internet and sometimes manually by our field tech team.
           Tools data corresponds to json files logged whenever a student accesses tools section of the
           platform and course module data are from progress csv's generated every hour capturing activity on
@@ -34,7 +35,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>For some visualisations y-axis numbers dont make sense, is it true?</span>
+                  <span>For some visualisations y-axis numbers dont make sense, is it true?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -48,7 +49,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>How do we check if these numbers are correct?</span>
+                  <span>How do we check if these numbers are correct? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>} </span>
                 </>
               );
             }}
@@ -57,7 +58,7 @@ export default function FaqPage() {
            Datasets are granular enough to arrive at numbers on visualisations, can easily check for some cases manually in csv files.</FAQ.Answer>
         </FAQ.QAItem>
 
-        <FAQ.QAItem>
+        {/* <FAQ.QAItem>
           <FAQ.Question answerId="q3">
             {(isOpen, onToggle) => {
               return (
@@ -69,14 +70,14 @@ export default function FaqPage() {
           </FAQ.Question>
           <FAQ.Answer id="q3"> There is data source section in the website, where you can download underlying data for these visualisations.
            Datasets are granular enough to arrive at numbers on visualisations, can easily check for some cases manually in csv files.</FAQ.Answer>
-        </FAQ.QAItem>
+        </FAQ.QAItem> */}
 
         <FAQ.QAItem>
           <FAQ.Question answerId="q3">
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>What is it with top 50 schoools in each graph?</span>
+                  <span>What is it with top 50 schoools in each graph? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -90,7 +91,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>Can we choose two tools or modules at a time to compare them ?</span>
+                  <span>Can we choose two tools or modules at a time to compare them ?  {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}
@@ -104,7 +105,7 @@ export default function FaqPage() {
             {(isOpen, onToggle) => {
               return (
                 <>
-                  <span>How easy is it to replicate this visualisation for other data sets?</span>
+                  <span>How easy is it to replicate this visualisation for other data sets? {isOpen ? <i class="fa fa-arrow-circle-up 2x"></i> :  <i class="fa fa-arrow-circle-down 2x"></i>}</span>
                 </>
               );
             }}

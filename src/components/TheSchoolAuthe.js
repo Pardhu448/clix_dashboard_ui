@@ -422,20 +422,7 @@ defaultValue="State"
               />
  </div>
                
-              {/* <select
-              defaultValue={"District"}
-              disabled={!this.state.state_code}
-              className="select"
-              onChange={this.handleExpandClick}
-              required="requried"
-            >
-              {" "}
-              <option value="District" selected={this.state.districts_code == undefined} disabled>
-                {" "}
-        District {" "}
-              </option>
-              {DistName}{" "}
-                </select> */}
+           
                 <div class="label-div" style={{ display: "inline-block" }}>
  <label styles={styles} id="school" htmlFor="aria-school-input" className="cust-select" title="Search/Select School">
                 Select/Search School

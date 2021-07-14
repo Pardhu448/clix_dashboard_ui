@@ -57,11 +57,11 @@ function Footer() {
           </a>
         </Grid>
         <Grid item xs={12} sm={6} md={6} align="center">
-          <Typography>Led by</Typography>
+          <Typography style={{ paddingRight: '40px'}}>Led by</Typography>
           <span>
             {" "} 
             <a href="https://www.tiss.edu/" target="_blank" rel="noopener">            <img
-              style={{ width: "140px" }}
+              style={{ width: "140px", paddingRight: '30px' }}
               src={tissimage}
               alt="tiss"
             />

@@ -188,7 +188,9 @@ const handleChange = name => event => {
         >
         <CartesianGrid strokeDasharray="3 3" />
         {/* <Legend /> */}
-        <Legend verticalAlign="bottom" height={36}/>
+        <br/>
+        <br/>
+        <Legend verticalAlign="bottom" height={45}/>
 
         <XAxis dataKey="date">
           <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />

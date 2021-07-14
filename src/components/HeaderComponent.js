@@ -190,7 +190,7 @@ class Header extends Component{
           </DropdownToggle>
           <DropdownMenu style={{ transform: 'translate3d(-35px, 36px, 0px)'}}>
           <DropdownItem className="nav-link">
-            <NavLink to="/schoolviz">           Dashboard </NavLink>
+            <NavLink to="/schoolviz">          My Dashboard </NavLink>
             
             
             </DropdownItem>

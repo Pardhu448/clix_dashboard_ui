@@ -205,7 +205,7 @@ class Header extends Component{
          
              </NavLink>
               </DropdownItem>
-            <DropdownItem >Dashboard</DropdownItem>
+            {/* <DropdownItem >Dashboard</DropdownItem> */}
           
           </DropdownMenu>
         </Dropdown>

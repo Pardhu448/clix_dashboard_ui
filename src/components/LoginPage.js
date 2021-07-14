@@ -101,7 +101,7 @@ class LoginPage extends Component {
             //const { loggedIn } = this.props;
 
             if (username && password) {
-            dispatch(userActionsLogin.removeUser());
+               dispatch(userActionsLogin.removeUser());
 
                 dispatch(userActions.login(username, password,errorCall,errorCallUser));
             }
@@ -199,6 +199,7 @@ class LoginPage extends Component {
               Sign In
             </Button>
             </Tooltip>
+            <p>Note: Don't have login ID? Please write to us at <a href="mailto:contact@clix.tiss.edu" target="_blank"> contact@clix.tiss.edu </a> </p> 
           </form>
         </div>
       </Grid>

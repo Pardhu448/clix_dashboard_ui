@@ -446,20 +446,7 @@ defaultValue="State"
                 onChange={this.handleSchool.bind(this)}
               />
                </div>
-              {/* <select 
-              defaultValue={"schoolname"}
-              disabled={!this.state.districts_code}
-              className="select"
-              onChange={this.handleSchool}
-              required
-            >
-              {" "}
-              <option value="schoolname" disabled={!this.state.state_code} selected={this.state.school_data}>
-                {" "}
-            School{" "}
-              </option>
-              {SchName}
-            </select> */}
+             
 
               {/* <Button  variant="contained" color="primary" disabled={!this.state.state_code}>
           Submit

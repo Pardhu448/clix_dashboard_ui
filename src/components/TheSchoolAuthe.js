@@ -261,10 +261,10 @@ defaultValue="State"
       return {value : state.value , label: state.label} })*/
     }
     let ArrayState = [
-      { value: "1", label: " Chattisgarh" },
+      { value: "1", label: " Chhattisgarh" },
       { value: "2", label: "Mizoram" },
       { value: "3", label: "Rajasthan" },
-      { value: "4", label: "Telengana" },
+      { value: "4", label: "Telangana" },
     ];
     let thestate = ArrayState.map((state) => {
 
@@ -293,6 +293,7 @@ defaultValue="State"
     // ));
     let SchoolName = school_data.map((item, index) => {
         let udicode =  item.school_udisce_code;
+        // console.log(item.school_name)
       return { value: item.school_name, label: udicode === null ? item.school_name :  item.school_name + "-" + udicode};
     });
     // <option
@@ -338,7 +339,7 @@ defaultValue="State"
             </p> */}
           {/* <Typography variant="" align="center">
                   Live School Implemation 
-                </Typography> */}
+                </Typography> */} 
         
           <form
             onSubmit={this.handleSubmit}

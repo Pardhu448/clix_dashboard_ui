@@ -142,7 +142,7 @@ export default function DocumentationPage() {
    	   	       <div class="section" id="data_source1">
 		       <h4> 2.1 Data Source:</h4>
 		       <p align="justify">Primary Source of tools data is json file generated whenever a user accesses Tools/Apps section of the 
-			  CLIx software. These files along with other thin data are available from schools as part of synthing data.
+			  CLIx software. These files along with other thin data are available from schools as part of syncthing data.
 			  In a given school (in a particular machine), seperate json file is generated for each tool. 
 			  This json file will have logs of all the users of the tool on that machine.
                        </p>

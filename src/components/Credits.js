@@ -132,7 +132,6 @@ export default function Credits() {
           <li> Swamy Jadala, Field Technologist, Telangana </li>
         </ul>
         <br />
-Lalhriatpuia Hnamte
         <strong>Website Graphics Design:</strong>
         <ul>
           <li> Ramesh Prakash Khade </li>

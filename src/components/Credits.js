@@ -116,6 +116,8 @@ export default function Credits() {
         <ul>
           <li> Amitabh Anand, Field Technologist, Chattisgarh </li>
           <li> Sanjeeva Singh, Junior Field Technologist, Chattisgarh </li>
+          <li> David Lalremruata , Field Resource Coordinator  , Mizoram </li> 
+          <li> Lalhriatpuia Hnamte, Field Resource Coordinator , Mizoram </li>
           <li> Lalmuanawma Bawitlung, Field Technologist, Mizoram </li>
           <li> Lalremkima Tuallawt, Field Resource Coordinator, Mizoram </li>
           <li> Lalrindika, Field Resource Coordinator, Mizoram </li>
@@ -130,7 +132,7 @@ export default function Credits() {
           <li> Swamy Jadala, Field Technologist, Telangana </li>
         </ul>
         <br />
-
+Lalhriatpuia Hnamte
         <strong>Website Graphics Design:</strong>
         <ul>
           <li> Ramesh Prakash Khade </li>

@@ -57,7 +57,7 @@ function Footer() {
           </a>
         </Grid>
         <Grid item xs={12} sm={6} md={6} align="center">
-          <Typography style={{ paddingRight: '40px'}}>Led by</Typography>
+          <Typography style={{ paddingRight: '80px', fontFamily:"cambria"}}>Led by</Typography>
           <span>
             {" "} 
             <a href="https://www.tiss.edu/" target="_blank" rel="noopener">            <img
@@ -71,7 +71,7 @@ function Footer() {
             {" "}
             <a href="https://mit.edu/" target="_blank" rel="noopener">
             <img
-              style={{ width: "160px"  }}
+              style={{ width: "210px"  }}
               src={mitimage}
               alt="themit"
             />
@@ -129,8 +129,7 @@ function Footer() {
       <hr />
       <Grid container justfy="center" style={{fontWeight: 300}}>
         <Grid item xs={12} sm={6} md={6} lg={6} align="left"   >
-          © 2019-{new Date().getFullYear()} Tata Institute of Social Sciences and Massachusetts
-          Institute of Technology
+          © 2019-{new Date().getFullYear()} Tata Institute of Social Sciences 
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={6} className="themaile">
           

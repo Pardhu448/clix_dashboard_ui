@@ -40,7 +40,7 @@ export default function ToolsChart(data, isPending) {
     return (
       <React.Fragment>
       <p>{'No Tools log data available for this school.'}</p>
-      <p> {`if you have tried synchting data please check after 1day`} </p>  
+      <p> {`if you have tried syncthing data please check after 1day`} </p>  
 
       </React.Fragment>
     );

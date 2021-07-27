@@ -150,7 +150,7 @@ export default function AboutPage() {
           <img
             src={theimage}
             // style={{ paddingTop: 60 }}
-            style={{ margin: '0 auto', padding: 20 }}
+            style={{ margin: '0 auto', padding: 80 }}
             className="img-fluid"
             alt="clix image"
           />

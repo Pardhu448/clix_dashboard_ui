@@ -56,7 +56,7 @@ if (data.data === undefined || data.data.length === 0 || data.data[0] == null){
     return (
       <React.Fragment>
       <p>{'No Modules logs data available for this school.'}</p>
-      <p> {`if you have tried synchting data please check after 1day`} </p>  
+      <p> {`if you have tried syncthing data please check after 1day`} </p>  
 
       </React.Fragment>
     );
@@ -119,7 +119,9 @@ function get_monthly_data(elem){
         }}
         >
         <CartesianGrid strokeDasharray="3 3" />
+    
         <Legend verticalAlign="bottom" height={16}/>
+
         <XAxis dataKey="date">
           <Label value="Day of CLIx Lab" offset={0} position="insideBottom" />
          </XAxis>
